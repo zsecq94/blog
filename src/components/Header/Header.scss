@@ -1,0 +1,41 @@
+.header-con {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  transition: 0.5s;
+  box-shadow: 2px 2px 2px 2px gray;
+  background-color: white;
+  .title-box {
+    left: 25%;
+    position: absolute;
+    .title {
+      font-size: 30px;
+    }
+    .bold {
+      font-weight: bold;
+    }
+  }
+  .menu-box {
+    left: 50%;
+    transform: translate(-50%, -0%);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    .menu {
+      font-size: 18px;
+    }
+  }
+  .theme-box {
+    right: 25%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    span {
+      font-size: 15px;
+    }
+  }
+}
