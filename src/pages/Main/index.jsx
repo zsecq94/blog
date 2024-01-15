@@ -1,9 +1,10 @@
 import React from "react";
+import MarkDownReader from "@/components/MarkDownReader";
 
 const Main = () => {
   return (
     <div>
-      <h2>Main 페이지 입니다.</h2>
+      <MarkDownReader />
     </div>
   );
 };

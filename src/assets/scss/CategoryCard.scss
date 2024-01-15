@@ -1,0 +1,20 @@
+.category-card {
+  padding: 5px 10px;
+  border: solid 1px #999999;
+  border-radius: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+  span {
+    border: none;
+  }
+}
+
+.category-card-active {
+  background-color: #999999;
+  color: #fff;
+}
+
+.category-card:hover {
+  background-color: #999999;
+  color: #fff;
+}
