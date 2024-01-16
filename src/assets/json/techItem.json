@@ -1,33 +1,18 @@
 {
-  "list": [
-    "Frontend",
-    "Backend",
-    "면접",
-    "AI",
-    "data",
-    "Deep Learning",
-    "Education",
-    "Frontend",
-    "Backend",
-    "면접",
-    "AI",
-    "data",
-    "Deep Learning",
-    "Education",
-    "Frontend",
-    "Backend",
-    "면접",
-    "AI",
-    "data",
-    "Deep Learning",
-    "Education",
-    "Frontend",
-    "Backend",
-    "면접",
-    "AI",
-    "data",
-    "Deep Learning",
-    "Education",
-    "WEB"
+  "techList": [
+    "Frontend (18)",
+    "Backend (20)",
+    "면접 (12)",
+    "AI (8)",
+    "DATA (13)",
+    "EDU (31)",
+    "WEB (3)"
+  ],
+  "portList": [
+    "React (3)",
+    "Vue (2)",
+    "jQuery (2)",
+    "Node.js (3)",
+    "JavaScript (10)"
   ]
 }

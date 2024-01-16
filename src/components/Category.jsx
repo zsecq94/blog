@@ -1,10 +1,10 @@
 import React from "react";
-import "@/assets/scss/CategoryCard.scss";
+import "@/assets/scss/category.scss";
 
 const CategoryCard = ({ name, activeCategory, setActiveCategory }) => {
   const handleCategory = (category) => {
     if (category === activeCategory) {
-      setActiveCategory("");
+      setActiveCategory("전체보기");
     } else {
       setActiveCategory(category);
     }

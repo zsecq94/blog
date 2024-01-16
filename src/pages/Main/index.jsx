@@ -1,10 +1,11 @@
 import React from "react";
-import MarkDownReader from "@/components/MarkDownReader";
 
 const Main = () => {
   return (
-    <div>
-      <MarkDownReader />
+    <div className="con about">
+      <div className="banner">
+        <span>Main.</span>
+      </div>
     </div>
   );
 };

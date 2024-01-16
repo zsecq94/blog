@@ -1,8 +1,11 @@
 .category-card {
-  padding: 5px 10px;
-  border: solid 1px #999999;
-  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 5px;
+  border-radius: 5px;
   transition: 0.5s;
+
   cursor: pointer;
   span {
     border: none;
@@ -10,11 +13,11 @@
 }
 
 .category-card-active {
-  background-color: #999999;
+  background-color: black;
   color: #fff;
 }
 
 .category-card:hover {
-  background-color: #999999;
+  background-color: black;
   color: #fff;
 }

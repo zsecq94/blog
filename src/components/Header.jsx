@@ -1,4 +1,3 @@
-import "@/assets/scss/Header.scss";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -11,8 +10,8 @@ const Header = () => {
   }, [location]);
 
   return (
-    <div className="header-con">
-      <div className="header-box">
+    <header>
+      <nav>
         <div className="title-box">
           <a href="/">
             <span className="bold">배중권</span>의기술블로그.
@@ -45,8 +44,8 @@ const Header = () => {
             <img src="/src/assets/images/git.png" alt="" />
           </a>
         </div>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 };
 
