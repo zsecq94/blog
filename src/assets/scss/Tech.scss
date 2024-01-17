@@ -1,11 +1,13 @@
 .tech {
   .banner {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/src/assets/images/bg/bg4.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/src/assets/images/bg/bg4.png");
     background-position: center;
     background-size: cover;
   }
   .content-con {
     position: relative;
+    display: flex;
     gap: 50px;
     .card-con {
       // word-break: break-all;
