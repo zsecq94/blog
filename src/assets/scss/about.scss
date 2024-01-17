@@ -1,5 +1,7 @@
 .about {
   .banner {
-    background-color: rgb(73, 84, 181);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/src/assets/images/bg/bg2.png");
+    background-position: center;
+    background-size: cover;
   }
 }

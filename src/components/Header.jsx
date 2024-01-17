@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Lottie from "lottie-react";
+import animation from "@/assets/json/headerAnimation.json";
 
 const Header = () => {
   const location = useLocation();
@@ -21,28 +23,31 @@ const Header = () => {
           <ul>
             <li>
               <a className={url === "/about" ? "active" : ""} href="/about">
-                배중권
+                About
               </a>
             </li>
             <li>
               <a className={url === "/algo" ? "active" : ""} href="/algo">
-                알고리즘
+                Algo Log
               </a>
             </li>
             <li>
               <a className={url === "/tech" ? "active" : ""} href="/tech">
-                기술
+                Tech Log
               </a>
             </li>
             <li>
               <a className={url === "/port" ? "active" : ""} href="/port">
-                포트폴리오
+                Portfolio
               </a>
             </li>
           </ul>
           <a href="https://github.com/zsecq94" target="_blank" rel="noreferrer">
             <img src="/src/assets/images/git.png" alt="" />
           </a>
+          <div className="lottie-box">
+            <Lottie animationData={animation} style={{ height: 200, width: 200 }} />
+          </div>
         </div>
       </nav>
     </header>
