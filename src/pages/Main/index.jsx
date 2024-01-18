@@ -3,7 +3,7 @@ import React from "react";
 
 const Main = () => {
   return (
-    <div className="con main">
+    <div className="banner-con main">
       <div className="banner">
         <span>main.</span>
       </div>

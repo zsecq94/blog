@@ -3,7 +3,7 @@ import "@/assets/scss/algo.scss";
 
 const Algorithm = () => {
   return (
-    <div className="con algo">
+    <div className="banner-con algo">
       <div className="banner">
         <span>algorithm.</span>
       </div>

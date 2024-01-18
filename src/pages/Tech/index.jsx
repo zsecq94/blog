@@ -7,7 +7,7 @@ const Tech = () => {
   const [activeCategory, setActiveCategory] = useState("전체보기");
 
   return (
-    <div className="con tech">
+    <div className="banner-con tech">
       <div className="banner">
         <span>tech.</span>
       </div>

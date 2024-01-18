@@ -2,7 +2,7 @@ import React from "react";
 import "@/assets/scss/about.scss";
 const About = () => {
   return (
-    <div className="con about">
+    <div className="banner-con about">
       <div className="banner">
         <span>about.</span>
       </div>

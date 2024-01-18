@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./components/Header";
+import Header from "./layout/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Algorithm from "@/pages/Algorithm";
