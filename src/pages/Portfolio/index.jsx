@@ -12,9 +12,7 @@ const Portfolio = () => {
       </div>
       <div className="content-con">
         <div className="card-con">
-          <h2>
-            컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역
-          </h2>
+          <h2>컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역</h2>
         </div>
 
         <div className="category-con">
@@ -23,12 +21,7 @@ const Portfolio = () => {
               <span>TAG</span>
             </div>
             {data.portList.map((name, idx) => (
-              <Category
-                name={name}
-                activeCategory={activeCategory}
-                setActiveCategory={setActiveCategory}
-                key={idx}
-              />
+              <Category name={name} activeCategory={activeCategory} setActiveCategory={setActiveCategory} key={idx} />
             ))}
           </div>
         </div>
