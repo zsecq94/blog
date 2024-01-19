@@ -7,6 +7,7 @@ import Main from "@/pages/Main";
 import About from "@/pages/About";
 import Tech from "@/pages/Tech";
 import Portfolio from "@/pages/Portfolio";
+import Detail from "@/components/Detail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/algo" element={<Algorithm />}></Route>
             <Route path="/tech" element={<Tech />}></Route>
             <Route path="/port" element={<Portfolio />}></Route>
+            <Route path="/detail/:id" element={<Detail />}></Route>
           </Routes>
         </div>
       </BrowserRouter>

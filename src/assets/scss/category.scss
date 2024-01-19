@@ -14,10 +14,14 @@
 
 .category-card-active {
   background-color: black;
-  color: #fff;
+  span {
+    color: #fff;
+  }
 }
 
 .category-card:hover {
   background-color: black;
-  color: #fff;
+  span {
+    color: #fff;
+  }
 }

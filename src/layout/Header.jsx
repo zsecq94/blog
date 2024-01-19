@@ -40,14 +40,12 @@ const Header = () => {
             <Link to="https://github.com/zsecq94">
               <img src="/src/assets/images/git.png" alt="" />
             </Link>
+            <div className="lottie-box">
+              <Lottie animationData={animation} style={{ width: 200, height: 200 }} />
+            </div>
+            <div className="hamburger-menu">☰</div>
           </div>
         </nav>
-        <div className="lottie-box">
-          <Lottie
-            animationData={animation}
-            style={{ width: 200, height: 200 }}
-          />
-        </div>
       </div>
     </header>
   );
