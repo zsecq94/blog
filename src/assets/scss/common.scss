@@ -37,7 +37,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1440px;
+    width: 1280px;
     .title-box {
       display: flex;
       align-items: center;
@@ -106,10 +106,6 @@ header {
           top: -290%;
           z-index: -1;
         }
-
-        .hamburger-menu {
-          display: none;
-        }
         a {
           display: flex;
           align-items: center;
@@ -126,8 +122,15 @@ header {
         }
       }
     }
+    .menu-box {
+      img {
+        display: none;
+        width: 25px;
+        height: 20px;
+      }
+    }
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
 }

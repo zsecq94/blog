@@ -43,7 +43,6 @@ const Header = () => {
             <div className="lottie-box">
               <Lottie animationData={animation} style={{ width: 200, height: 200 }} />
             </div>
-            <div className="hamburger-menu">☰</div>
           </div>
         </nav>
       </div>
