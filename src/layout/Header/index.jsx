@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import Lottie from "lottie-react";
 import animation from "@/assets/json/headerAnimation.json";
+import "./index.scss";
 
 const Header = () => {
   const location = useLocation();
@@ -41,10 +42,7 @@ const Header = () => {
               <img src="/src/assets/images/git.png" alt="git" />
             </Link>
             <div className="lottie-box">
-              <Lottie
-                animationData={animation}
-                style={{ width: 200, height: 200 }}
-              />
+              <Lottie animationData={animation} style={{ width: 200, height: 200 }} />
             </div>
           </div>
         </nav>
