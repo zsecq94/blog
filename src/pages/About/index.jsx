@@ -1,5 +1,6 @@
 import React from "react";
-import "@/assets/scss/about.scss";
+import "./index.scss";
+
 const About = () => {
   return (
     <div className="banner-con about">

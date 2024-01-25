@@ -1,4 +1,4 @@
-import "@/assets/scss/main.scss";
+import "./index.scss";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -20,19 +20,28 @@ const Main = () => {
           </Link>
           <div className="card">
             <img src="/src/assets/images/test/card_2.png" alt="" />
-            <span className="title">카카오페이증권이 생각하는 DevOps문화와 Platform Engineering의 방향성</span>
+            <span className="title">
+              카카오페이증권이 생각하는 DevOps문화와 Platform Engineering의
+              방향성
+            </span>
             <span className="sub">2024.1.17 | Tech Log</span>
           </div>
           <div className="card">
             <img src="/src/assets/images/test/card_3.png" alt="" />
-            <span className="title">카카오페이증권이 생각하는 DevOps문화와 Platform Engineering의 방향성</span>
+            <span className="title">
+              카카오페이증권이 생각하는 DevOps문화와 Platform Engineering의
+              방향성
+            </span>
             <span className="sub">2024.1.17 | Tech Log</span>
           </div>
         </div>
         <div className="card-con">
           <div className="card">
             <img src="/src/assets/images/bg/bg1.png" alt="" />
-            <span className="title">카카오페이증권이 생각하는 DevOps문화와 Platform Engineering의 방향성</span>
+            <span className="title">
+              카카오페이증권이 생각하는 DevOps문화와 Platform Engineering의
+              방향성
+            </span>
             <span className="sub">2024.1.17 | Tech Log</span>
           </div>
           <div className="card">
@@ -42,7 +51,10 @@ const Main = () => {
           </div>
           <div className="card">
             <img src="/src/assets/images/bg/bg3.png" alt="" />
-            <span className="title">카카오페이증권이 생각하는 DevOps문화와 Platform Engineering의 방향성</span>
+            <span className="title">
+              카카오페이증권이 생각하는 DevOps문화와 Platform Engineering의
+              방향성
+            </span>
             <span className="sub">2024.1.17 | Tech Log</span>
           </div>
         </div>

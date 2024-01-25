@@ -1,5 +1,5 @@
 import React from "react";
-import "@/assets/scss/algo.scss";
+import "./index.scss";
 
 const Algorithm = () => {
   return (

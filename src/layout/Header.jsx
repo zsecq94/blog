@@ -37,11 +37,14 @@ const Header = () => {
             </Link>
           </ul>
           <div className="sub-box">
-            <Link to="https://github.com/zsecq94">
-              <img src="/src/assets/images/git.png" alt="" />
+            <Link to="https://github.com/zsecq94" target="_blank">
+              <img src="/src/assets/images/git.png" alt="git" />
             </Link>
             <div className="lottie-box">
-              <Lottie animationData={animation} style={{ width: 200, height: 200 }} />
+              <Lottie
+                animationData={animation}
+                style={{ width: 200, height: 200 }}
+              />
             </div>
           </div>
         </nav>

@@ -1,7 +1,7 @@
 import data from "@/assets/json/techItem.json";
 import React, { useState } from "react";
 import Category from "@/components/Category";
-import "@/assets/scss/tech.scss";
+import "./index.scss";
 
 const Tech = () => {
   const [activeCategory, setActiveCategory] = useState("전체보기");
@@ -13,11 +13,8 @@ const Tech = () => {
       </div>
       <div className="content-con">
         <div className="card-con">
-          <h2>
-            컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역
-          </h2>
+          <h2>컨텐츠영역컨텐츠영역컨텐츠영역</h2>
         </div>
-
         <div className="category-con">
           <div className="category-box">
             <div className="title-box">

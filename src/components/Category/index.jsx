@@ -1,5 +1,5 @@
 import React from "react";
-import "@/assets/scss/category.scss";
+import "./index.scss";
 
 const CategoryCard = ({ name, activeCategory, setActiveCategory }) => {
   const handleCategory = (category) => {

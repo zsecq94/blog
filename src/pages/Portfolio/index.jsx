@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "@/assets/scss/port.scss";
+import "./index.scss";
 import data from "@/assets/json/techItem.json";
 import Category from "@/components/Category";
 
@@ -13,7 +13,7 @@ const Portfolio = () => {
       <div className="content-con">
         <div className="card-con">
           <h2>
-            컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역
+            컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역텐츠영역컨텐츠영역컨텐츠영역컨텐츠영역
           </h2>
         </div>
 
