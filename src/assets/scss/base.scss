@@ -33,6 +33,10 @@ div {
   box-sizing: border-box;
 }
 
+.app {
+  min-width: 1024px;
+}
+
 @media screen and (max-width: 1024px) {
 }
 @media screen and (max-width: 768px) {

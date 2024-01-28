@@ -1,14 +1,11 @@
-import React from "react";
 import "./index.scss";
+import React from "react";
 
 const Algorithm = () => {
   return (
-    <div className="banner-con algo">
+    <div className="algo">
       <div className="banner">
         <span>algorithm.</span>
-      </div>
-      <div className="content-con">
-        <h2>알고리즘 페이지</h2>
       </div>
     </div>
   );
