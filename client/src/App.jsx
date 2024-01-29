@@ -1,13 +1,13 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./layout/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Detail from "@/components/Detail";
+import About from "@/pages/About";
 import Algorithm from "@/pages/Algorithm";
 import Main from "@/pages/Main";
-import About from "@/pages/About";
-import Tech from "@/pages/Tech";
 import Portfolio from "@/pages/Portfolio";
-import Detail from "@/components/Detail";
+import Tech from "@/pages/Tech";
 
 function App() {
   return (
