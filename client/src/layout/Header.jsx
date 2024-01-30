@@ -20,9 +20,7 @@ const Header = () => {
   }, [menuToggle]);
 
   const menuItems = [
-    { path: "/about", name: "About" },
-    { path: "/algo", name: "Algo Log" },
-    { path: "/tech", name: "Tech Log" },
+    { path: "/tech", name: "Tech log" },
     { path: "/port", name: "Portfolio" },
   ];
 
@@ -66,7 +64,7 @@ const Header = () => {
       <nav>
         <Link onClick={() => menuToggle && setMenuToggle(!menuToggle)} to="/">
           <span>
-            <strong>배중권</strong>의 기술블로그.
+            <strong>배중권</strong>의기술블로그.
           </span>
         </Link>
         <ul className={menuToggle ? "active" : ""}>
