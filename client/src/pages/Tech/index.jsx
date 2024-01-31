@@ -1,12 +1,9 @@
 import React from "react";
-import "./index.scss";
 
 const Tech = () => {
   return (
-    <div className="tech">
-      <div className="banner">
-        <span>tech.</span>
-      </div>
+    <div>
+      <h2>기술 페이지</h2>
     </div>
   );
 };

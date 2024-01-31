@@ -1,0 +1,28 @@
+.main-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0px;
+  min-width: 1024px;
+
+  // .banner {
+  //   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  //     url("/src/assets/images/bg/bg1.png");
+  //   background-position: center;
+  //   background-size: cover;
+  //   width: 100%;
+  //   height: calc(100vh - 60px);
+  // }
+
+  .content {
+    width: 1024px;
+    padding: 0px 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-con {
+    padding: 60px 0px;
+    width: 100%;
+  }
+}

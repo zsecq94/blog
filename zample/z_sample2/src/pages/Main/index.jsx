@@ -4,7 +4,12 @@ import "./index.scss";
 const Main = () => {
   return (
     <div className="main-con">
-      <h2>Main페이지</h2>
+      <div className="banner">
+        <h2>hi</h2>
+      </div>
+      <div className="content">
+        <h2>메인 페이지</h2>
+      </div>
     </div>
   );
 };
