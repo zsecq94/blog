@@ -9,8 +9,16 @@ const Header = () => {
 
   return (
     <div className="con">
-      <div className="header"></div>
-      <div className="menu"></div>
+      <div className="header">
+        <span className="title">테스트</span>
+        <span className="menu">메뉴</span>
+      </div>
+      <div className="nav">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+      </div>
     </div>
   );
 };

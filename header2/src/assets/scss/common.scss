@@ -1,5 +1,35 @@
 // 메인 칼라 #2179fc #0042a3 #6ea9ff
 
+.con {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1024px;
+    height: 70px;
+    padding: 0 20px;
+
+    .title {
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .menu {
+      display: none;
+    }
+  }
+
+  .nav {
+    position: absolute;
+  }
+}
+
 .container {
   position: relative;
 

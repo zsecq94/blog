@@ -14,7 +14,12 @@ const Header = () => {
     setOpenMenu(!openMenu);
   };
 
-  // const
+  const handleMenuStyle = (val) => {
+    setSelectMenu(val);
+    if (openMenu) {
+      setOpenMenu(!openMenu);
+    }
+  };
 
   return (
     <div className="header">
@@ -27,32 +32,17 @@ const Header = () => {
           </Link>
         </div>
         <ul className={openMenu ? "open-menu" : ""}>
-          <Link
-            className={selectMenu === "algo" ? "active" : ""}
-            onClick={() => setSelectMenu("algo")}
-            to={"/algo"}
-          >
+          <Link className={selectMenu === "algo" ? "active" : ""} onClick={() => handleMenuStyle("algo")} to={"/algo"}>
             알고리즘
           </Link>
-          <Link
-            className={selectMenu === "tech" ? "active" : ""}
-            onClick={() => setSelectMenu("tech")}
-            to={"/tech"}
-          >
+          <Link className={selectMenu === "tech" ? "active" : ""} onClick={() => handleMenuStyle("tech")} to={"/tech"}>
             기술
           </Link>
-          <Link
-            className={selectMenu === "port" ? "active" : ""}
-            onClick={() => setSelectMenu("port")}
-            to={"/port"}
-          >
+          <Link className={selectMenu === "port" ? "active" : ""} onClick={() => handleMenuStyle("port")} to={"/port"}>
             포트폴리오
           </Link>
         </ul>
-        <span
-          className="search-btn"
-          onClick={() => setOpenSearchBox(!openSearchBox)}
-        >
+        <span className="search-btn" onClick={() => setOpenSearchBox(!openSearchBox)}>
           검색하기
         </span>
         <span className="menu" onClick={handleMenu}>
