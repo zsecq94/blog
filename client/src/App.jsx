@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "@/components/Header";
-import Footer from "./components/Footer";
 
 import Main from "@/pages/Main";
 import Tech from "@/pages/Tech";
 import Algo from "@/pages/Algo";
 import Portfolio from "@/pages/Portfolio";
+import Footer from "./components/Footer";
 
 function App() {
   return (

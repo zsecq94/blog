@@ -21,14 +21,10 @@ time, mark, audio, video, button
   list-style: none;
   text-decoration: none;
   color: #111;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
-}
-
-div,
-nav {
-  box-sizing: border-box;
 }

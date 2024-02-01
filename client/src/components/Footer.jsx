@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <h2>Footer</h2>
+    <div className="footer">
+      <span>푸터입니다</span>
     </div>
   );
 };

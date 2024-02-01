@@ -50,7 +50,7 @@
         font-size: 16px;
         padding: 7px 10px;
         border-radius: 10px;
-        transition: 0.5s;
+        transition: 0.3s;
 
         &:hover {
           background-color: #eee;
@@ -70,7 +70,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      transition: right 0.5s ease-in-out;
+      transition: right 0.3s ease-in-out;
 
       &.open {
         right: -280px;
@@ -84,7 +84,7 @@
         height: 10px;
         border: solid 1px #999999;
         border-radius: 8px;
-        transition: width 0.5s ease-in-out, padding 0.5s ease-in-out;
+        transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
 
         &.open {
           padding: 10px;
@@ -98,7 +98,7 @@
         color: #999999;
         padding: 5px;
         border-radius: 5px;
-        transition: 0.5s;
+        transition: 0.3s;
         cursor: pointer;
 
         &:hover {
@@ -116,7 +116,7 @@
     transform: translateY(-33%);
     width: 100%;
     border-bottom: solid 1px #eee;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     z-index: -10;
     padding: 20px;
     display: flex;
@@ -188,7 +188,7 @@
           height: 8px;
 
           &.open {
-            width: calc(100vw - 150px);
+            width: calc(100vw - 160px);
           }
         }
 
