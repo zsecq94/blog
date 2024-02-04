@@ -18,7 +18,7 @@ time, mark, audio, video, button
   margin: 0;
   padding: 0;
   border: none;
-  list-style: none;
+  // list-style: none;
   text-decoration: none;
   color: #111;
   box-sizing: border-box;
@@ -27,4 +27,12 @@ time, mark, audio, video, button
 body {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
+}
+
+li {
+  margin-left: 30px;
+}
+
+img {
+  width: 100%;
 }
