@@ -1,10 +1,17 @@
-// 메인 칼라 #2179fc #0042a3 #6ea9ff
+// 메인 컬러 #2179fc #0042a3 #6ea9ff
 
 .app {
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .con {
+  padding: 100px 20px;
+  width: 1024px;
+}
+
+.header-con {
   position: fixed;
   display: flex;
   align-items: center;
@@ -144,7 +151,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #999999;
+  background-color: #6ea9ff;
   padding: 20px;
 
   span {
@@ -152,8 +159,83 @@
   }
 }
 
+.admin-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  backdrop-filter: blur(10px);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal {
+    padding: 40px 50px;
+    border-radius: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    p {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    input {
+      width: 200px;
+      border-radius: 10px;
+      border: 1px solid #999;
+      font-size: 20px;
+      padding: 5px 10px;
+    }
+
+    .box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-box {
+      display: flex;
+      gap: 10px;
+
+      button {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        &:nth-child(1) {
+          background-color: red;
+        }
+        &:nth-child(2) {
+          background-color: black;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .app {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
   .con {
+    padding: 70px 20px;
+    width: 100%;
+  }
+
+  .header-con {
     height: 50px;
     min-width: 100%;
     .header {
@@ -188,7 +270,7 @@
           height: 8px;
 
           &.open {
-            width: calc(100vw - 160px);
+            width: calc(100vw - 145px);
           }
         }
 

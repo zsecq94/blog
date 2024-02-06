@@ -2,12 +2,13 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "@/components/Header";
+import Footer from "./components/Footer";
 
 import Main from "@/pages/Main";
-import Tech from "@/pages/Tech";
 import Algo from "@/pages/Algo";
+import Tech from "@/pages/Tech";
 import Portfolio from "@/pages/Portfolio";
-import Footer from "./components/Footer";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/algo" element={<Algo />}></Route>
           <Route path="/tech" element={<Tech />}></Route>
           <Route path="/port" element={<Portfolio />}></Route>
+          <Route path="/admin" element={<Admin />}></Route>
         </Routes>
       </div>
       <Footer />

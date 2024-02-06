@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <div className="con">
+    <div className="header-con">
       <div className="header">
         <div className="title-box">
           <Link to={"/"} onClick={menuCheck}>
