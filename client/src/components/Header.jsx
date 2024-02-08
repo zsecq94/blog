@@ -37,22 +37,13 @@ const Header = () => {
           {menuSpan}
         </span>
         <ul className="nav">
-          <Link
-            className={location.pathname === "/algo" ? "active" : ""}
-            to={"/algo"}
-          >
+          <Link className={location.pathname === "/algo" ? "active" : ""} to={"/algo"}>
             알고리즘
           </Link>
-          <Link
-            className={location.pathname === "/tech" ? "active" : ""}
-            to={"/tech"}
-          >
+          <Link className={location.pathname === "/tech" ? "active" : ""} to={"/tech"}>
             기술
           </Link>
-          <Link
-            className={location.pathname === "/port" ? "active" : ""}
-            to={"/port"}
-          >
+          <Link className={location.pathname === "/port" ? "active" : ""} to={"/port"}>
             포트폴리오
           </Link>
         </ul>
@@ -64,25 +55,13 @@ const Header = () => {
         </div>
       </div>
       <ul className={`mb-nav ${openNav ? "down" : ""}`}>
-        <Link
-          className={location.pathname === "/algo" ? "active" : ""}
-          to={"/algo"}
-          onClick={handleNav}
-        >
+        <Link className={location.pathname === "/algo" ? "active" : ""} to={"/algo"} onClick={handleNav}>
           알고리즘
         </Link>
-        <Link
-          className={location.pathname === "/tech" ? "active" : ""}
-          to={"/tech"}
-          onClick={handleNav}
-        >
+        <Link className={location.pathname === "/tech" ? "active" : ""} to={"/tech"} onClick={handleNav}>
           기술
         </Link>
-        <Link
-          className={location.pathname === "/port" ? "active" : ""}
-          to={"/port"}
-          onClick={handleNav}
-        >
+        <Link className={location.pathname === "/port" ? "active" : ""} to={"/port"} onClick={handleNav}>
           포트폴리오
         </Link>
       </ul>

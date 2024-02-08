@@ -32,7 +32,7 @@ const Admin = () => {
   useEffect(() => {}, []);
 
   return (
-    <div className="con">
+    <div className="con marked">
       {html && <button onClick={saveData}>등록하기</button>}
       <input type="file" onChange={onFileChange} accept=".md" />
       <div dangerouslySetInnerHTML={{ __html: html }} />
