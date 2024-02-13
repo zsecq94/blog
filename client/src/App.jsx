@@ -2,13 +2,13 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "@/components/Header";
-import Footer from "./components/Footer";
+import Footer from "@/components/Footer";
 
 import Main from "@/pages/Main";
 import Algo from "@/pages/Algo";
 import Tech from "@/pages/Tech";
 import Portfolio from "@/pages/Portfolio";
-import Admin from "./pages/Admin";
+import Admin from "@/pages/Admin";
 
 function App() {
   return (

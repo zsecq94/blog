@@ -14,10 +14,6 @@ const AdminModal = ({ setAdminModalOpen }) => {
     });
   };
 
-  const goHome = () => {
-    window.location.assign("/");
-  };
-
   const goLogin = async () => {
     if (loginData) {
       const res = await axiosInstance.post("/admin/login", loginData);
@@ -33,25 +29,15 @@ const AdminModal = ({ setAdminModalOpen }) => {
     <div className="modal">
       <div className="box">
         <p>아이디</p>
-        <input
-          type="id"
-          name="id"
-          value={loginData.id}
-          onChange={handleChange}
-        />
+        <input type="id" name="id" value={loginData.id} onChange={handleChange} />
       </div>
       <div className="box">
         <p>비밀번호</p>
-        <input
-          type="password"
-          name="password"
-          value={loginData.password}
-          onChange={handleChange}
-        />
+        <input type="password" name="password" value={loginData.password} onChange={handleChange} />
       </div>
       <div className="btn-box">
         <button onClick={goLogin}>로그인</button>
-        <button onClick={goHome}>뒤로가기</button>
+        <button onClick={() => window.location.assign("/")}>뒤로가기</button>
       </div>
     </div>
   );

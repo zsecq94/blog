@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as marked from "marked";
 
-import AdminModal from "../../components/AdminModal";
+import AdminModal from "@/components/AdminModal";
 
 import "./index.scss";
 

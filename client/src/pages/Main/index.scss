@@ -1,28 +1,37 @@
 .main-con {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 60px 0px;
-  min-width: 1024px;
+  gap: 40px;
 
-  // .banner {
-  //   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  //     url("/src/assets/images/bg/bg1.png");
-  //   background-position: center;
-  //   background-size: cover;
-  //   width: 100%;
-  //   height: calc(100vh - 60px);
-  // }
+  .title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    p {
+      font-size: 20px;
 
-  .content {
-    width: 1024px;
-    padding: 0px 20px;
+      &:nth-child(2) {
+        color: #999;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .card-con {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    .card {
+      border: solid 1px #eee;
+      padding: 20px;
+      border-radius: 15px;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
   .main-con {
-    padding: 60px 0px;
-    width: 100%;
   }
 }

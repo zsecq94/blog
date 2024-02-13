@@ -22,24 +22,24 @@ export const login = async (req, res) => {
       }
     });
 
-    // 저장 로직
-    const saltRounds = 10; // 솔트 라운드 설정. 값이 클수록 해싱에 걸리는 시간이 길어짐.
-    // 비밀번호를 암호화
-    bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
-      if (err) {
-        console.log(err);
-        return res.send(false);
-      }
-      // 암호화된 비밀번호를 데이터베이스에 저장
-      const query = "INSERT INTO admin (id, password) VALUES (?, ?)";
-      connection.query(query, [id, hashedPassword], (err, data) => {
-        if (err) {
-          console.log(err);
-          return res.send(false);
-        }
-        return res.send(true);
-      });
-    });
+    // // 저장 로직
+    // const saltRounds = 10; // 솔트 라운드 설정. 값이 클수록 해싱에 걸리는 시간이 길어짐.
+    // // 비밀번호를 암호화
+    // bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
+    //   if (err) {
+    //     console.log(err);
+    //     return res.send(false);
+    //   }
+    //   // 암호화된 비밀번호를 데이터베이스에 저장
+    //   const query = "INSERT INTO admin (id, password) VALUES (?, ?)";
+    //   connection.query(query, [id, hashedPassword], (err, data) => {
+    //     if (err) {
+    //       console.log(err);
+    //       return res.send(false);
+    //     }
+    //     return res.send(true);
+    //   });
+    // });
   } catch (error) {
     console.log("error in login", error);
   }
