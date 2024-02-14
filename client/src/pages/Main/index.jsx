@@ -27,7 +27,9 @@ const Main = () => {
           <p>
             <strong>최근 등록 순</strong>
           </p>
-          <p>전체보기</p>
+          <a href="/search">
+            <p>전체보기</p>
+          </a>
         </div>
         <div className="card-con">
           <div className="card">
