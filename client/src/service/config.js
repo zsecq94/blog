@@ -9,4 +9,4 @@ export const axiosInstance = axios.create({
   timeout: TIME_OUT,
 });
 
-export const fetcher = (url) => axiosInstance.get(url).then((res) => res.data);
+// export const fetcher = (url) => axiosInstance.get(url).then((res) => res.data);

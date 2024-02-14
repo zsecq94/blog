@@ -7,10 +7,10 @@ export const login = async (req, res) => {
     const query = "SELECT * FROM admin WHERE id = ?";
 
     connection.query(query, [id], (err, data) => {
-      if (err) return res.json(err);
+      // if (err) return res.json(err);
       if (data.length > 0) {
         bcrypt.compare(password, data[0].password, (err, result) => {
-          if (err) return res.json(err);
+          // if (err) return res.json(err);
           if (result) {
             return res.send(true);
           } else {

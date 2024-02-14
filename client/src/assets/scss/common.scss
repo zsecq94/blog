@@ -1,14 +1,14 @@
 // 메인 컬러 #2179fc #0042a3 #6ea9ff
-
-.app {
-  min-height: 100vh;
+.con {
   display: flex;
   justify-content: center;
-}
+  min-height: 100vh;
+  min-width: 1024px;
 
-.con {
-  padding: 100px 20px;
-  width: 1024px;
+  .app {
+    width: 1024px;
+    padding: 100px 20px;
+  }
 }
 
 .header-con {
@@ -224,15 +224,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .app {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-  }
-
   .con {
-    padding: 70px 20px;
-    width: 100%;
+    min-width: 100%;
+
+    .app {
+      width: 100%;
+      padding: 90px 20px;
+    }
   }
 
   .header-con {

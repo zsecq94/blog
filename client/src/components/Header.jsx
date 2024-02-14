@@ -33,9 +33,11 @@ const Header = () => {
             </span>
           </Link>
         </div>
+
         <span className="menu" onClick={handleNav}>
           {menuSpan}
         </span>
+
         <ul className="nav">
           <Link className={location.pathname === "/algo" ? "active" : ""} to={"/algo"}>
             알고리즘
@@ -46,7 +48,11 @@ const Header = () => {
           <Link className={location.pathname === "/port" ? "active" : ""} to={"/port"}>
             포트폴리오
           </Link>
+          <Link className={location.pathname === "/layout" ? "active" : ""} to={"/layout"}>
+            레이아웃
+          </Link>
         </ul>
+
         <div className={`search-box ${openSearch ? "open" : ""}`}>
           <input className={openSearch ? "open" : ""} type="text" />
           <span className="search-btn" onClick={() => handleSearch()}>
@@ -54,6 +60,7 @@ const Header = () => {
           </span>
         </div>
       </div>
+
       <ul className={`mb-nav ${openNav ? "down" : ""}`}>
         <Link className={location.pathname === "/algo" ? "active" : ""} to={"/algo"} onClick={handleNav}>
           알고리즘
@@ -63,6 +70,9 @@ const Header = () => {
         </Link>
         <Link className={location.pathname === "/port" ? "active" : ""} to={"/port"} onClick={handleNav}>
           포트폴리오
+        </Link>
+        <Link className={location.pathname === "/layout" ? "active" : ""} to={"/layout"} onClick={handleNav}>
+          레이아웃
         </Link>
       </ul>
     </div>
