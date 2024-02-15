@@ -11,6 +11,49 @@
   }
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-radius: 15px;
+  transition: 0.2s;
+  cursor: pointer;
+
+  .text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    .title {
+      font-size: 24px;
+    }
+
+    .sub {
+      font-size: 18px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .date {
+      font-size: 14px;
+      color: #999;
+    }
+  }
+  img {
+    border-radius: 15px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  &:hover {
+    scale: 1.05;
+  }
+}
+
 .header-con {
   position: fixed;
   display: flex;
