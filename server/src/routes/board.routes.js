@@ -1,14 +1,14 @@
 import express from "express";
-import { getTech, saveTechData } from "../controllers/tech.controller.js";
+import { getBoard, saveBoard } from "../controllers/board.controller.js";
 
-const testRoutes = express.Router();
+const boardRoutes = express.Router();
 
-testRoutes.route("/").get(getTech);
-testRoutes.route("/save").post(saveTechData);
+boardRoutes.route("/").get(getBoard);
+boardRoutes.route("/save").post(saveBoard);
 
 // testRoutes.route("/update").put(userUpdate);
 // testRoutes.route("/delete-user-team").put(deleteUserTeam);
 // testRoutes.route("/get-user/:id").get(getUser);
 // testRoutes.route("/get-member/:name").get(getTeamMember);
 
-export default testRoutes;
+export default boardRoutes;

@@ -19,33 +19,41 @@
   transition: 0.2s;
   cursor: pointer;
 
+  @mixin overflow-ellipsis($lines) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+
   .text-box {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
+
     .title {
-      font-size: 24px;
+      font-size: 20px;
+      @include overflow-ellipsis(1);
     }
 
     .sub {
-      font-size: 18px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
+      font-size: 16px;
+      @include overflow-ellipsis(2);
     }
 
     .date {
-      font-size: 14px;
+      font-size: 12px;
       color: #999;
     }
   }
+
   img {
+    border: solid 1px #eee;
     border-radius: 15px;
     width: 100%;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
   }
 
@@ -98,6 +106,7 @@
 
       a {
         font-size: 16px;
+        font-weight: 500;
         padding: 7px 10px;
         border-radius: 10px;
         transition: 0.3s;

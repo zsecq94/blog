@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { axiosInstance } from "@/service/config.js";
 
 const AdminModal = ({ setAdminModalOpen }) => {
@@ -16,7 +16,7 @@ const AdminModal = ({ setAdminModalOpen }) => {
 
   const goLogin = async () => {
     if (loginData) {
-      const res = await axiosInstance.post("/admin/login", loginData);
+      const res = await axiosInstance.post("/api/v1/admin/login", loginData);
       if (res.data) {
         setAdminModalOpen(false);
       } else {
@@ -25,15 +25,38 @@ const AdminModal = ({ setAdminModalOpen }) => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      goLogin();
+    }
+  };
+
+  const idInputRef = useRef();
+
+  useEffect(() => {
+    idInputRef.current.focus();
+  }, []);
+
   return (
-    <div className="modal">
+    <div className="modal" onKeyDown={handleKeyDown}>
       <div className="box">
         <p>아이디</p>
-        <input type="id" name="id" value={loginData.id} onChange={handleChange} />
+        <input
+          type="id"
+          name="id"
+          value={loginData.id}
+          onChange={handleChange}
+          ref={idInputRef}
+        />
       </div>
       <div className="box">
         <p>비밀번호</p>
-        <input type="password" name="password" value={loginData.password} onChange={handleChange} />
+        <input
+          type="password"
+          name="password"
+          value={loginData.password}
+          onChange={handleChange}
+        />
       </div>
       <div className="btn-box">
         <button onClick={goLogin}>로그인</button>

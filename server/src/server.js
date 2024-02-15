@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-import testRoutes from "./routes/tech.routes.js";
+import boardRoutes from "./routes/board.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
 const app = express();
@@ -9,8 +9,11 @@ app.use(cors());
 app.use(express.json());
 const PORT = 3000;
 
-app.use("/tech", testRoutes);
-app.use("/admin", userRoutes);
+app.use("/api/v1/board", boardRoutes);
+app.use("/api/v1/admin", userRoutes);
+
+app.use("/md", express.static("fileMd"));
+app.use("/fileThumb", express.static("fileThumb"));
 
 app.listen(PORT, () => {
   console.log("Server up and running on port", PORT);

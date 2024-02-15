@@ -3,25 +3,24 @@ import { Link } from "react-router-dom";
 
 import { axiosInstance } from "@/service/config.js";
 import "./index.scss";
-import datas from "./Data.json";
 import Card from "../../components/Card";
 
 const Main = () => {
   const [techData, setTechData] = useState([]);
 
-  // const getData = async () => {
-  //   const res = await axiosInstance.get("/tech");
-  //   console.log(res.data);
-  //   if (res.data) {
-  //     setTechData(res.data);
-  //   } else {
-  //     alert("데이터 없음");
-  //   }
-  // };
+  const getData = async () => {
+    const res = await axiosInstance.get("/api/v1/board");
+    console.log(res.data);
+    if (res.data) {
+      setTechData(res.data);
+    } else {
+      alert("데이터 없음");
+    }
+  };
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div className="main-con">
@@ -32,7 +31,7 @@ const Main = () => {
         <Link to={"/search"}>전체보기</Link>
       </div>
       <div className="card-con">
-        {datas.map((data) => (
+        {techData.map((data) => (
           <Card data={data} key={data.id} />
         ))}
       </div>
