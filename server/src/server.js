@@ -12,7 +12,7 @@ const PORT = 3000;
 app.use("/api/v1/board", boardRoutes);
 app.use("/api/v1/admin", userRoutes);
 
-app.use("/md", express.static("fileMd"));
+app.use("/fileMd", express.static("fileMd"));
 app.use("/fileThumb", express.static("fileThumb"));
 
 app.listen(PORT, () => {

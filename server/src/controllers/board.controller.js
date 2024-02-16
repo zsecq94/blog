@@ -22,7 +22,7 @@ export const saveBoard = async (req, res) => {
       const { title } = req.body;
       const mdFile = req.files.md[0].path;
       const thumbFile = req.files.thumb[0].path;
-      const query = `INSERT INTO board (title, img, md) VALUES (?, ?, ?)`;
+      const query = `INSERT INTO board (title, thumb, md) VALUES (?, ?, ?)`;
       connection.query(query, [title, thumbFile, mdFile], (err, data) => {
         if (err) {
           console.log(err);
