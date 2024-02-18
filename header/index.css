@@ -189,7 +189,7 @@ body {
     position: relative;
     display: grid;
     grid-template-columns: 7fr 1fr;
-    align-items: flex-start;
+    align-items: start;
   }
 
   .mobile > .gnb > li > a {
@@ -208,21 +208,28 @@ body {
   .mobile > .gnb > li > img {
   }
 
+  .rotate {
+    transform: rotate(180deg);
+  }
+
   .mobile > .gnb > li > .lnb {
-    display: flex;
+    display: none;
     align-items: center;
     gap: 30px;
     padding-left: 24px;
     flex-direction: column;
-    transition: 0.2s;
-    height: 0px;
-    overflow: hidden;
+    height: auto;
+    /* overflow: hidden; */
   }
 
   .mobile > .gnb > li > .lnb > a {
     font-size: 16px;
     color: #111;
     width: 100%;
+  }
+
+  .mobile > .gnb > li > .lnb > a:nth-child(1) {
+    padding-top: 30px;
   }
 }
 

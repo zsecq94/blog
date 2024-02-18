@@ -193,6 +193,12 @@
             $mbHeader.removeClass("active");
             $("body").removeClass("no-scroll");
             updateMbHeaderStyle(scrollCheck ? true : false);
+
+            $(".mobile > .gnb > li > .lnb").slideUp(() => {
+              $(this).css({ display: "none" });
+            });
+
+            $mbGnbBtn.removeClass("rotate");
           }
         });
 
@@ -214,10 +220,14 @@
 
         $mbGnbBtn.click(function () {
           let $lnb = $(this).parent().next();
-          if ($lnb.height() === 0) {
-            $lnb.css({ height: "100%", paddingTop: "30px" });
+          if ($lnb.is(":visible")) {
+            $lnb.slideUp(() => {
+              $lnb.css({ display: "none" });
+            });
+            $(this).removeClass("rotate");
           } else {
-            $lnb.css({ height: "0px", paddingTop: "0px" });
+            $lnb.css({ display: "flex" }).hide().slideDown();
+            $(this).addClass("rotate");
           }
         });
 
