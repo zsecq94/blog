@@ -7,8 +7,9 @@ import AdminModal from "@/components/AdminModal";
 import "./index.scss";
 
 const Admin = () => {
-  const [html, setHtml] = useState("");
   const [adminModalOpen, setAdminModalOpen] = useState(false);
+
+  const [html, setHtml] = useState("");
   const [file, setFile] = useState();
   const [thumb, setThumb] = useState();
   const [thumbFile, setThumbFile] = useState();
@@ -62,7 +63,11 @@ const Admin = () => {
     <div className="marked">
       <img src={thumb} alt="" />
       <div className="inp-box">
-        <input type="file" onChange={onThumbChange} accept="image/png, image/jpeg" />
+        <input
+          type="file"
+          onChange={onThumbChange}
+          accept="image/png, image/jpeg"
+        />
         <input type="text" onChange={onTitleChange} />
         <input type="file" onChange={onMdChange} accept=".md" />
 
