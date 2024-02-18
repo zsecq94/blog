@@ -1,0 +1,380 @@
+<script>
+  $(document).ready(() => {
+    let isWeb = window.innerWidth > 767;
+    let swipers = [];
+
+    const contents = [
+      {
+        content: ".result-con > .swiper-con > .mySwiper",
+        slidesPerView: isWeb ? 5 : 1,
+        spaceBetween: isWeb ? 30 : 10,
+        activeNum: isWeb ? [0, 13] : [0, 17],
+        pagination: {
+          el: "",
+        },
+        navigation: {
+          nextEl: ".result-con > .swiper-con > .swiper-title > .nav-box > .next",
+          prevEl: ".result-con > .swiper-con > .swiper-title > .nav-box > .prev",
+        },
+      },
+      {
+        content: ".result-con > .swiper-con2 > .mySwiper",
+        slidesPerView: isWeb ? 5 : 1,
+        spaceBetween: isWeb ? 30 : 10,
+        activeNum: isWeb ? [0, 7] : [0, 11],
+        pagination: {
+          el: "",
+        },
+        navigation: {
+          nextEl: ".result-con > .swiper-con2 > .swiper-title > .nav-box > .next",
+          prevEl: ".result-con > .swiper-con2 > .swiper-title > .nav-box > .prev",
+        },
+      },
+    ];
+
+    const createSwiper = (content) => {
+      var swiper = new Swiper(content.content, {
+        slidesPerView: content.slidesPerView,
+        spaceBetween: content.spaceBetween,
+        pagination: content.pagination,
+        navigation: {
+          nextEl: content.navigation.nextEl,
+          prevEl: content.navigation.prevEl,
+        },
+      });
+
+      swipers.push(swiper);
+
+      let prevEl = $(content.navigation.prevEl);
+      let nextEl = $(content.navigation.nextEl);
+      swiper.on("slideChange", function () {
+        const setButtonState = function (element, disabled, imgSrc) {
+          if (disabled) {
+            element.addClass("disabled");
+          } else {
+            element.removeClass("disabled");
+          }
+          element.attr("src", "/assets/images/icon/" + imgSrc);
+        };
+
+        if (this.activeIndex === content.activeNum[0]) {
+          setButtonState(prevEl, true, "ico_prev_gray.png");
+          setButtonState(nextEl, false, "ico_next_orange.png");
+        } else if (this.activeIndex === content.activeNum[1]) {
+          setButtonState(nextEl, true, "ico_next_gray.png");
+          setButtonState(prevEl, false, "ico_prev_orange.png");
+        } else {
+          setButtonState(prevEl, false, "ico_prev_orange.png");
+          setButtonState(nextEl, false, "ico_next_orange.png");
+        }
+      });
+
+      $(content.navigation.prevEl).addClass("disabled");
+    };
+
+    contents.forEach((content, index) => {
+      createSwiper(content);
+    });
+
+    const $slide = $(".result-con .mySwiper > .swiper-wrapper > .swiper-slide");
+    const $modal = $(".result-modal");
+    const $modalClose = $(".result-modal > span");
+
+    $slide.click(function () {
+      let src = $(this).find("img").attr("src");
+
+      $modal.find("img").attr("src", src);
+      $modal.css({ display: "flex" });
+    });
+
+    $modalClose.click(() => {
+      $modal.css({ display: "none" });
+    });
+  });
+</script>
+
+<div class="result-con">
+  <div class="title-box">
+    <span class="title">어제보다 오늘,</span>
+    <span class="title">오늘보다 내일 더 성장 하겠습니다.</span>
+  </div>
+  <div class="swiper-con">
+    <div class="swiper-title">
+      <span class="title">AI SW 시험성적서</span>
+      <div class="nav-box">
+        <img class="prev" src="/assets/images/icon/ico_prev_gray.png" alt="" />
+        <img class="next" src="/assets/images/icon/ico_next_orange.png" alt="" />
+      </div>
+    </div>
+    <div class="mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_01.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_02.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_03.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_04.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_05.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_06.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_07.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_08.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_09.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_10.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_11.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_12.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_13.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_14.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_15.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_16.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_17.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_ai_18.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-con2">
+    <div class="swiper-title">
+      <span class="title">SAVING POWER 5kW Home 시험성적서</span>
+      <div class="nav-box">
+        <img class="prev" src="/assets/images/icon/ico_prev_gray.png" alt="" />
+        <img class="next" src="/assets/images/icon/ico_next_orange.png" alt="" />
+      </div>
+    </div>
+    <div class="mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_01.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_02.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_03.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_04.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_05.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_06.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_07.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_08.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_09.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_10.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_11.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/assets/images/content/tech/result_sp_12.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="result-modal">
+  <img src="" />
+  <span>X</span>
+</div>
+
+<style>
+  .result-modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111;
+    z-index: 99;
+  }
+
+  .result-modal > img {
+    height: 90%;
+  }
+
+  .result-modal > span {
+    font-size: 60px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+  }
+
+  .result-con {
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .result-con > .title-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result-con > .title-box > .title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  .result-con .swiper-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .result-con .swiper-title > .title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .result-con .swiper-title > .nav-box {
+    display: flex;
+    gap: 20px;
+  }
+
+  .result-con .swiper-title > .nav-box > img {
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .result-con .swiper-title > .nav-box > .disabled {
+    cursor: auto;
+  }
+
+  .result-con .mySwiper {
+    padding: 20px 0px;
+    border-top: solid 2px black;
+    border-bottom: solid 1px #eeeeee;
+    overflow: hidden;
+  }
+
+  .result-con .mySwiper > .swiper-wrapper > .swiper-slide {
+    padding: 10px;
+    background-color: #eee;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .result-con .mySwiper > .swiper-wrapper > .swiper-slide > img {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 769px) {
+    .result-con .mySwiper > .swiper-wrapper > .swiper-slide:hover {
+      background-color: #f26933;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .result-modal {
+      padding: 20px;
+    }
+
+    .result-modal > img {
+      height: auto;
+      width: 100%;
+    }
+
+    .result-modal > span {
+      font-size: 30px;
+      right: 20px;
+    }
+
+    .result-con {
+      width: 100%;
+      gap: 40px;
+    }
+
+    .result-con > .title-box > .title {
+      font-size: 24px;
+      line-height: 130%;
+    }
+
+    .result-con .swiper-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .result-con .swiper-title > .title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .result-con .swiper-title > .nav-box {
+      display: flex;
+      gap: 20px;
+    }
+
+    .result-con .swiper-title > .nav-box > img {
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .result-con .swiper-title > .nav-box > .disabled {
+      cursor: auto;
+    }
+
+    .result-con .mySwiper {
+      padding: 20px 0px;
+      border-top: solid 2px black;
+      border-bottom: solid 1px #eeeeee;
+      overflow: hidden;
+    }
+
+    .result-con .mySwiper > .swiper-wrapper > .swiper-slide > img {
+      width: 100%;
+    }
+  }
+</style>

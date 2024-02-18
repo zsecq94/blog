@@ -1,0 +1,491 @@
+<script>
+  $(document).ready(() => {
+    const barContent = [
+      {
+        width: 82,
+        $bar: $(".inv-con > .bot-con > .list-con > .card-con > .card")
+          .eq(0)
+          .find(".text-con > .bar-con > .bar-box > .bar"),
+        $span: $(".inv-con > .bot-con > .list-con > .card-con > .card")
+          .eq(0)
+          .find(".text-con > .bar-con > .bar-box > span"),
+      },
+      {
+        width: 100,
+        $bar: $(".inv-con > .bot-con > .list-con > .card-con > .card")
+          .eq(1)
+          .find(".text-con > .bar-con > .bar-box > .bar"),
+        $span: $(".inv-con > .bot-con > .list-con > .card-con > .card")
+          .eq(1)
+          .find(".text-con > .bar-con > .bar-box > span"),
+      },
+      {
+        width: 57,
+        $bar: $(".inv-con > .bot-con > .list-con > .card-con > .card")
+          .eq(2)
+          .find(".text-con > .bar-con > .bar-box > .bar"),
+        $span: $(".inv-con > .bot-con > .list-con > .card-con > .card")
+          .eq(2)
+          .find(".text-con > .bar-con > .bar-box > span"),
+      },
+    ];
+
+    barContent.forEach((bar) => {
+      let barWidthCurrent = 0;
+      const barUpdate = () => {
+        if (barWidthCurrent >= bar.width) {
+          barWidthCurrent = bar.width;
+          clearInterval(intervalId);
+        } else {
+          barWidthCurrent += 0.1;
+        }
+        bar.$bar.css({
+          width: barWidthCurrent + "%",
+        });
+
+        bar.$span.html(`${Math.floor(barWidthCurrent)} %`);
+      };
+
+      const intervalId = setInterval(barUpdate, 5);
+    });
+  });
+</script>
+
+<div class="inv-con">
+  <div class="top-con">
+    <div class="title-box">
+      <span class="title"><span class="orange">렉스펀드</span><br />지속가능한 미래를 만드는 투자</span>
+    </div>
+    <div class="sub-box">
+      <span class="sub"
+        >에너지 전환의 시대, 친환경 에너지에 대한 투자는 이제 단순한 금융 상품이 아니라<br />
+        나와 우리 아이의 미래를 지키기 위해 반드시 선택해야 할 길입니다.</span
+      >
+    </div>
+    <div class="card-box">
+      <div class="card">
+        <div class="text-box">
+          <span class="title">투명한 금융</span>
+          <span class="sub"
+            >렉스이노베이션은 비효율적인 수수료 구간을 줄이고, 신재생에너지의 어려운 자금조달 문제를 증권형
+            크라우드펀딩으로 해결합니다.</span
+          >
+        </div>
+        <div class="img">
+          <img src="/assets/images/content/ir/inv_01.png" alt="" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="text-box">
+          <span class="title">공정한 참여</span>
+          <span class="sub"
+            >신규 에너지 산업은 최종 소비자들이 공급에도 참여하는 소용량 공급&소비 중심의 시장입니다.</span
+          >
+        </div>
+        <div class="img">
+          <img src="/assets/images/content/ir/inv_02.png" alt="" />
+        </div>
+      </div>
+      <div class="card">
+        <div class="text-box">
+          <span class="title">편리한 서비스</span>
+          <span class="sub">핀테크 기술을 이용해 100% 비대면 금융 및 증권 발행 서비스를 제공합니다.</span>
+        </div>
+        <div class="img">
+          <img src="/assets/images/content/ir/inv_03.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot-con">
+    <div class="list-con">
+      <div class="title-box">
+        <span class="title">프로젝트 리스트</span>
+      </div>
+      <div class="card-con">
+        <div class="card">
+          <img src="/assets/images/content/ir/inv_04.png" alt="" />
+          <div class="text-con">
+            <div class="text-box">
+              <span class="state">진행중</span>
+              <span class="title">파주 두포리 184kw 렉스1호 태양광 발전소</span>
+              <div class="sub-box">
+                <span>공모</span>
+                <span>채권-전환사채</span>
+                <span>소득공제</span>
+              </div>
+            </div>
+            <div class="bar-con">
+              <span class="amount"><strong>270,600,000원 </strong>/ 330,000,000원</span>
+              <div class="bar-box">
+                <div class="bar"></div>
+                <span>0%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="/assets/images/content/ir/inv_05.png" alt="" />
+          <div class="text-con">
+            <div class="text-box">
+              <span class="state">완료</span>
+              <span class="title">완도군 신지면 100kw 렉스2호 소수력 발전소</span>
+              <div class="sub-box">
+                <span>공모</span>
+                <span>채권-전환사채</span>
+                <span>소득공제</span>
+              </div>
+            </div>
+            <div class="bar-con">
+              <span class="amount"><strong>330,000,000원 </strong>/ 330,000,000원</span>
+              <div class="bar-box">
+                <div class="bar"></div>
+                <span>0%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="/assets/images/content/ir/inv_06.png" alt="" />
+          <div class="text-con">
+            <div class="text-box">
+              <span class="state">진행중</span>
+              <span class="title">완도군 신지면 80kw 렉스3호 소수력 발전소</span>
+              <div class="sub-box">
+                <span>공모</span>
+                <span>채권-전환사채</span>
+                <span>소득공제</span>
+              </div>
+            </div>
+            <div class="bar-con">
+              <span class="amount"><strong>188,100,000원 </strong>/ 330,000,000원</span>
+              <div class="bar-box">
+                <div class="bar"></div>
+                <span>0%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .inv-con {
+    width: 100%;
+    background-color: #fbfbfb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inv-con > .top-con {
+    width: 1280px;
+    padding: 150px 0px;
+  }
+
+  .inv-con > .top-con > .title-box {
+    margin-bottom: 40px;
+  }
+
+  .inv-con > .top-con > .title-box > .title {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  .inv-con > .top-con > .title-box > .title > .orange {
+    color: #f26933;
+  }
+
+  .inv-con > .top-con > .sub-box {
+    margin-bottom: 85px;
+  }
+
+  .inv-con > .top-con > .sub-box > .sub {
+    font-size: 20px;
+    color: #666666;
+    line-height: 140%;
+  }
+
+  .inv-con > .top-con > .card-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .inv-con > .top-con > .card-box > .card {
+    padding: 40px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 350px;
+    border-radius: 34px;
+    border: solid 1px #eee;
+  }
+
+  .inv-con > .top-con > .card-box > .card > .text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .inv-con > .top-con > .card-box > .card > .text-box > .title {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .inv-con > .top-con > .card-box > .card > .text-box > .sub {
+    font-size: 16px;
+    color: #666666;
+    line-height: 140%;
+  }
+
+  .inv-con > .top-con > .card-box > .card > .img {
+    text-align: end;
+  }
+
+  .inv-con > .bot-con {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .inv-con > .bot-con > .list-con {
+    width: 1280px;
+    padding: 150px 0;
+  }
+
+  .inv-con > .bot-con > .list-con > .title-box {
+    margin-bottom: 45px;
+  }
+
+  .inv-con > .bot-con > .list-con > .title-box > .title {
+    font-size: 34px;
+    font-weight: 700;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid 1px #eee;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card:last-child {
+    border-bottom: none;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box > .state {
+    color: #f26933;
+    border: solid 1px #f26933;
+    padding: 7px 20px;
+    border-radius: 20px;
+    font-size: 20px;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box > .title {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box > .sub-box {
+    display: flex;
+    gap: 10px;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box > .sub-box > span {
+    color: #666;
+    background-color: #eee;
+    padding: 5px 16px;
+    border-radius: 16px;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .bar-con {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .bar-con > .amount {
+    font-size: 24px;
+    color: #999;
+  }
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .bar-con > .amount > strong {
+    color: #111;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .bar-con > .bar-box {
+    position: relative;
+    background-color: #eee;
+    height: 10px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .bar-con > .bar-box > .bar {
+    width: 0%;
+    height: 10px;
+    background-color: #f26933;
+    border-radius: 5px;
+  }
+
+  .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .bar-con > .bar-box > span {
+    position: absolute;
+    color: #f26933;
+    font-size: 16px;
+    font-weight: 700;
+    right: 0;
+    top: -300%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .inv-con {
+      width: 100%;
+    }
+
+    .inv-con > .top-con {
+      width: 100%;
+      padding: 50px 24px;
+    }
+
+    .inv-con > .top-con > .title-box {
+      margin-bottom: 20px;
+    }
+
+    .inv-con > .top-con > .title-box > .title {
+      font-size: 24px;
+    }
+
+    .inv-con > .top-con > .sub-box {
+      margin-bottom: 40px;
+    }
+
+    .inv-con > .top-con > .sub-box > .sub {
+      font-size: 14px;
+    }
+
+    .inv-con > .top-con > .sub-box > .sub > br {
+      display: none;
+    }
+
+    .inv-con > .top-con > .card-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .inv-con > .top-con > .card-box > .card {
+      padding: 30px;
+      height: 300px;
+      border-radius: 15px;
+    }
+
+    .inv-con > .top-con > .card-box > .card > .text-box {
+      gap: 20px;
+    }
+
+    .inv-con > .top-con > .card-box > .card > .text-box > .title {
+      font-size: 20px;
+    }
+
+    .inv-con > .bot-con {
+      width: 100%;
+    }
+
+    .inv-con > .bot-con > .list-con {
+      width: 100%;
+      padding: 50px 24px;
+    }
+
+    .inv-con > .bot-con > .list-con > .title-box {
+      margin-bottom: 50px;
+    }
+
+    .inv-con > .bot-con > .list-con > .title-box > .title {
+      font-size: 24px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con {
+      gap: 40px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 40px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card > .text-con {
+      gap: 20px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box {
+      gap: 10px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box > .state {
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 16px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box > .title {
+      font-size: 20px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box > .sub-box {
+      display: flex;
+      gap: 10px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .text-box > .sub-box > span {
+      padding: 4px 14px;
+      border-radius: 12px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .bar-con {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .bar-con > .amount {
+      font-size: 16px;
+    }
+
+    .inv-con > .bot-con > .list-con > .card-con > .card > .text-con > .bar-con > .bar-box > span {
+      font-size: 14px;
+    }
+  }
+</style>

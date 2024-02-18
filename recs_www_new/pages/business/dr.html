@@ -1,0 +1,88 @@
+<div class="dr-con">
+  <div class="text-box">
+    <span class="title"
+      >우리는 고객의 <span class="orange">전력수요</span> 에 대응할 수 있는 재생에너지를 공급합니다</span
+    >
+    <div class="sub-box">
+      <span class="sub"
+        >한 때의 전력 Peak에 대응하기 위한 막대한 한전의 국가적인 설비 투자를 최소화하고 <br class="br" />
+        당사가 추진하는 재생에너지 공급 및 관리 역량을 기반으로 수요기업의 적재적소 에너지 수요에 대응할 수 있습니다.
+      </span>
+      <span class="sub"
+        >재생에너지 기반 전기차 충전소 및 수요에너지 대응용 빌딩용 ESS 공급, 국가 DR시스템과의 연동을 통한편리한 통합
+        DR관리시스템을 제공합니다.</span
+      >
+    </div>
+  </div>
+  <div class="img"></div>
+</div>
+
+<style>
+  .dr-con {
+    width: 1280px;
+  }
+
+  .dr-con > .text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .dr-con > .text-box .orange {
+    color: #f26933;
+  }
+
+  .dr-con > .text-box > .title {
+    font-size: 60px;
+    font-weight: 700;
+  }
+
+  .dr-con > .text-box > .sub-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dr-con > .text-box > .sub-box > .sub {
+    font-size: 20px;
+    color: #666666;
+  }
+
+  .dr-con > .img {
+    background: url("/assets/images/content/business/dr_01.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 34px;
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
+    height: 570px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .dr-con {
+      width: 100%;
+    }
+
+    .dr-con > .text-box {
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .dr-con > .text-box > .title {
+      font-size: 24px;
+    }
+
+    .dr-con > .text-box > .sub-box > .sub {
+      font-size: 18px;
+    }
+
+    .dr-con > .img {
+      border-radius: 15px;
+      height: 300px;
+    }
+
+    .dr-con > .text-box > .sub-box > .sub > .br {
+      display: none;
+    }
+  }
+</style>

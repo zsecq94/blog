@@ -1,0 +1,342 @@
+<script>
+  $(document).ready(() => {
+    let datas;
+    let startIdx = 0;
+    let activePageIdx = 0;
+    let endIdx = 10;
+
+    const $listApp = $(".cmpny-con > .list-app");
+    const $detailApp = $(".cmpny-con > .detail-app");
+    const $pageNav = $(".cmpny-con > .list-app > .page-box > span");
+
+    const router = () => {
+      let route = window.location.hash.substr(2);
+
+      fileName = route.split("/");
+      if (fileName.length === 3 && fileName[0] === "ir") {
+        $listApp.css("display", "none");
+        $detailApp.css("display", "block");
+      }
+    };
+    $(window).on("hashchange", router);
+    router();
+
+    const $listCon = $(".cmpny-con > .list-app > .list-con > .list");
+
+    const updateList = () => {
+      let html = "";
+      if (datas) {
+        for (let i = startIdx; i < endIdx; i++) {
+          html += `<a href="#/ir/cmpny/${datas[i].number}" class="grid-box detail">
+                    <span class="center">${datas[i].number}</span>
+                    <div class="box">
+                      <span>${datas[i].title} </span>
+                      <span class="center eee">${datas[i].date}</span>
+                    </div>
+                  </a>`;
+        }
+        if (html !== undefined) {
+          $listCon.html(html);
+        }
+      }
+    };
+
+    const updateNavStyle = (idx) => {
+      $pageNav.eq(activePageIdx).removeClass("active");
+      $pageNav.eq(idx).addClass("active");
+      activePageIdx = idx;
+    };
+
+    fetch("/assets/json/ir/cmpnyDatas.json")
+      .then((response) => response.json())
+      .then((json) => {
+        datas = json;
+        updateList();
+      })
+      .catch((err) => {
+        console.log("err in getIrDatas", err);
+      });
+
+    $pageNav.click(function () {
+      const idx = $(this).index();
+      startIdx = idx * 10;
+      endIdx = (idx + 1) * 10;
+      if (endIdx > datas.length) {
+        endIdx = datas.length;
+      }
+      updateNavStyle(idx);
+      updateList();
+    });
+  });
+</script>
+
+<div class="cmpny-con">
+  <div class="list-app">
+    <span class="title"
+      >어제보다 오늘,<br class="br" />
+      오늘보다 내일 더 성장 하겠습니다.</span
+    >
+
+    <div class="list-con">
+      <div class="grid-box">
+        <span class="center bold">번호</span>
+        <div class="box">
+          <span class="bold">제목</span>
+          <span class="center bold">날짜</span>
+        </div>
+      </div>
+      <div class="list"></div>
+    </div>
+    <div class="page-box">
+      <span class="active">1</span>
+      <span>2</span>
+    </div>
+  </div>
+  <div class="detail-app">
+    <div class="title-box">
+      <span class="title">임시주주총회 소집공고</span>
+      <span class="date">2024.02.02</span>
+    </div>
+    <div class="content-con">
+      <div class="content-box">
+        <div class="title-box">
+          <span>1.주주님의 댁내에 평안과 행복이 가득하길 기원합니다.</span>
+          <span>2.당사의 유상증자를 위하여 아래와 같이 임시주주총회를 소집하오니 참석하여 주시기 바랍니다.</span>
+        </div>
+        <div class="sub">
+          <span>- 아 래 -</span>
+        </div>
+        <div class="content">
+          <span>1) 일 시 : 2023년 7월 31일(월) 오전 10시</span>
+          <span>2) 장 소 : 본점 회의실</span>
+          <span>3) 안 건</span>
+          <span>- 주주 임정민 단기차입금 1억원에 대한 유상증자의 건</span>
+          <span>4) 정기주주총회 참석시 지참서류</span>
+          <span> ① 직접행사 : 신분증 </span>
+          <span>② 대리행사 : 위임장(인감도장 날인), 위임인(주주)의 인감증명서 각 1부</span>
+        </div>
+      </div>
+    </div>
+    <div class="btn-box">
+      <a href="#/ir/cmpny">
+        <img src="/assets/images/icon/ico_menu.png" alt="" />
+        목록으로</a
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  .cmpny-con {
+    width: 1280px;
+  }
+
+  .cmpny-con > .list-app {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .cmpny-con > .list-app > .title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  .cmpny-con > .list-app > .list-con {
+    display: flex;
+    flex-direction: column;
+    border-top: solid 1px #111;
+    border-bottom: solid 1px #999999;
+  }
+
+  .cmpny-con > .list-app > .list-con .grid-box {
+    height: 62px;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    align-items: center;
+    border-top: solid 1px #eeeeee;
+    font-size: 16px;
+    color: #111;
+  }
+
+  .cmpny-con > .list-app > .list-con .grid-box > .box {
+    display: grid;
+    grid-template-columns: 7fr 1.5fr;
+  }
+
+  .cmpny-con > .list-app > .list-con .grid-box > .box > span {
+    line-height: 150%;
+  }
+
+  .cmpny-con > .list-app > .list-con .grid-box > .box > .eee {
+    color: #999999;
+  }
+
+  .cmpny-con > .list-app > .list-con .grid-box .center {
+    text-align: center;
+  }
+
+  .cmpny-con > .list-app > .list-con .grid-box .bold {
+    font-weight: 700;
+  }
+
+  .cmpny-con > .list-app > .page-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .cmpny-con > .list-app > .page-box > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    background: #eeeeee;
+    color: #fff;
+    border-radius: 18px;
+    cursor: pointer;
+  }
+
+  .cmpny-con > .list-app > .page-box > .active {
+    background-color: #111;
+  }
+
+  /* Detail */
+
+  .cmpny-con > .detail-app {
+    display: none;
+  }
+
+  .cmpny-con > .detail-app > .title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .cmpny-con > .detail-app > .title-box > .title {
+    font-size: 38px;
+    font-weight: 700;
+  }
+
+  .cmpny-con > .detail-app > .title-box > .date {
+    font-size: 16px;
+    color: #999;
+  }
+
+  .cmpny-con > .detail-app > .content-con {
+    padding: 40px 0px;
+    border-top: solid 2px #111;
+    border-bottom: solid 1px #333;
+    gap: 50px;
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+
+  .cmpny-con > .detail-app > .content-con > .content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: auto;
+  }
+
+  .cmpny-con > .detail-app > .content-con > .content-box span {
+    line-height: 180%;
+  }
+
+  .cmpny-con > .detail-app > .content-con > .content-box > .title-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cmpny-con > .detail-app > .content-con > .content-box > .sub {
+    text-align: center;
+  }
+
+  .cmpny-con > .detail-app > .content-con > .content-box > .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cmpny-con > .detail-app > .btn-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cmpny-con > .detail-app > .btn-box > a {
+    color: #111;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 15px 20px;
+    border: solid 1px #333;
+    border-radius: 25px;
+  }
+
+  .cmpny-con > .detail-app > .btn-box > a > img {
+    margin-right: 5px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .cmpny-con {
+      width: 100%;
+    }
+
+    .cmpny-con > .list-app > .title {
+      font-size: 24px;
+      line-height: 130%;
+    }
+
+    .cmpny-con > .list-app > .list-con > .grid-box:first-child {
+      display: none;
+    }
+
+    .cmpny-con > .list-app > .list-con .grid-box:nth-child(1) {
+      border-top: none;
+    }
+
+    .cmpny-con > .list-app > .list-con .grid-box {
+      height: auto;
+      padding: 20px 0px;
+      grid-template-columns: 1.5fr 7fr;
+      align-items: start;
+    }
+
+    .cmpny-con > .list-app > .list-con .grid-box > .box {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .cmpny-con > .list-app > .page-box > span {
+      height: 30px;
+      width: 30px;
+    }
+
+    /* Detail */
+    .cmpny-con > .detail-app > .title-box {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .cmpny-con > .detail-app > .title-box > .title {
+      font-size: 24px;
+    }
+
+    .cmpny-con > .detail-app > .content-con {
+      padding: 20px 0px;
+      gap: 30px;
+      font-size: 16px;
+    }
+
+    .cmpny-con > .detail-app > .content-con > .content-box {
+      gap: 30px;
+    }
+  }
+</style>

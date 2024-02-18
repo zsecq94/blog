@@ -1,0 +1,970 @@
+<script>
+  $(document).ready(() => {
+    let datas;
+    let startIdx = 0;
+    let activePageIdx = 0;
+    let endIdx = 10;
+
+    const $listApp = $(".recruit-con");
+    const $detailApp = $(".recruit-con2");
+    const $pageNav = $(".recruit-con > .con1 > .box2 > .list-app > .page-box > span");
+
+    const router = () => {
+      let route = window.location.hash.substr(2);
+
+      fileName = route.split("/");
+      if (fileName.length === 3 && fileName[0] === "pr") {
+        $listApp.css("display", "none");
+        $detailApp.css("display", "block");
+      }
+    };
+    $(window).on("hashchange", router);
+    router();
+
+    const $listCon = $(".recruit-con > .con1 > .box2 > .list-app > .list-con > .list");
+
+    const updateList = () => {
+      let html = "";
+      if (datas) {
+        for (let i = startIdx; i < endIdx; i++) {
+          html += `<a href="#/pr/recruit/${datas[i].number}" class="grid-box detail">
+                    <span class="center">${datas[i].number}</span>
+                    <div class="box">
+                      <span>${datas[i].title} </span>
+                      <span class="center eee">${datas[i].date}</span>
+                    </div>
+                  </a>`;
+        }
+        if (html !== undefined) {
+          $listCon.html(html);
+        }
+      }
+    };
+
+    const updateNavStyle = (idx) => {
+      $pageNav.eq(activePageIdx).removeClass("active");
+      $pageNav.eq(idx).addClass("active");
+      activePageIdx = idx;
+    };
+
+    fetch("/assets/json/pr/recruitDatas.json")
+      .then((response) => response.json())
+      .then((json) => {
+        datas = json;
+        updateList();
+      })
+      .catch((err) => {
+        console.log("err in getprDatas", err);
+      });
+
+    $pageNav.click(function () {
+      const idx = $(this).index();
+      startIdx = idx * 10;
+      endIdx = (idx + 1) * 10;
+      if (endIdx > datas.length) {
+        endIdx = datas.length;
+      }
+      updateNavStyle(idx);
+      updateList();
+    });
+  });
+</script>
+
+<div class="recruit-con">
+  <div class="con1">
+    <div class="box">
+      <p class="title">
+        <strong>모두가 새로운 에너지 생산과<br />소비 방식을 누리게 하고자 합니다</strong>
+      </p>
+      <p class="sub">
+        모두가 에너지를 쉽게 생산하고 소비할 수 있도록 렉스이노베이션은 혁신적인 IT, 데이터, 금융으로 새로운 에너지
+        생태계를 만들고 있습니다
+      </p>
+      <div class="grid-box">
+        <div class="card">
+          <div class="text-box">
+            <p class="title">
+              <strong>분산된 에너지 자원을<br />ICT 기술로 연결</strong>
+            </p>
+            <p class="sub">다양한 분산 에너지 자원을 플랫폼으로 모아 ICT 기술로 연결합니다</p>
+          </div>
+          <div class="img-box">
+            <img src="/assets/images/content/pr/recruit_01.png" alt="" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="text-box">
+            <p class="title">
+              <strong>연결된 에너지자원으로<br />새로운 기회 창출</strong>
+            </p>
+            <p class="sub">분산 에너지 자원을 AI 기술로 융합하여 새로운 VPP 연계 서비스를 만듭니다</p>
+          </div>
+          <div class="img-box">
+            <img src="/assets/images/content/pr/recruit_02.png" alt="" />
+          </div>
+        </div>
+        <div class="card">
+          <div class="text-box">
+            <p class="title">
+              <strong>에너지서비스(EaaS)<br />플랫폼으로 확장</strong>
+            </p>
+            <p class="sub">VPP 시장에서 공급자와 수요자가 자유롭게 거래하는 Energy as a Service 플랫폼을 구현합니다</p>
+          </div>
+          <div class="img-box">
+            <img src="/assets/images/content/pr/recruit_03.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="con2">
+    <p><strong>우리는 행동의 기준을 갖고 일합니다</strong></p>
+    <div class="box">
+      <p class="title"><strong>GROWTH</strong></p>
+      <img src="/assets/images/icon/ico_circle.png" alt="" />
+      <p class="sub">업무를 시작할 때</p>
+      <span
+        >회사의 목표에 따른 나의 역활을 알고<br />
+        높은 수준으로 업무에 몰입한다</span
+      >
+    </div>
+    <div class="box">
+      <p class="title"><strong>CUSTOMER</strong></p>
+      <img src="/assets/images/icon/ico_circle.png" alt="" />
+      <p class="sub">최우선 순위</p>
+      <span>고객의 가치와 경험을<br />최우선으로 고려한다</span>
+    </div>
+    <div class="box">
+      <p class="title"><strong>TEAM WORK</strong></p>
+      <img src="/assets/images/icon/ico_circle.png" alt="" />
+      <p class="sub">우리가 협력하는 방식</p>
+      <span
+        >나의 업무진행이 동료와 회사 전체에 주는<br />
+        영향력을 생각하며 수행한다</span
+      >
+    </div>
+    <div class="box">
+      <p class="title"><strong>RESPONSIBILITY</strong></p>
+      <img src="/assets/images/icon/ico_circle.png" alt="" />
+      <p class="sub">업무를 마무리할 때</p>
+      <span
+        >내 행동의 의미와 결과를 생각하며<br />
+        맡은 바를 끝까지 완수한다</span
+      >
+    </div>
+    <div class="box">
+      <p class="title"><strong>ACTION</strong></p>
+      <img src="/assets/images/icon/ico_circle.png" alt="" />
+      <p class="sub">업무를 진행할 때</p>
+      <span
+        >새로운 방식을 시도하며<br />
+        배운 것을 바로 적용한다</span
+      >
+    </div>
+  </div>
+  <div class="con1">
+    <div class="box2">
+      <p><strong>우리는 이런 문화를 가지고 있습니다</strong></p>
+      <div class="content">
+        <img src="/assets/images/content/pr/recruit_04.png" alt="" />
+        <div class="text-box">
+          <p>
+            <span class="num"><strong>1</strong></span
+            >탄력적 출퇴근제 시행 (평일 기준 8-5 , 9-6 , 10-7 제 활용가능)
+          </p>
+          <p>
+            <span class="num"><strong>2</strong></span
+            >타지역에서 입사 시 나주 빛가람동 소재 기숙사 제공 (도보 출퇴근 가능)
+          </p>
+          <p>
+            <span class="num"><strong>3</strong></span
+            >IT/에너지 관련 국가자격증 교보재/학습과정 제공 및 취득 시 자격수당 지급
+          </p>
+          <p>
+            <span class="num"><strong>4</strong></span
+            >회사에 대한 주인의식 함양을 위한 우리사주/스톡옵션 제도
+          </p>
+          <p>
+            <span class="num"><strong>5</strong></span
+            >연차 휴가의 보장 및 휴가 계획 이행 평가제 실시
+          </p>
+          <p>
+            <span class="num"><strong>6</strong></span
+            >회사의 연간 실적 결산 후 이익성과보상제 실시
+          </p>
+          <p>
+            <span class="num"><strong>7</strong></span
+            >연구소 직무 발명보상제 실시
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="con3">
+    <div class="box">
+      <p><strong>자주 묻는 질문</strong></p>
+      <div class="q-box">
+        <p><strong>Q.</strong></p>
+        <p><strong>서류전형은 어떻게 진행되나요?</strong></p>
+      </div>
+      <div class="a-box">
+        <p><strong>A.</strong></p>
+        <ul class="list-box">
+          <li>자유양식의 이력서(필수)와 포트폴리오(선택)를 제출 부탁드립니다.</li>
+          <li>
+            서류 심사 결과는 최대 일주일 정도 소요됩니다. 다만 간혹 내부 사정에 따라 지연되는 경우도 있으니 이점 양해
+            부탁 드립니다.
+          </li>
+          <li>
+            서류 심사 결과는 합격자에 한해 개별적으로 연락을 드리고 있습니다.<br />
+            그 외 전형은 결과에 상관없이 메일 또는 유선으로 결과 안내를 드리고 있으니 참고 부탁 드립니다.
+          </li>
+          <li>대부분 상시채용 포지션으로 따로 정해진 기간 없이 합격자가 발생하면 마감되니 빠르게 지원해주세요!</li>
+        </ul>
+      </div>
+      <div class="q-box">
+        <p><strong>Q.</strong></p>
+        <p><strong>여러 포지션에 지원해도 되나요?</strong></p>
+      </div>
+      <div class="a-box">
+        <p><strong>A.</strong></p>
+        <p>
+          네! 여러 포지션에 지원 가능하고, 가장 자신있는 포지션에 지원하셔도 괜찮습니다. 또한 역으로 지원자의 역량과
+          경험에 보다 <br />부합하는 포지션으로 제안드리기도 합니다
+        </p>
+      </div>
+      <div class="q-box">
+        <p><strong>Q.</strong></p>
+        <p><strong>인터뷰는 어떤 방식으로 진행되나요?</strong></p>
+      </div>
+      <div class="a-box">
+        <p><strong>A.</strong></p>
+        <ul class="list-box">
+          <li>
+            인터뷰 : 실무진분들과 직무 중심으로 인터뷰가 진행됩니다. 약 1시간 내외로 소요됩니다.<br />
+            직무적으로 궁금하신 점이 있으시면 1차 인터뷰 시 편하게 문의주세요.
+          </li>
+          <li>면접 복장은 자율 복장이니 편하게 오시면 됩니다</li>
+          <li>
+            해외 또는 지방에 거주 중인 후보자분들의 경우, 화상 인터뷰로 면접을 진행하실 수 있습니다.<br />
+            다만, 최종면접은 대면으로 진행하고 있습니다.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="con1">
+    <div class="box2">
+      <p><strong>렉스이노베이션에 지금 합류하세요</strong></p>
+      <div class="list-app">
+        <div class="list-con">
+          <div class="grid-box">
+            <span class="center bold">번호</span>
+            <div class="box">
+              <span class="bold">제목</span>
+              <span class="center bold">날짜</span>
+            </div>
+          </div>
+          <div class="list"></div>
+        </div>
+        <div class="page-box">
+          <span class="active">1</span>
+          <span>2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="recruit-con2">
+  <div class="detail-app">
+    <div class="title-box">
+      <span class="title">O&M 엔지니어(경력) O&M 엔지니어(경력) O&M 엔지니어(경력)</span>
+      <span class="date">2024.02.02</span>
+    </div>
+    <div class="content-con">
+      <div class="content-box"></div>
+    </div>
+    <div class="btn-box">
+      <a href="#/pr/recruit">
+        <img src="/assets/images/icon/ico_menu.png" alt="" />
+        목록으로</a
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  .recruit-con {
+    width: 100%;
+  }
+
+  .recruit-con > .con1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .recruit-con > .con1 > .box {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 1280px;
+    padding: 100px 0 150px;
+  }
+
+  .recruit-con > .con1 > .box > .title {
+    font-size: 38px;
+  }
+
+  .recruit-con > .con1 > .box > .sub {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .recruit-con > .con1 > .box > .grid-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .recruit-con > .con1 > .box > .grid-box > .card {
+    padding: 38px;
+    background-color: #fbfbfb;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 34px;
+    border: solid 1px #eee;
+  }
+
+  .recruit-con > .con1 > .box > .grid-box > .card > .text-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .recruit-con > .con1 > .box > .grid-box > .card > .text-box > .title {
+    font-size: 26px;
+  }
+
+  .recruit-con > .con1 > .box > .grid-box > .card > .text-box > .sub {
+    font-size: 16px;
+    color: #666;
+  }
+
+  .recruit-con > .con1 > .box > .grid-box > .card > .img-box {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+
+  .recruit-con > .con2 {
+    background-image: url("/assets/images/bg/bg_recruit01.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    padding: 150px 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .recruit-con > .con2 > p {
+    font-size: 60px;
+    color: #fff;
+  }
+
+  .recruit-con > .con2 > .box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -55%);
+    width: 320px;
+    height: 320px;
+    border-radius: 160px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .recruit-con > .con2 > .box:nth-child(2) {
+    top: 70%;
+    left: 38%;
+    z-index: 4;
+  }
+
+  .recruit-con > .con2 > .box:nth-child(3) {
+    top: 50%;
+    left: 26%;
+    z-index: 5;
+  }
+
+  .recruit-con > .con2 > .box:nth-child(4) {
+    top: 70%;
+    left: 62%;
+    z-index: 2;
+  }
+
+  .recruit-con > .con2 > .box:nth-child(5) {
+    top: 50%;
+    left: 74%;
+    z-index: 1;
+  }
+
+  .recruit-con > .con2 > .box > .title {
+    font-size: 30px;
+  }
+
+  .recruit-con > .con2 > .box > .sub {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .recruit-con > .con2 > .box > span {
+    font-size: 16px;
+    line-height: 160%;
+    color: #666;
+  }
+
+  .recruit-con > .con1 > .box2 {
+    display: flex;
+    flex-direction: column;
+
+    gap: 70px;
+    width: 1280px;
+    padding: 150px 0;
+  }
+
+  .recruit-con > .con1 > .box2 > p {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .recruit-con > .con1 > .box2 > .content {
+    display: flex;
+    gap: 30px;
+  }
+
+  .recruit-con > .con1 > .box2 > .content > img {
+    border-radius: 34px;
+  }
+
+  .recruit-con > .con1 > .box2 > .content > .text-box {
+    background-image: url("/assets/images/content/pr/recruit_05.png");
+    background-position: center;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    padding: 60px;
+    border-radius: 34px;
+    border: solid 2px #eee;
+  }
+
+  .recruit-con > .con1 > .box2 > .content > .text-box > p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .recruit-con > .con1 > .box2 > .content > .text-box > p > span {
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: #e8e8e8;
+  }
+
+  .recruit-con > .con3 {
+    width: 100%;
+    background-color: #e7edf1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .recruit-con > .con3 > .box {
+    width: 1280px;
+    padding: 120px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .recruit-con > .con3 > .box > p {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .recruit-con > .con3 > .box > .q-box {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    display: flex;
+    gap: 10px;
+  }
+
+  .recruit-con > .con3 > .box > .q-box > p {
+    font-size: 18px;
+  }
+
+  .recruit-con > .con3 > .box > .a-box {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    align-self: flex-end;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .recruit-con > .con3 > .box > .a-box:last-child {
+    margin-bottom: 0px;
+  }
+
+  .recruit-con > .con3 > .box > .a-box > p:nth-child(1) {
+    color: #f26933;
+  }
+
+  .recruit-con > .con3 > .box > .a-box > p {
+    font-size: 18px;
+  }
+
+  .recruit-con > .con3 > .box > .a-box > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .recruit-con > .con3 > .box > .a-box > ul > li {
+    margin-left: 25px;
+    list-style-type: disc;
+    line-height: 1.4;
+    font-size: 18px;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .list-con {
+    display: flex;
+    flex-direction: column;
+    border-top: solid 1px #111;
+    border-bottom: solid 1px #999999;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .list-con .grid-box {
+    height: 62px;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    align-items: center;
+    border-top: solid 1px #eeeeee;
+    font-size: 16px;
+    color: #111;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .list-con .grid-box > .box {
+    display: grid;
+    grid-template-columns: 7fr 1.5fr;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .list-con .grid-box > .box > span {
+    line-height: 150%;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .list-con .grid-box > .box > .eee {
+    color: #999999;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .list-con .grid-box .center {
+    text-align: center;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .list-con .grid-box .bold {
+    font-weight: 700;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .page-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .page-box > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    background: #eeeeee;
+    color: #fff;
+    border-radius: 18px;
+    cursor: pointer;
+  }
+
+  .recruit-con > .con1 > .box2 > .list-app > .page-box > .active {
+    background-color: #111;
+  }
+
+  /* Detail */
+
+  .recruit-con2 {
+    display: none;
+    width: 1280px;
+  }
+
+  .recruit-con2 > .detail-app > .title-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .recruit-con2 > .detail-app > .title-box > .title {
+    font-size: 38px;
+    font-weight: 700;
+  }
+
+  .recruit-con2 > .detail-app > .title-box > .date {
+    font-size: 16px;
+    color: #999;
+  }
+
+  .recruit-con2 > .detail-app > .content-con {
+    padding: 40px 0px;
+    border-top: solid 2px #111;
+    border-bottom: solid 1px #333;
+    gap: 50px;
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+
+  .recruit-con2 > .detail-app > .content-con > .content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: auto;
+  }
+
+  .recruit-con2 > .detail-app > .content-con > .content-box span {
+    line-height: 180%;
+  }
+
+  .recruit-con2 > .detail-app > .content-con > .content-box > .title-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .recruit-con2 > .detail-app > .content-con > .content-box > .sub {
+    text-align: center;
+  }
+
+  .recruit-con2 > .detail-app > .content-con > .content-box > .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .recruit-con2 > .detail-app > .btn-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .recruit-con2 > .detail-app > .btn-box > a {
+    color: #111;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 15px 20px;
+    border: solid 1px #333;
+    border-radius: 25px;
+  }
+
+  .recruit-con2 > .detail-app > .btn-box > a > img {
+    margin-right: 5px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .recruit-con {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .recruit-con > .con1 > .box {
+      gap: 20px;
+      width: 100%;
+      padding: 0px 24px;
+    }
+
+    .recruit-con > .con1 > .box > .title {
+      font-size: 24px;
+    }
+
+    .recruit-con > .con1 > .box > .sub {
+      font-size: 14px;
+    }
+
+    .recruit-con > .con1 > .box > .grid-box {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 30px;
+    }
+
+    .recruit-con > .con1 > .box > .grid-box > .card {
+      padding: 30px 20px;
+      gap: 30px;
+      border-radius: 15px;
+    }
+
+    .recruit-con > .con1 > .box > .grid-box > .card > .text-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .recruit-con > .con1 > .box > .grid-box > .card > .text-box > .title {
+      font-size: 26px;
+    }
+
+    .recruit-con > .con1 > .box > .grid-box > .card > .text-box > .sub {
+      font-size: 16px;
+    }
+
+    .recruit-con > .con1 > .box > .grid-box > .card > .img-box {
+      justify-content: center;
+    }
+
+    .recruit-con > .con2 {
+      height: 1500px;
+      width: 100%;
+      padding: 50px 24px;
+    }
+
+    .recruit-con > .con2 > p {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .recruit-con > .con2 > .box {
+      top: 54%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 280px;
+      border-radius: 140px;
+    }
+
+    .recruit-con > .con2 > .box:nth-child(2) {
+      top: 37%;
+      left: 50%;
+    }
+
+    .recruit-con > .con2 > .box:nth-child(3) {
+      top: 20%;
+      left: 50%;
+    }
+
+    .recruit-con > .con2 > .box:nth-child(4) {
+      top: 71%;
+      left: 50%;
+    }
+
+    .recruit-con > .con2 > .box:nth-child(5) {
+      top: 88%;
+      left: 50%;
+    }
+
+    .recruit-con > .con2 > .box > .title {
+      font-size: 24px;
+    }
+
+    .recruit-con > .con2 > .box > .sub {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .recruit-con > .con2 > .box > span {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .recruit-con > .con1 > .box2 {
+      gap: 40px;
+      width: 100%;
+      padding: 10px 24px;
+    }
+
+    .recruit-con > .con1 > .box2 > p {
+      font-size: 30px;
+    }
+
+    .recruit-con > .con1 > .box2 > .content {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .recruit-con > .con1 > .box2 > .content > img {
+      border-radius: 34px;
+    }
+
+    .recruit-con > .con1 > .box2 > .content > .text-box {
+      background-image: none;
+      gap: 20px;
+      padding: 0px;
+      border: none;
+    }
+
+    .recruit-con > .con1 > .box2 > .content > .text-box > p {
+      display: flex;
+      align-items: center;
+      line-height: 140%;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .recruit-con > .con1 > .box2 > .content > .text-box > p > span {
+      padding: 7px 14px;
+      font-size: 14px;
+    }
+
+    .recruit-con > .con3 > .box {
+      width: 100%;
+      padding: 50px 24px;
+    }
+
+    .recruit-con > .con3 > .box > p {
+      font-size: 30px;
+      margin-bottom: 30px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .recruit-con > .con3 > .box > .q-box {
+      padding: 14px;
+      border-radius: 15px;
+      background-color: #fff;
+      margin-bottom: 10px;
+      align-self: flex-start;
+      display: flex;
+      gap: 10px;
+    }
+
+    .recruit-con > .con3 > .box > .q-box > p {
+      font-size: 16px;
+    }
+
+    .recruit-con > .con3 > .box > .a-box {
+      padding: 14px;
+      border-radius: 15px;
+      background-color: #fff;
+      align-self: flex-end;
+      margin-bottom: 30px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .recruit-con > .con3 > .box > .a-box:last-child {
+      margin-bottom: 0px;
+    }
+
+    .recruit-con > .con3 > .box > .a-box > p:nth-child(1) {
+      color: #f26933;
+    }
+
+    .recruit-con > .con3 > .box > .a-box > p {
+      font-size: 16px;
+    }
+
+    .recruit-con > .con3 > .box > .a-box > ul > li {
+      margin-left: 25px;
+      list-style-type: disc;
+      line-height: 1.4;
+      font-size: 14px;
+    }
+
+    /* ////// */
+    .recruit-con > .con1 > .box2 {
+      width: 100%;
+    }
+
+    .recruit-con > .con1 > .box2 > .list-app > .title {
+      font-size: 24px;
+      line-height: 130%;
+    }
+
+    .recruit-con > .con1 > .box2 > .list-app > .list-con > .grid-box:first-child {
+      display: none;
+    }
+
+    .recruit-con > .con1 > .box2 > .list-app > .list-con .grid-box:nth-child(1) {
+      border-top: none;
+    }
+
+    .recruit-con > .con1 > .box2 > .list-app > .list-con .grid-box {
+      height: auto;
+      padding: 20px 0px;
+      grid-template-columns: 1.5fr 7fr;
+      align-items: start;
+    }
+
+    .recruit-con > .con1 > .box2 > .list-app > .list-con .grid-box > .box {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .recruit-con > .con1 > .box2 > .list-app > .page-box > span {
+      height: 30px;
+      width: 30px;
+    }
+
+    /* Detail */
+    .recruit-con2 > .detail-app > .title-box {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .recruit-con2 > .detail-app > .title-box > .title {
+      font-size: 24px;
+    }
+
+    .recruit-con2 > .detail-app > .content-con {
+      padding: 20px 0px;
+      gap: 30px;
+      font-size: 16px;
+    }
+
+    .recruit-con2 > .detail-app > .content-con > .content-box {
+      gap: 30px;
+    }
+  }
+</style>

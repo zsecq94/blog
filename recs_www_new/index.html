@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>렉스이노베이션</title>
+
+    <!-- cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=85249b34c60f080b80290c2ed3d4b135"
+      type="text/javascript"
+    ></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./index.css" type="text/css" />
+    <link rel="stylesheet" href="./test.css" type="text/css" />
+
+    <!-- javascript -->
+
+    <!-- router -->
+    <script src="./router/router.js"></script>
+    <script>
+      $(document).ready(() => {
+        $("#header").load("./layout/header.html");
+        $("#footer").load("./layout/footer.html");
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="header"></div>
+
+    <div id="app"></div>
+
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>

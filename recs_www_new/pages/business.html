@@ -1,0 +1,165 @@
+<script>
+  $(document).ready(() => {
+    let route = window.location.hash.substr(2).split("/");
+    const name =
+      route[1] === "renewable"
+        ? "재생에너지 발전"
+        : route[1] === "vpp"
+        ? "VPP <span class='light'>(가상발전소)</span>"
+        : route[1] === "ess"
+        ? "ESS <span class='light'>(에너지저장장치)</span>"
+        : route[1] === "p2v"
+        ? "Power to Vehicle <span class='light'>(P2V)</span>"
+        : route[1] === "dr"
+        ? "DR <span class='light'>(Demand Response)</span>"
+        : "Fintech";
+
+    const $categoryTitle = $(".business > .text-box > .category-box > .title");
+    const $textTitlt = $(".business > .text-box > .title");
+    const $textSub = $(".business > .text-box > .sub");
+
+    $categoryTitle.html(name);
+    $textTitlt.html(name);
+    $textSub.html(
+      "시장 선점 및 신기술 적용을 통한 에너지 산업 초 강소기업! 렉스이노베이션입니다."
+    );
+    // $textSub.html(name + " 페이지 " + "시장 선점 및 신기술 적용을 통한 에너지 산업 초 강소기업! 렉스이노베이션입니다.");
+  });
+</script>
+
+<div class="business">
+  <div class="text-box">
+    <div class="category-box">
+      <img class="home" src="/assets/images/icon/home_icon.png" alt="" />
+      <img class="next" src="/assets/images/icon/nextgray_icon.png" alt="" />
+      <span>사업소개</span>
+      <img class="next" src="/assets/images/icon/nextgray_icon.png" alt="" />
+      <span class="title"></span>
+    </div>
+    <div class="title"></div>
+    <div class="sub"></div>
+  </div>
+</div>
+<div id="business-content"></div>
+
+<style>
+  .business {
+    background-image: url("/assets/images/bg/bg_business.png");
+    background-position: center;
+    background-size: cover;
+    padding: 250px 0px;
+    width: 100%;
+    min-width: 1280px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .business > .text-box {
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    color: #fff;
+    padding: 0 24px;
+  }
+
+  .business > .text-box > .category-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .business > .text-box > .category-box > .home {
+    height: 18px;
+  }
+
+  .business > .text-box > .category-box > .next {
+    height: 12px;
+  }
+
+  .business > .text-box > .category-box > span {
+    font-size: 18px;
+    opacity: 0.5;
+    font-weight: 400;
+  }
+
+  .business > .text-box > .category-box > .title {
+    opacity: 1;
+    font-weight: 600;
+  }
+
+  .business > .text-box > .title .light {
+    font-weight: 200;
+  }
+
+  .business > .text-box > .title {
+    font-size: 82px;
+    font-weight: 700;
+  }
+
+  .business > .text-box > .sub {
+    font-size: 24px;
+    font-weight: 600;
+    width: 50%;
+    line-height: 140%;
+  }
+
+  #business-content {
+    width: 100%;
+    padding: 150px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    .business {
+      padding: 120px 0px;
+      min-width: 100%;
+
+      background-image: url("/assets/images/bg/bg_business.png");
+      background-position: right 10% center;
+      background-size: cover;
+    }
+
+    .business > .text-box {
+      margin-top: 50px;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .business > .text-box > .category-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .business > .text-box > .category-box > .home {
+      height: 12px;
+    }
+
+    .business > .text-box > .category-box > .next {
+      height: 10px;
+    }
+
+    .business > .text-box > .category-box > span {
+      font-size: 14px;
+    }
+
+    .business > .text-box > .title {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .business > .text-box > .sub {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    #business-content {
+      padding: 50px 24px;
+    }
+  }
+</style>
