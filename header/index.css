@@ -1,0 +1,244 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* ###############정렬방지###############*/
+html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center, button, textarea, input, select, option
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video
+    /* ###############정렬방지###############*/ {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  word-break: keep-all;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+.web {
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: 2fr 6fr 2fr;
+  padding: 25px 50px;
+  height: 90px;
+  transition: 0.3s;
+  overflow: hidden;
+  border-bottom: solid 1px #eee;
+}
+
+.web.active {
+  height: 370px;
+  background-color: #fff;
+}
+
+.web > .img-box > a > img {
+  width: 250px;
+}
+
+.web .gnb {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.web .gnb > li > a {
+  color: #fff;
+}
+
+.web .lnb {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 90px;
+  gap: 16px;
+  padding: 40px 0;
+}
+
+.web .lnb > a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+}
+
+.web .lnb > a > span {
+  color: #999;
+  font-weight: 400;
+}
+
+.web .lang-box {
+  text-align: end;
+}
+
+.web .lang-box > .menu-box {
+  display: none;
+}
+
+.web .lang-box > .lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: solid 1px #fff;
+  border-radius: 20px;
+  padding: 7px 15px;
+}
+
+.web .lang-box > .lang > .line {
+  width: 1px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.web .lang-box > .lang > span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .web {
+    display: none;
+  }
+
+  .mobile {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 24px;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+
+  .mobile.active {
+    height: 100%;
+    background-color: #fff;
+    overflow-y: auto;
+  }
+
+  .mobile > a > img {
+    width: 170px;
+    padding-top: 5px;
+  }
+
+  .mobile > .menu-box {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .mobile > .menu-box > .menu {
+    padding-top: 5px;
+    margin-left: 15px;
+  }
+
+  .mobile > .menu-box > .lang-box {
+    display: flex;
+    align-items: center;
+    border: solid 1px #fff;
+    border-radius: 20px;
+    padding: 6px 10px;
+    gap: 5px;
+  }
+
+  .mobile > .menu-box > .lang-box > span {
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .mobile > .gnb {
+    position: absolute;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 90%;
+    padding-bottom: 50px;
+  }
+
+  .mobile > .gnb > li {
+    box-sizing: border-box;
+    position: relative;
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+    align-items: flex-start;
+  }
+
+  .mobile > .gnb > li > a {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111;
+  }
+
+  .mobile > .gnb > li > .down-box {
+    text-align: end;
+  }
+  .mobile > .gnb > li > .down-box > img {
+    padding: 5px;
+  }
+
+  .mobile > .gnb > li > img {
+  }
+
+  .mobile > .gnb > li > .lnb {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-left: 24px;
+    flex-direction: column;
+    transition: 0.2s;
+    height: 0px;
+    overflow: hidden;
+  }
+
+  .mobile > .gnb > li > .lnb > a {
+    font-size: 16px;
+    color: #111;
+    width: 100%;
+  }
+}
+
+/* ///////////////// */
+/* ///////////////// */
+
+.app {
+  min-height: 100vh;
+  background-color: #04003a;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  background-color: #6e78ff;
+  color: #fff;
+}

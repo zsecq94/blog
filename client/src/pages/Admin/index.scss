@@ -68,5 +68,16 @@
       font-size: 18px;
       line-height: 130%;
     }
+    ul {
+      li {
+        margin-left: 20px;
+
+        ul {
+          li {
+            margin-left: 20px;
+          }
+        }
+      }
+    }
   }
 }
