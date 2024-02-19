@@ -19,18 +19,20 @@ export const saveBoard = async (req, res) => {
       if (err) {
         return res.status(422).send("an Error occured");
       }
-      const { title } = req.body;
+      const { title, category } = req.body;
       const mdFile = req.files.md[0].path;
       const thumbFile = req.files.thumb[0].path;
-      const query = `INSERT INTO board (title, thumb, md) VALUES (?, ?, ?)`;
-      connection.query(query, [title, thumbFile, mdFile], (err, data) => {
+      const query = `INSERT INTO board (title, thumb, md, category) VALUES (?, ?, ?, ?)`;
+      connection.query(query, [title, thumbFile, mdFile, category], (err, data) => {
         if (err) {
           console.log(err);
           return res.send({
+            state: false,
             message: "등록실패",
           });
         }
         return res.send({
+          state: true,
           message: "등록완료",
         });
       });

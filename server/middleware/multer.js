@@ -10,6 +10,7 @@ export const upload = multer({
       }
     },
     filename: function (req, file, cb) {
+      console.log(req);
       cb(null, `${Date.now()}_${file.originalname}`);
     },
   }),
