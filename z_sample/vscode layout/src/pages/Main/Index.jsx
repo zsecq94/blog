@@ -2,8 +2,8 @@ import "./Index.scss";
 
 const Main = () => {
   return (
-    <div>
-      <h2>메인 페이지</h2>
+    <div className="main-con">
+      <h2>Main</h2>
     </div>
   );
 };

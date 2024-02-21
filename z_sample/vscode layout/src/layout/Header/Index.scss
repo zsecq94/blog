@@ -1,0 +1,79 @@
+header {
+  position: fixed;
+  width: 100%;
+  padding: 5px 20px;
+  height: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: space-between;
+  background-color: #323232;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+
+  .gnb {
+    display: flex;
+    gap: 15px;
+
+    .circle-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      div {
+        width: 15px;
+        height: 15px;
+        border-radius: 10px;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .yellow {
+        background-color: rgb(232, 196, 19);
+      }
+
+      .green {
+        background-color: rgb(75, 249, 45);
+      }
+    }
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    input {
+      padding: 0 10px;
+      height: 70%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+    }
+
+    .img-box {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      img {
+        width: 17px;
+      }
+
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}
