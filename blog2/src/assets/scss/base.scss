@@ -7,9 +7,21 @@
   word-break: keep-all;
   margin: 0;
   padding: 0;
+  border: none;
+  text-decoration: none;
+  color: #111;
 }
 
 .app {
+  padding-top: 100px;
   min-height: 100vh;
-  background-color: #93cef5;
+  min-width: 1024px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.con {
+  width: 1024px;
 }
