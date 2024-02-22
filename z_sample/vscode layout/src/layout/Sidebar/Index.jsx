@@ -12,7 +12,10 @@ const Sidebar = () => {
     <div className="side-con">
       <div className="menu-box"></div>
       <div className="folder-box">
-        <ul>
+        <div>
+          <p>node_modules</p>
+        </div>
+        {/* <ul>
           <li
             className={activeMenu === "node_modules" ? "active" : ""}
             onClick={() => handleMenuClick("node_modules")}
@@ -87,7 +90,7 @@ const Sidebar = () => {
               </li>
             </ul>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );
