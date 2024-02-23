@@ -1,9 +1,9 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-@import "./common.scss";
+@import "header";
 
 * {
   box-sizing: border-box;
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
   word-break: keep-all;
   margin: 0;
   padding: 0;
@@ -11,6 +11,10 @@
   text-decoration: none;
   list-style: none;
   color: #111;
+}
+
+body {
+  height: 100%;
 }
 
 #app {
@@ -21,4 +25,8 @@
 
 button {
   background: transparent;
+}
+
+strong {
+  font-weight: 900;
 }

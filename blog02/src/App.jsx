@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Header from "@/components/Header/Index";
-import Footer from "@/components/Footer/Index";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-import Main from "@/pages/Main/Index";
-import Tech from "@/pages/Tech/Index";
-import Algo from "@/pages/Algo/Index";
-import Port from "@/pages/Port/Index";
-import Admin from "@/pages/Admin/Index";
-import Search from "@/pages/Search/Index";
-import Detail from "@/pages/Detail/Index";
+import Main from "@/pages/Main";
+import Tech from "@/pages/Tech";
+import Algo from "@/pages/Algo";
+import Port from "@/pages/Port";
+import Admin from "@/pages/Admin";
+import Search from "@/pages/Search";
+import Detail from "@/pages/Detail";
 
 const App = () => {
   return (

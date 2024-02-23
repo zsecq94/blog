@@ -1,0 +1,69 @@
+@import "variables";
+
+header {
+  position: fixed;
+  width: 100%;
+  min-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+
+  .con {
+    height: 50px;
+    padding: 0px 20px;
+    width: 1024px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+
+      a {
+        font-size: 24px;
+
+        strong {
+          color: $blue1;
+        }
+      }
+    }
+
+    .gnb-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      a {
+        font-size: 16px;
+        padding: 5px 10px;
+        transition: 0.5s;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: $gray4;
+        }
+      }
+
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .search-box {
+    height: 0px;
+    width: 100%;
+    background-color: $white;
+    transition: 0.3s;
+    border: solid 0px $gray4;
+
+    &.active {
+      height: 100px;
+      border-top: solid 1px $gray4;
+      border-bottom: solid 1px $gray4;
+    }
+  }
+}
