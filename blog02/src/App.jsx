@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 
 import Main from "@/pages/Main";
 import Tech from "@/pages/Tech";
+import Debug from "@/pages/Debug";
+import Component from "@/pages/Component";
 import Algo from "@/pages/Algo";
 import Port from "@/pages/Port";
 import Admin from "@/pages/Admin";
@@ -19,6 +21,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/tech" element={<Tech />}></Route>
+          <Route path="/debug" element={<Debug />}></Route>
+          <Route path="/algo" element={<Algo />}></Route>
+          <Route path="/component" element={<Component />}></Route>
           <Route path="/algo" element={<Algo />}></Route>
           <Route path="/port" element={<Port />}></Route>
           <Route path="/admin" element={<Admin />}></Route>

@@ -41,14 +41,27 @@ header {
         padding: 5px 10px;
         transition: 0.5s;
         border-radius: 5px;
+        color: $gray3;
 
         &:hover {
+          color: $black;
+          background-color: $gray4;
+        }
+
+        &.active {
+          color: $black;
           background-color: $gray4;
         }
       }
 
       img {
+        padding: 5px 10px;
+        transition: 0.5s;
+        border-radius: 5px;
         cursor: pointer;
+        &:hover {
+          background-color: $gray4;
+        }
       }
     }
   }
