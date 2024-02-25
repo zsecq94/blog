@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import Lottie from "react-lottie";
 import animationData from "@/assets/json/lottie/header_animate";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
@@ -15,10 +15,21 @@ const Header = () => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
+  const searchBoxRef = useRef(null);
 
-  const closeSearchBox = () => {
-    setActiveSearch(false);
+  const handleSearchBox = (event) => {
+    console.log(searchBoxRef.current.contains(event.target));
+    if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
+      setActiveSearch(false);
+    }
   };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleSearchBox);
+    return () => {
+      document.removeEventListener("mousedown", handleSearchBox);
+    };
+  }, []);
 
   const [activeSearch, setActiveSearch] = useState(false);
 
@@ -71,7 +82,21 @@ const Header = () => {
           />
         </ul>
       </div>
-      <div className={activeSearch ? "search-box active" : "search-box"}></div>
+      <div
+        ref={searchBoxRef}
+        className={activeSearch ? "search-box active" : "search-box"}
+      >
+        <div className="box">
+          <p>#React</p>
+          <p>#Vue</p>
+          <p>#Node</p>
+          <p>#백준</p>
+          <p>#프로그래머스</p>
+          <p>#버튼</p>
+          <p>#디자인 패턴</p>
+        </div>
+        <input className="inp" type="text" />
+      </div>
     </header>
   );
 };
