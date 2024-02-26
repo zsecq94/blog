@@ -24,6 +24,10 @@ const Header = () => {
     }
   };
 
+  const goDetail = () => {
+    setActiveSearch(false);
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleSearchBox);
     return () => {
@@ -45,47 +49,25 @@ const Header = () => {
           </div>
         </div>
         <ul className="gnb-box">
-          <Link
-            className={location.pathname === "/tech" ? "active" : ""}
-            to={"/tech"}
-          >
+          <Link className={location.pathname === "/tech" ? "active" : ""} to={"/tech"}>
             개발
           </Link>
-          <Link
-            className={location.pathname === "/debug" ? "active" : ""}
-            to={"/debug"}
-          >
+          <Link className={location.pathname === "/debug" ? "active" : ""} to={"/debug"}>
             디버그
           </Link>
-          <Link
-            className={location.pathname === "/algo" ? "active" : ""}
-            to={"/algo"}
-          >
+          <Link className={location.pathname === "/algo" ? "active" : ""} to={"/algo"}>
             알고리즘
           </Link>
-          <Link
-            className={location.pathname === "/component" ? "active" : ""}
-            to={"/component"}
-          >
+          <Link className={location.pathname === "/component" ? "active" : ""} to={"/component"}>
             컴포넌트
           </Link>
-          <Link
-            className={location.pathname === "/port" ? "active" : ""}
-            to={"/port"}
-          >
+          <Link className={location.pathname === "/port" ? "active" : ""} to={"/port"}>
             포트폴리오
           </Link>
-          <img
-            onClick={() => setActiveSearch(!activeSearch)}
-            src="/src/assets/images/icons/ico_search.png"
-            alt=""
-          />
+          <img onClick={() => setActiveSearch(!activeSearch)} src="/src/assets/images/icons/ico_search.png" alt="" />
         </ul>
       </div>
-      <div
-        ref={searchBoxRef}
-        className={activeSearch ? "search-box active" : "search-box"}
-      >
+      <div ref={searchBoxRef} className={activeSearch ? "search-box active" : "search-box"}>
         <div className="box">
           <p>#React</p>
           <p>#Vue</p>
@@ -95,7 +77,16 @@ const Header = () => {
           <p>#버튼</p>
           <p>#디자인 패턴</p>
         </div>
-        <input className="inp" type="text" />
+        <div className="inp-box">
+          <input className="inp" type="text" />
+          <button
+            onClick={() => {
+              goDetail();
+            }}
+          >
+            검색
+          </button>
+        </div>
       </div>
     </header>
   );
