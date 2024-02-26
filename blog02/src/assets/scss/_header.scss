@@ -16,6 +16,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
+    transition: 0.2s;
+
+    &.down {
+      height: 0px;
+    }
+
+    .menu-box {
+      display: none;
+    }
 
     .logo-box {
       @include row_center;
@@ -78,7 +88,7 @@ header {
     gap: 10px;
 
     &.active {
-      height: 100px;
+      height: 150px;
     }
 
     .category-box {
@@ -118,11 +128,104 @@ header {
         color: $white;
         background-color: $black;
         cursor: pointer;
+        transition: 0.2s;
 
         &:hover {
           opacity: 0.5;
         }
       }
+    }
+  }
+
+  .mb-gnb {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    @include col_center;
+    min-width: 100%;
+    flex-direction: column;
+    .con {
+      height: 40px;
+      padding: 0px 10px;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+
+      .logo-box {
+        padding-top: 10px;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+
+        a {
+          font-size: 18px;
+        }
+
+        .lottie-box {
+          position: absolute;
+          left: 100%;
+          top: -4px;
+        }
+      }
+
+      .gnb-box {
+        display: none;
+      }
+
+      .menu-box {
+        display: flex;
+        align-items: center;
+        padding-top: 7px;
+
+        img {
+          width: 25px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .mb-gnb {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      width: 100%;
+      gap: 20px;
+      height: 0px;
+      overflow: hidden;
+      transition: 0.2s;
+      padding: 0 30px;
+
+      &.active {
+        padding: 10px 30px;
+        height: 270px;
+      }
+
+      .inp-box {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        input {
+          width: 100%;
+          padding: 10px;
+          border: solid 1px $gray4;
+          border-radius: 5px;
+        }
+
+        button {
+          cursor: pointer;
+          padding: 10px;
+          background-color: $black;
+          color: $white;
+          border-radius: 5px;
+        }
+      }
+    }
+
+    .search-box {
+      display: none;
     }
   }
 }
