@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="message-box"></div>
+  </body>
+
+  <style>
+    body {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .message-box {
+      display: inline-block;
+      position: relative;
+      background: #fff;
+      border-radius: 5px;
+      height: 50px;
+      width: 200px;
+      margin: 0 auto 10px;
+      border: 1px solid #eee;
+      box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .message-box:after {
+      content: "";
+      position: absolute;
+      border-bottom: 10px solid #fff;
+      border-right: 14px solid transparent;
+      border-left: 14px solid transparent;
+      top: -9px;
+      left: 30px;
+    }
+
+    .message-box:before {
+      content: "";
+      position: absolute;
+      border-bottom: 11px solid #eee;
+      border-right: 15px solid transparent;
+      border-left: 15px solid transparent;
+      top: -11px;
+      left: 29px;
+    }
+  </style>
+</html>
