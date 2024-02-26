@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/algo" element={<Algo />}></Route>
           <Route path="/port" element={<Port />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
-          <Route path="/search" element={<Search />}></Route>
+          <Route path="/search/:inpVal" element={<Search />}></Route>
           <Route path="/Detail/:id" element={<Detail />}></Route>
         </Routes>
       </div>
