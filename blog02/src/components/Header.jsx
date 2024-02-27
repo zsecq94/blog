@@ -33,10 +33,7 @@ const Header = () => {
   };
 
   const clickOutside = (event) => {
-    if (
-      !event.target.closest(".search-box") &&
-      !event.target.closest(".ico_search")
-    ) {
+    if (!event.target.closest(".search-box") && !event.target.closest(".ico_search")) {
       setSearchBox(false);
     }
   };
@@ -90,52 +87,28 @@ const Header = () => {
         </div>
 
         <ul className="gnb-box">
-          <Link
-            className={location.pathname === "/tech" ? "active" : ""}
-            to={"/tech"}
-          >
+          <Link className={location.pathname === "/tech" ? "active" : ""} to={"/tech"}>
             개발
           </Link>
-          <Link
-            className={location.pathname === "/debug" ? "active" : ""}
-            to={"/debug"}
-          >
+          <Link className={location.pathname === "/debug" ? "active" : ""} to={"/debug"}>
             디버그
           </Link>
-          <Link
-            className={location.pathname === "/algo" ? "active" : ""}
-            to={"/algo"}
-          >
+          <Link className={location.pathname === "/algo" ? "active" : ""} to={"/algo"}>
             알고리즘
           </Link>
-          <Link
-            className={location.pathname === "/component" ? "active" : ""}
-            to={"/component"}
-          >
+          <Link className={location.pathname === "/component" ? "active" : ""} to={"/component"}>
             컴포넌트
           </Link>
-          <Link
-            className={location.pathname === "/port" ? "active" : ""}
-            to={"/port"}
-          >
+          <Link className={location.pathname === "/port" ? "active" : ""} to={"/port"}>
             포트폴리오
           </Link>
-          <img
-            className="ico_search"
-            onClick={handleSearchBox}
-            src="/src/assets/images/icons/ico_search.png"
-            alt=""
-          />
+          <img className="ico_search" onClick={handleSearchBox} src="/src/assets/images/icons/ico_search.png" alt="" />
         </ul>
 
         <div className="menu-box">
           <img
             onClick={() => setMbMenuOpen(!mbMenuOpen)}
-            src={
-              mbMenuOpen
-                ? "/src/assets/images/icons/ico_close.png"
-                : "/src/assets/images/icons/ico_menu.png"
-            }
+            src={mbMenuOpen ? "/src/assets/images/icons/ico_close.png" : "/src/assets/images/icons/ico_menu.png"}
             alt=""
           />
         </div>
