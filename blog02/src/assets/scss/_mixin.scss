@@ -10,3 +10,14 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin row {
+  display: flex;
+  align-items: center;
+}
+
+@mixin col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
