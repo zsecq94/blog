@@ -2,32 +2,18 @@
 @import "mixin";
 
 .main-con {
+  @include flex(column, null, null);
+  gap: 40px;
   width: 1024px;
   padding: 40px 20px;
 
   .newly-con {
-    @include col;
-    gap: 20px;
+    @include flex(column, null, null);
+    gap: 30px;
 
     p {
       font-size: 18px;
       font-weight: 600;
-    }
-
-    .card-con {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px 20px;
-    }
-  }
-
-  .card {
-    .img-box {
-      width: 100%;
-
-      img {
-        width: 100%;
-      }
     }
   }
 }
@@ -38,28 +24,12 @@
     padding: 40px 20px;
 
     .newly-con {
-      @include col;
+      @include flex(column, null, null);
       gap: 20px;
 
       p {
         font-size: 18px;
         font-weight: 600;
-      }
-
-      .card-con {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px 20px;
-      }
-    }
-
-    .card {
-      .img-box {
-        width: 100%;
-
-        img {
-          width: 100%;
-        }
       }
     }
   }

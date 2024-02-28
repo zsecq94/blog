@@ -1,4 +1,15 @@
+@import "variables";
+
 footer {
-  height: 100vh;
-  background-color: #eee;
+  width: 100%;
+  text-align: end;
+  padding: 20px 50px;
+  background-color: $light;
+
+  p {
+    font-size: 12px;
+    strong {
+      color: $blue1;
+    }
+  }
 }

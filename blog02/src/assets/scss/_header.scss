@@ -2,7 +2,7 @@
 @import "mixin";
 
 header {
-  @include col_center;
+  @include flex(column, center, center);
   position: fixed;
   width: 100%;
   min-width: 1024px;
@@ -28,7 +28,7 @@ header {
     }
 
     .logo-box {
-      @include row_center;
+      @include flex(row, center, center);
 
       a {
         font-size: 24px;
@@ -44,7 +44,7 @@ header {
     }
 
     .gnb-box {
-      @include row_center;
+      @include flex(row, center, center);
       gap: 20px;
 
       a {
@@ -78,7 +78,7 @@ header {
   }
 
   .search-box {
-    @include col_center;
+    @include flex(column, center, center);
     border-top: solid 1px $gray4;
     border-bottom: solid 1px $gray4;
     width: 100%;
@@ -92,7 +92,7 @@ header {
     }
 
     .category-box {
-      @include row_center;
+      @include flex(row, center, center);
       width: 100%;
       gap: 10px;
 
@@ -111,8 +111,7 @@ header {
       }
     }
     .inp-box {
-      display: flex;
-      align-items: center;
+      @include flex(row, center, null);
       gap: 10px;
 
       input {
@@ -144,21 +143,20 @@ header {
 
 @media screen and (max-width: 768px) {
   header {
-    @include col_center;
+    @include flex(column, center, center);
     min-width: 100%;
     flex-direction: column;
     .con {
       height: 50px;
       padding: 0px 10px;
       width: 100%;
-      display: flex;
-      align-items: flex-start;
+
+      @include flex(row, flex-start, null);
 
       .logo-box {
         padding-top: 13px;
         position: relative;
-        display: flex;
-        align-items: flex-start;
+        @include flex(row, flex-start, null);
 
         a {
           font-size: 20px;
@@ -176,8 +174,7 @@ header {
       }
 
       .menu-box {
-        display: flex;
-        align-items: center;
+        @include flex(row, center, null);
         padding-top: 13px;
 
         img {
@@ -188,9 +185,7 @@ header {
     }
 
     .mb-gnb {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
+      @include flex(column, start, null);
       width: 100%;
       gap: 20px;
       height: 0px;
@@ -204,8 +199,8 @@ header {
       }
 
       .inp-box {
-        width: 100%;
         display: flex;
+        width: 100%;
         gap: 10px;
         input {
           width: 100%;
@@ -215,6 +210,7 @@ header {
         }
 
         button {
+          width: 20%;
           cursor: pointer;
           padding: 10px;
           background-color: $black;
