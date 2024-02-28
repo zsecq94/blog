@@ -13,6 +13,7 @@ import Admin from "@/pages/Admin";
 import Search from "@/pages/Search";
 import Detail from "@/pages/Detail";
 
+
 const App = () => {
   return (
     <BrowserRouter>

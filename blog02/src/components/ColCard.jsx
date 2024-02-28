@@ -25,7 +25,7 @@ const ColCard = ({ data }) => {
               </strong>
             </div>
             <div className="message">
-              <FcComments color="yellow" />
+              <FcComments />
               <strong>
                 <span>{data.comment}</span>
               </strong>
