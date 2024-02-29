@@ -1,18 +1,8 @@
-import mysql from "mysql";
+import Sequelize from "sequelize";
 
-const connection = mysql.createConnection({
+const sequelize = new Sequelize("blog", "root", "1234", {
   host: "127.0.0.1",
-  user: "root",
-  password: "1234",
-  database: "blog_db",
+  dialect: "mysql",
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected to database as id " + connection.threadId);
-});
-
-export default connection;
+export default sequelize;
