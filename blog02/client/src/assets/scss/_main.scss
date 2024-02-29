@@ -1,0 +1,30 @@
+@import "variables";
+@import "mixin";
+
+.main-con {
+  @include flex(column, null, null);
+  gap: 50px;
+  width: 1024px;
+  padding: 40px 20px;
+
+  .title {
+    font-size: 20px;
+  }
+
+  .card-con {
+    @include flex(column, null, null);
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-con {
+    width: 100%;
+    padding: 40px 20px;
+
+    .card-con {
+      @include flex(column, null, null);
+      gap: 30px;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import "variables";
+
+footer {
+  width: 100%;
+  text-align: end;
+  padding: 20px 50px;
+  background-color: $white;
+
+  p {
+    font-size: 12px;
+    strong {
+      color: $blue1;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    text-align: center;
+    padding: 20px 20px;
+  }
+}
