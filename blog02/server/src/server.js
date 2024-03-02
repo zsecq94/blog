@@ -17,7 +17,7 @@ app.use(express.json());
 const PORT = 3000;
 
 try {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
   console.log("✅ DB 연결 성공");
 } catch (error) {
   console.error("⛔ DB 연결 실패 : ", error);

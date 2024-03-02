@@ -1,5 +1,6 @@
 import { FcLike } from "react-icons/fc";
 import { FcComments } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const ColCard = ({ data }) => {
   const categoryData = ["Javascript", "React", "Scss"];
@@ -11,7 +12,7 @@ const ColCard = ({ data }) => {
   };
 
   return (
-    <div className="col-card">
+    <Link to={`/detail/${data.id}`} className="col-card">
       <div className="img-box">
         <img src={data.imgSrc} alt="" />
         <div className="gradient-overlay"></div>
@@ -51,7 +52,7 @@ const ColCard = ({ data }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
