@@ -1,0 +1,8 @@
+@import "@/assets/scss/_mixin.scss";
+
+header {
+  @include flex(row, center, space-between);
+  position: fixed;
+  z-index: 1;
+  background-color: #fff;
+}
