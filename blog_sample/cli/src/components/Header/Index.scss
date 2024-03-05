@@ -1,8 +1,58 @@
-@import "@/assets/scss/_mixin.scss";
+@import "@/assets/scss/mixin.scss";
+@import "@/assets/scss/variables.scss";
 
 header {
-  @include flex(row, center, space-between);
+  @include flex(row, center, center);
   position: fixed;
+  width: 100%;
   z-index: 1;
-  background-color: #fff;
+  background-color: rgba($color: #f6f8fa, $alpha: 0.8);
+  backdrop-filter: blur(10px);
+
+  article {
+    @include flex(row, center, space-between);
+    width: 1024px;
+    padding: 8px 20px;
+
+    section:nth-child(1) {
+      @include flex(row, center, center);
+
+      .logo {
+        margin-right: 50px;
+      }
+
+      .gnb {
+        @include flex(row, center, center);
+        gap: 20px;
+
+        a {
+          color: #999;
+          transition: 0.5s;
+          padding: 3px 6px;
+          border-radius: 5px;
+        }
+
+        a:hover {
+          color: #111;
+          background-color: #fff;
+        }
+      }
+    }
+
+    section:nth-child(2) {
+      input {
+        font-size: 15px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: solid 1px #eee;
+        background-color: #f6f8fa;
+        transition: 0.5s;
+
+        &:focus {
+          border: solid 1px $blue1;
+          background-color: #fff;
+        }
+      }
+    }
+  }
 }

@@ -1,6 +1,7 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 @import "mixin";
+@import "variables";
 
 body {
   font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
@@ -32,6 +33,11 @@ li {
   list-style: none;
 }
 
+input:focus {
+  outline: none;
+}
+
 #app {
-  min-height: 100vh;
+  min-height: 150vh;
+  padding-top: 60px;
 }
