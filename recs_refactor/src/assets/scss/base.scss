@@ -34,9 +34,14 @@ input:focus {
   outline: none;
 }
 
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
 main {
   min-height: 100vh;
-  background: url("/src/assets/images/bg/main01.png") no-repeat center/cover;
+  background: url("/src/assets/images/bg/main05.png") no-repeat center/cover;
 }
 
 @import "header";

@@ -1,78 +1,49 @@
 <script>
   $(document).ready(() => {
-    const $Gnb = $("header > article > .gnb");
-    const $Header = $("header");
-    const $HeaderLogo = $("header > article > .logo > img");
-    const $HeaderMenu = $("header > article > .gnb > li > a");
     const $Article = $("header > article");
-    const $LangIcon = $("header > article > .lang-con > .lang-box > img");
+    const $Gnb = $("header > article > .gnb");
     const $LangBox = $("header > article > .lang-con > .lang-box");
-    const $LangSpan = $("header > article > .lang-con > .lang-box > span");
-    const $LangLine = $("header > article > .lang-con > .lang-box > p");
+    const $LangList = $("header > article > .lang-con > .lang-box > .select-box");
+    const $LangSpan = $("header > article > .lang-con > .lang-box > .select-box > span");
 
+    let isGnbOpen = false;
     let lang = "KR";
-    let isMenuOpen = false;
 
     const addActiveClass = () => {
-      isMenuOpen = true;
-      $Header.addClass("active");
+      isGnbOpen = !isGnbOpen;
+      $Article.addClass("active");
+      $Gnb.addClass("active");
       updateHeaderStyle(true);
     };
 
     const removeActiveClass = () => {
-      isMenuOpen = false;
-      $Header.removeClass("active");
+      isGnbOpen = !isGnbOpen;
+      $Article.removeClass("active");
+      $Gnb.removeClass("active");
       updateHeaderStyle(false);
     };
 
     $Gnb.mouseenter(addActiveClass);
-    $Header.mouseleave(removeActiveClass);
+    $Article.mouseleave(removeActiveClass);
 
-    const updateHeaderStyle = (state) => {
-      $HeaderLogo.attr("src", state ? "/src/assets/images/logo/logo02.png" : "/src/assets/images/logo/logo01.png");
-      $LangIcon.attr(
-        "src",
-        state ? "/src/assets/images/icons/ico_lang01.png" : "/src/assets/images/icons/ico_lang02.png"
-      );
-      $HeaderMenu.css({ color: state ? "#111" : "#fff" });
-      $Article.css({ borderBottom: state ? "#eee" : "none" });
-      $LangBox.css({ border: state ? "solid 1px rgba(0, 0, 0, 0.5)" : "solid 1px #fff" });
-      $LangLine.css({ color: state ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)" });
-      $LangSpan.each(function () {
-        $(this).css({ color: getLangSpanColor($(this).text(), state) });
-      });
-    };
-
-    const getLangSpanColor = (currentText, state) => {
-      if (state) {
-        return lang === currentText ? "#111" : "rgba(0, 0, 0, 0.5)";
-      } else {
-        return lang === currentText ? "#fff" : "rgba(255, 255, 255, 0.5)";
-      }
-    };
-
-    $LangSpan.click(function () {
-      lang = $(this).text();
-      updateHeaderStyle(isMenuOpen ? true : false);
+    $LangBox.click(() => {
+      $LangList.toggleClass("active");
     });
 
-    $Gnb.find("li > a").hover(
-      function () {
-        $(this).css({ color: "#F26933" });
-      },
-      function () {
-        $(this).css({ color: "#111" });
-      }
-    );
+    $LangSpan.click(function () {
+      let currentIdx = $(this).index();
+      lang = currentIdx === 0 ? "KR" : currentIdx === 1 ? "CN" : "EN";
+      console.log(lang);
+    });
 
-    updateHeaderStyle(false);
+    const updateHeaderStyle = (state) => {};
   });
 </script>
 
 <article>
-  <a href="#" class="logo">
+  <section class="logo-box">
     <img src="/src/assets/images/logo/logo01.png" alt="" />
-  </a>
+  </section>
 
   <ul class="gnb">
     <li>
@@ -98,6 +69,7 @@
         <a href="#/business/fintech">Fintech</a>
       </ul>
     </li>
+
     <li>
       <a href="#/tech/ai">보유기술</a>
       <ul class="lnb">
@@ -107,6 +79,7 @@
         <a href="#/tech/result">시험성적</a>
       </ul>
     </li>
+
     <li>
       <a href="#/ir/notice">IR</a>
       <ul class="lnb">
@@ -115,6 +88,7 @@
         <a href="#/ir/investment">투자하기</a>
       </ul>
     </li>
+
     <li>
       <a href="#/pr/news">PR</a>
       <ul class="lnb">
@@ -131,9 +105,11 @@
   <section class="lang-con">
     <div class="lang-box">
       <span>KR</span>
-      <p>|</p>
-      <span>EN</span>
-      <img src="/src/assets/images/icons/ico_lang02.png" alt="" />
+      <div class="select-box">
+        <span>KR</span>
+        <span>CN</span>
+        <span>EN</span>
+      </div>
     </div>
   </section>
 </article>

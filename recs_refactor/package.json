@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass -w ./src/assets/scss -o ./src/assets/css",
-    "serve": "browser-sync start --server --files 'css/*.css, *.html'"
+    "scss": "node-sass -w ./src/assets/scss -o ./src/assets/css"
   },
   "keywords": [],
   "author": "",
