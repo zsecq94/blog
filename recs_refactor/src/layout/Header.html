@@ -1,53 +1,179 @@
 <script>
   $(document).ready(() => {
+    const $Header = $("header");
+    const $HeaderLogo = $("header > article > .logo-box > a > img");
+    const $HeaderGnbMenu = $("header > article > .gnb > li > a");
     const $Article = $("header > article");
     const $Gnb = $("header > article > .gnb");
     const $LangBox = $("header > article > .lang-con > .lang-box");
+    const $LangP = $("header > article > .lang-con > .lang-box > p");
     const $LangList = $("header > article > .lang-con > .lang-box > .select-box");
-    const $LangSpan = $("header > article > .lang-con > .lang-box > .select-box > span");
+    const $LangListP = $("header > article > .lang-con > .lang-box > .select-box > p");
+    const $MenuIcon = $("header > article > .lang-con > .menu-box > img");
+    const $GnbDownIcon = $("header > article > .gnb > li > img");
+    const $ATag = $("header > article > .gnb a");
 
-    let isGnbOpen = false;
+    let isMenuOpen = false;
+    let scrollCheck = false;
     let lang = "KR";
+    let isWeb = 768 < $(window).innerWidth();
+    let scrollY = 0;
 
     const addActiveClass = () => {
-      isGnbOpen = !isGnbOpen;
+      isMenuOpen = true;
       $Article.addClass("active");
       $Gnb.addClass("active");
       updateHeaderStyle(true);
     };
 
     const removeActiveClass = () => {
-      isGnbOpen = !isGnbOpen;
+      isMenuOpen = false;
       $Article.removeClass("active");
       $Gnb.removeClass("active");
-      updateHeaderStyle(false);
+      updateHeaderStyle(scrollCheck ? true : false);
     };
 
-    $Gnb.mouseenter(addActiveClass);
-    $Article.mouseleave(removeActiveClass);
+    const toggleMbMenu = () => {
+      isMenuOpen = !isMenuOpen;
+      $Article.toggleClass("active");
+      $Gnb.toggleClass("active");
+      updateHeaderStyle(isMenuOpen ? true : scrollCheck ? true : false);
+      $("body").toggleClass("no-scroll");
+      if (!isMenuOpen) {
+        $GnbDownIcon.removeClass("rotate");
+        $GnbDownIcon.siblings(".lnb").css({ display: "none" });
+      }
+    };
 
-    $LangBox.click(() => {
+    if (isWeb) {
+      $Gnb.mouseenter(addActiveClass);
+      $Article.mouseleave(removeActiveClass);
+
+      $HeaderGnbMenu.hover(
+        function () {
+          $(this).css({ color: "#f26933" });
+        },
+        function () {
+          $(this).css({ color: "#111" });
+        }
+      );
+    } else {
+      $ATag.click(() => {
+        toggleMbMenu();
+      });
+    }
+
+    $MenuIcon.click(() => {
+      toggleMbMenu();
+    });
+
+    $GnbDownIcon.click(function () {
+      let $lnb = $(this).siblings(".lnb");
+
+      if ($lnb.is(":visible")) {
+        $lnb.slideUp(() => {
+          $lnb.css({ display: "none" });
+        });
+        $(this).removeClass("rotate");
+      } else {
+        $lnb.css({ display: "flex" }).hide().slideDown();
+        $(this).addClass("rotate");
+      }
+    });
+
+    $LangBox.click((e) => {
+      e.stopPropagation();
       $LangList.toggleClass("active");
     });
 
-    $LangSpan.click(function () {
-      let currentIdx = $(this).index();
-      lang = currentIdx === 0 ? "KR" : currentIdx === 1 ? "CN" : "EN";
-      console.log(lang);
+    $(document).click(() => {
+      $LangList.removeClass("active");
     });
 
-    const updateHeaderStyle = (state) => {};
+    $LangListP.click(function () {
+      let currentIdx = $(this).index();
+
+      lang = currentIdx === 0 ? "KR" : currentIdx === 1 ? "CN" : "EN";
+
+      updateHeaderStyle(scrollCheck ? true : isMenuOpen ? true : false);
+    });
+
+    $(window).scroll(function () {
+      let currentScrollTop = $(this).scrollTop();
+
+      if (currentScrollTop >= 200) {
+        scrollCheck = true;
+        updateHeaderStyle(scrollCheck);
+      } else {
+        scrollCheck = false;
+        updateHeaderStyle(isMenuOpen ? true : false);
+      }
+
+      if (!isWeb) {
+        if (currentScrollTop > 200 && currentScrollTop > scrollY) {
+          $Header.css({ top: "-10%" });
+        } else {
+          $Header.css({ top: "0%" });
+        }
+        scrollY = currentScrollTop;
+      }
+    });
+
+    const getHeaderBgColor = (state) => {
+      return state
+        ? {
+            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            backdropFilter: "blur(10px)",
+          }
+        : {
+            backgroundColor: "transparent",
+            backdropFilter: "blur(0px)",
+          };
+    };
+
+    const updateHeaderStyle = (state) => {
+      $HeaderLogo.attr("src", state ? "/src/assets/images/logo/logo02.png" : "/src/assets/images/logo/logo01.png");
+      $MenuIcon.attr(
+        "src",
+        isMenuOpen
+          ? "/src/assets/images/icons/ico_close.png"
+          : state
+          ? "/src/assets/images/icons/ico_menu02.png"
+          : "/src/assets/images/icons/ico_menu01.png"
+      );
+
+      if (isWeb) {
+        $HeaderGnbMenu.css({ color: state ? "#111" : "#fff" });
+      }
+      $Header.css(getHeaderBgColor(state));
+      $LangBox.css({ border: `solid 1px ${state ? "rgba(0, 0, 0, 0.1)" : "#fff"}` });
+      $LangP
+        .css({ color: state ? "#111" : "#fff" })
+        .text(lang)
+        .attr("class", lang);
+
+      if (state) {
+        $LangP.addClass("active");
+      } else {
+        $LangP.removeClass("active");
+      }
+    };
+
+    updateHeaderStyle(false);
   });
 </script>
 
 <article>
   <section class="logo-box">
-    <img src="/src/assets/images/logo/logo01.png" alt="" />
+    <a href="/">
+      <img src="/src/assets/images/logo/logo01.png" alt="" />
+    </a>
   </section>
 
   <ul class="gnb">
     <li>
       <a href="#/about/greeting">회사소개</a>
+      <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
       <ul class="lnb">
         <a href="#/about/greeting">인사말</a>
         <a href="#/about/history">연혁</a>
@@ -60,6 +186,7 @@
 
     <li>
       <a href="#/business/renewable">비즈니스 분야</a>
+      <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
       <ul class="lnb">
         <a href="#/business/renewable">재생에너지 발전</a>
         <a href="#/business/vpp">VPP <span>(가상발전소)</span></a>
@@ -72,6 +199,7 @@
 
     <li>
       <a href="#/tech/ai">보유기술</a>
+      <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
       <ul class="lnb">
         <a href="#/tech/ai">AI 빅데이터센터</a>
         <a href="#/tech/patent">기술 특허 현황</a>
@@ -82,6 +210,7 @@
 
     <li>
       <a href="#/ir/notice">IR</a>
+      <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
       <ul class="lnb">
         <a href="#/ir/notice">공지사항</a>
         <a href="#/ir/cmpny">기업정보(IR)</a>
@@ -91,6 +220,7 @@
 
     <li>
       <a href="#/pr/news">PR</a>
+      <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
       <ul class="lnb">
         <a href="#/pr/news">NEWS</a>
         <a href="#/pr/promotion">홍보영상</a>
@@ -104,12 +234,16 @@
 
   <section class="lang-con">
     <div class="lang-box">
-      <span>KR</span>
+      <p>KR</p>
       <div class="select-box">
-        <span>KR</span>
-        <span>CN</span>
-        <span>EN</span>
+        <p>KR</p>
+        <p>CN</p>
+        <p>EN</p>
       </div>
+    </div>
+
+    <div class="menu-box">
+      <img src="/src/assets/images/icons/ico_menu01.png" alt="" />
     </div>
   </section>
 </article>

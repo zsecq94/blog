@@ -5,13 +5,15 @@ header {
   position: fixed;
   z-index: 10;
   width: 100%;
+  min-width: 1280px;
+  transition: 0.5s;
 
   article {
     display: grid;
     grid-template-columns: 2fr 6fr 2fr;
     width: 100%;
     height: 100px;
-    padding: 34px 50px;
+    padding: 28px 50px;
     transition: 0.3s;
 
     &.active {
@@ -20,7 +22,7 @@ header {
     }
 
     .logo-box {
-      @include flex(row, flex-start, start);
+      @include flex(row);
       img {
         width: 250px;
       }
@@ -28,7 +30,6 @@ header {
 
     .gnb {
       @include flex(row, flex-start, space-evenly);
-      @include font(18px, 700, #fff);
       padding-top: 10px;
       height: 50px;
       overflow: hidden;
@@ -39,6 +40,13 @@ header {
       }
 
       li {
+        img {
+          display: none;
+        }
+
+        a {
+          @include font(18px, 600, #fff);
+        }
         .lnb {
           @include flex(column, flex-start, flex-start, 16px);
           margin-top: 40px;
@@ -53,6 +61,7 @@ header {
             &:hover {
               color: #f26933;
               text-decoration: underline 1px #f26933;
+
               span {
                 color: #f26933;
               }
@@ -72,7 +81,7 @@ header {
         position: relative;
 
         .select-box {
-          @include flex(column, center, center, 14px);
+          @include flex(column, center, center);
           @include border(#eee, 20px);
           position: absolute;
           top: 130%;
@@ -85,15 +94,16 @@ header {
           opacity: 0;
 
           &.active {
+            @include border(#eee, 20px);
             opacity: 1;
             height: 110px;
-            @include border(#eee, 20px);
           }
 
-          span {
+          p {
             @include font(16px, 500, #111);
             width: 100%;
             text-align: center;
+            padding: 7px 0;
 
             &:before {
               content: "";
@@ -123,17 +133,21 @@ header {
           }
         }
 
-        > span {
+        > p {
           @include flex(row, center, center);
           @include font(16px, 500, #fff);
 
           &:after {
             content: "";
             display: inline-block;
-            width: 18px;
-            height: 10px;
+            width: 20px;
+            height: 12px;
             background: url("/src/assets/images/icons/ico_lang-down01.png") no-repeat center/cover;
             margin-left: 6px;
+          }
+
+          &.active:after {
+            background: url("/src/assets/images/icons/ico_lang-down02.png") no-repeat center/cover;
           }
 
           &:before {
@@ -141,8 +155,139 @@ header {
             display: inline-block;
             width: 16px;
             height: 12px;
-            background: url("/src/assets/images/icons/ico_kr.png") no-repeat center/cover;
             margin-right: 6px;
+          }
+
+          &.KR:before {
+            background: url("/src/assets/images/icons/ico_kr.png") no-repeat center/cover;
+          }
+
+          &.CN:before {
+            background: url("/src/assets/images/icons/ico_cn.png") no-repeat center/cover;
+          }
+
+          &.EN:before {
+            background: url("/src/assets/images/icons/ico_en.png") no-repeat center/cover;
+          }
+        }
+      }
+
+      .menu-box {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    min-width: 100%;
+    transition: 0.3s;
+
+    article {
+      @include flex(column, flex-start, flex-start);
+      height: 70px;
+      padding: 20px 0px;
+
+      &.active {
+        height: 100vh;
+      }
+
+      .logo-box {
+        @include flex(row, flex-start, start);
+        margin-top: 2px;
+        padding-left: 24px;
+        img {
+          width: 170px;
+        }
+      }
+
+      .gnb {
+        @include flex(column, flex-start, flex-start, 40px);
+        margin-top: 40px;
+        padding: 0 24px;
+        height: 0px;
+        overflow: hidden;
+        width: 100%;
+
+        &.active {
+          height: 100%;
+          overflow-y: auto;
+        }
+
+        li {
+          position: relative;
+          width: 100%;
+
+          &:last-child {
+            padding-bottom: 60px;
+          }
+
+          img {
+            display: block;
+            position: absolute;
+            right: 0px;
+            width: 24px;
+            transition: 0.3s;
+            padding: 5px;
+            top: 5px;
+
+            &.rotate {
+              transform: rotate(180deg);
+            }
+          }
+
+          a {
+            @include font(24px, 600, #111);
+          }
+
+          .lnb {
+            display: none;
+            gap: 30px;
+            margin-top: 0px;
+            width: 100%;
+            padding: 0px 16px;
+            height: auto;
+
+            a {
+              font-size: 16px;
+
+              span {
+                font-size: 16px;
+              }
+
+              &:nth-child(1) {
+                padding-top: 40px;
+              }
+            }
+          }
+        }
+      }
+
+      .lang-con {
+        position: absolute;
+        right: 24px;
+        top: 20px;
+        gap: 15px;
+
+        .lang-box {
+          padding: 4px 10px;
+
+          > p {
+            text-indent: -999px;
+
+            &:after {
+              margin-left: 0px;
+            }
+          }
+        }
+
+        .menu-box {
+          display: block;
+          padding-top: 5px;
+
+          img {
+            width: 20px;
           }
         }
       }
