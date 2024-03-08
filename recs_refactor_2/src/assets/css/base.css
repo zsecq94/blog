@@ -1,0 +1,61 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
+  -webkit-font-smoothing: antialiased; }
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+input:focus {
+  outline: none; }
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%; }
+
+main {
+  min-height: 100vh;
+  background: url("/src/assets/images/bg/main05.png") no-repeat center/cover; }
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0px;
+  position: fixed;
+  width: 100%;
+  height: 100px; }
+  header .logo-box a img {
+    width: 250px; }
+  header .gnb {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0px;
+    width: 1000px; }
+    header .gnb li {
+      transition: margin 0.5s; }
+    header .gnb.active li {
+      margin: 0 10px; }
+
+footer {
+  min-height: 100vh; }

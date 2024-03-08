@@ -1,0 +1,31 @@
+@import "mixin";
+
+header {
+  @include flex(row, flex-start, space-between);
+  position: fixed;
+  width: 100%;
+  height: 100px;
+
+  .logo-box {
+    a {
+      img {
+        width: 250px;
+      }
+    }
+  }
+
+  .gnb {
+    @include flex(row, center, space-evenly);
+    width: 1000px;
+
+    li {
+      transition: margin 0.5s;
+    }
+
+    &.active {
+      li {
+        margin: 0 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@mixin flex($direction: row, $align: flex-start, $justify: flex-start, $gap: 0px) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin border($color: transparent, $radius: 0px) {
+  border: solid 1px $color;
+  border-radius: $radius;
+}
+
+@mixin font($size: 16px, $weight: 400, $color: #111) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
