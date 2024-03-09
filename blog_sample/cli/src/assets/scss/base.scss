@@ -3,6 +3,8 @@
 @import "mixin";
 @import "variables";
 
+@import "header";
+
 body {
   font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,4 +42,7 @@ input:focus {
 #app {
   min-height: 150vh;
   padding-top: 60px;
+  background-color: $g9;
+
+  // background: url("/src/assets/images/test/bg4.png") no-repeat center/cover;
 }

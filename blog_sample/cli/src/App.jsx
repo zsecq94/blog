@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Header from "@/components/Header/Index";
-import Footer from "@/components/Footer/Index";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-import Home from "@/pages/Home/Index";
-import Admin from "@/pages/Admin/Index";
-import Portfolio from "@/pages/Portfolio/Index";
+import Main from "@/pages/Main";
+import Admin from "@/pages/Admin";
+import Portfolio from "@/pages/Portfolio";
+import Tech from "@/pages/Tech";
 
 const App = () => {
   return (
@@ -13,8 +14,9 @@ const App = () => {
       <Header />
       <main id="app">
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Main />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
+          <Route path="/tech" element={<Tech />}></Route>
           <Route path="/port" element={<Portfolio />}></Route>
         </Routes>
       </main>

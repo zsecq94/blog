@@ -1,5 +1,3 @@
-import "./Index.scss";
-
 const Portfolio = () => {
   return (
     <div>

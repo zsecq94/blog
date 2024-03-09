@@ -1,0 +1,60 @@
+@import "mixin";
+@import "variables";
+
+header {
+  @include flex(row, center, center);
+  position: fixed;
+  width: 100%;
+  height: 70px;
+
+  article {
+    @include flex(row, center, space-between);
+    width: 1024px;
+    height: 100%;
+    padding: 0 20px;
+    color: $w9;
+
+    .logo {
+      @include font(24px, 400);
+
+      a {
+        p {
+          position: relative;
+
+          &::before {
+            border-bottom: solid 1px $w9;
+            display: inline-block;
+            position: absolute;
+            content: "";
+            top: 100%;
+            width: 0%;
+            transition: 0.5s;
+          }
+
+          &:hover {
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .gnb {
+      @include flex(row, center, center, 10px);
+      @include font(16px, 400);
+
+      li {
+        a {
+          border-radius: 8px;
+          padding: 5px 10px;
+          transition: 0.5s;
+
+          &:hover {
+            background-color: $w4;
+          }
+        }
+      }
+    }
+  }
+}

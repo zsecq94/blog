@@ -1,5 +1,3 @@
-import "./Index.scss";
-
 const Footer = () => {
   return (
     <div>
