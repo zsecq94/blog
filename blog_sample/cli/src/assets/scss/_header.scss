@@ -5,7 +5,8 @@ header {
   @include flex(row, center, center);
   position: fixed;
   width: 100%;
-  height: 70px;
+  height: 60px;
+  backdrop-filter: blur(10px);
 
   article {
     @include flex(row, center, space-between);
@@ -36,6 +37,12 @@ header {
               width: 100%;
             }
           }
+
+          &.active {
+            &::before {
+              width: 100%;
+            }
+          }
         }
       }
     }
@@ -46,6 +53,7 @@ header {
 
       li {
         a {
+          @include flex(row, center, center);
           border-radius: 8px;
           padding: 5px 10px;
           transition: 0.5s;
@@ -56,6 +64,17 @@ header {
 
           &.active {
             background-color: $w4;
+          }
+        }
+
+        .github {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+
+          img {
+            width: 20px;
+            height: 20px;
           }
         }
       }

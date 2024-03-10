@@ -7,7 +7,7 @@ const Header = () => {
       <article>
         <section className="logo">
           <Link to={"/"}>
-            <p>
+            <p className={location.pathname === "/" ? "active" : ""}>
               <b>DEV</b>.LOG
             </p>
           </Link>
@@ -22,6 +22,7 @@ const Header = () => {
               기술
             </Link>
           </li>
+
           <li>
             <Link
               className={location.pathname === "/port" ? "active" : ""}
@@ -29,6 +30,16 @@ const Header = () => {
             >
               포트폴리오
             </Link>
+          </li>
+
+          <li>
+            <a
+              href="https://github.com/zsecq94"
+              target="_blank"
+              className="github"
+            >
+              <img src="/src/assets/images/icons/github.png" alt="" />
+            </a>
           </li>
         </section>
       </article>
