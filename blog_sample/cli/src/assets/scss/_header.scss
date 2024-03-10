@@ -53,6 +53,10 @@ header {
           &:hover {
             background-color: $w4;
           }
+
+          &.active {
+            background-color: $w4;
+          }
         }
       }
     }

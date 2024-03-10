@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
   return (
     <header>
       <article>
@@ -14,10 +15,20 @@ const Header = () => {
 
         <section className="gnb">
           <li>
-            <Link to={"/tech"}>기술</Link>
+            <Link
+              className={location.pathname === "/tech" ? "active" : ""}
+              to={"/tech"}
+            >
+              기술
+            </Link>
           </li>
           <li>
-            <Link to={"/port"}>포트폴리오</Link>
+            <Link
+              className={location.pathname === "/port" ? "active" : ""}
+              to={"/port"}
+            >
+              포트폴리오
+            </Link>
           </li>
         </section>
       </article>
