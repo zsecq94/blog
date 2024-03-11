@@ -4,10 +4,13 @@
 @import "variables";
 
 @import "header";
+@import "footer";
 
 body {
   font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
   -webkit-font-smoothing: antialiased;
+  color: $w9;
+  background-color: $g9;
 }
 
 *,
@@ -42,7 +45,6 @@ input:focus {
 #app {
   min-height: 150vh;
   padding-top: 60px;
-  background-color: $g9;
 
   // background: url("/src/assets/images/test/bg4.png") no-repeat center/cover;
 }

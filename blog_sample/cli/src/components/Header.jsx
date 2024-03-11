@@ -1,9 +1,33 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
+
+  const [scroll, setScroll] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
+  const handleScroll = () => {
+    let currentScrollY = window.scrollY;
+
+    if (currentScrollY > 150 && currentScrollY > lastScrollY) {
+      setScroll(true);
+      setLastScrollY(currentScrollY);
+    } else {
+      setScroll(false);
+      setLastScrollY(currentScrollY);
+    }
+  };
+
   return (
-    <header>
+    <header className={scroll ? "up" : ""}>
       <article>
         <section className="logo">
           <Link to={"/"}>
@@ -19,7 +43,7 @@ const Header = () => {
               className={location.pathname === "/tech" ? "active" : ""}
               to={"/tech"}
             >
-              기술
+              개발
             </Link>
           </li>
 
@@ -40,6 +64,10 @@ const Header = () => {
             >
               <img src="/src/assets/images/icons/github.png" alt="" />
             </a>
+          </li>
+
+          <li className="search">
+            <img src="/src/assets/images/icons/ico_search.png" alt="" />
           </li>
         </section>
       </article>
