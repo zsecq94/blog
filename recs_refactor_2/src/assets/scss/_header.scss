@@ -1,31 +1,76 @@
 @import "mixin";
 
 header {
-  @include flex(row, flex-start, space-between);
   position: fixed;
+  display: grid;
+  grid-template-columns: 2fr 5fr 2fr;
   width: 100%;
   height: 100px;
+  padding: 30px 50px;
+  min-width: 1280px;
+  background-color: transparent;
+  transition: 0.3s;
 
-  .logo-box {
-    a {
-      img {
-        width: 250px;
+  .logo {
+    img {
+      width: 250px;
+    }
+  }
+
+  &.active {
+    height: 350px;
+    background-color: #fff;
+
+    .gnb {
+      li {
+        .lnb {
+          height: 200px;
+        }
       }
     }
   }
 
   .gnb {
-    @include flex(row, center, space-evenly);
-    width: 1000px;
-
+    @include flex(row, flex-start, center, 120px);
+    padding-top: 12px;
+    position: relative;
     li {
-      transition: margin 0.5s;
-    }
-
-    &.active {
-      li {
-        margin: 0 10px;
+      text-wrap: nowrap;
+      a {
+        @include font(18px, 600, #111);
       }
+      img {
+        display: none;
+      }
+
+      .lnb {
+        @include flex(column, flex-start, start, 16px);
+        position: absolute;
+        height: 0px;
+        overflow: hidden;
+        top: 80px;
+        transition: 0.3s;
+
+        li {
+          a {
+            @include font(14px, 500, #111);
+
+            span {
+              @include font(14px, 400, #999);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .lang-con {
+    @include flex(row, flex-start, end);
+
+    .lang-box {
+      @include flex(row, center, center);
+      @include border(#fff, 20px);
+      padding: 8px 16px;
     }
   }
 }

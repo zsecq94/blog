@@ -1,102 +1,145 @@
 <script>
   $(document).ready(() => {
-    $("a > img").hover(
-      () => {
-        $(".gnb").addClass("active");
-      },
-      () => {
-        $(".gnb").removeClass("active");
-      }
-    );
+    const $Header = $("header");
+    const $Gnb = $("header > .gnb");
+    const $Lnb = $("header > .gnb > li > .lnb");
+    const $HeaderLogo = $("header > .logo-box > a > img");
+
+    const addActiveClass = () => {
+      isMenuOpen = true;
+      $Header.addClass("active");
+    };
+
+    const removeActiveClass = () => {
+      isMenuOpen = false;
+      $Header.removeClass("active");
+    };
+
+    $Gnb.mouseenter(addActiveClass);
+    $Header.mouseleave(removeActiveClass);
   });
 </script>
 
-<section class="logo-box">
-  <a href="/">
-    <img src="/src/assets/images/logo/logo01.png" alt="" />
-  </a>
-</section>
+<a class="logo" href="/">
+  <img src="/src/assets/images/logo/logo01.png" alt="" />
+</a>
 
-<section class="gnb">
+<ul class="gnb">
   <li>
-    <a href="#">메인메뉴1</a>
-
-    <ul>
+    <a href="#/about/greeting">About us</a>
+    <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+    <ul class="lnb">
       <li>
-        <a href="#">서브메뉴123456789</a>
+        <a href="#/about/greeting">Greetings</a>
       </li>
       <li>
-        <a href="#">서브메뉴123456789</a>
+        <a href="#/about/history">History</a>
       </li>
       <li>
-        <a href="#">서브메뉴123456789</a>
+        <a href="#/about/certified">Certified</a>
       </li>
       <li>
-        <a href="#">서브메뉴123456789</a>
+        <a href="#/about/award">Awards</a>
+      </li>
+      <li>
+        <a href="#/about/member">MEMBER</a>
+      </li>
+      <li>
+        <a href="#/about/visit">Contact us</a>
       </li>
     </ul>
   </li>
 
   <li>
-    <a href="#">메인메뉴1</a>
-
-    <ul>
+    <a href="#/business/renewabl">Business</a>
+    <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+    <ul class="lnb">
       <li>
-        <a href="#">서브메뉴</a>
+        <a href="#/business/renewable">Renewable Energy Generation</a>
       </li>
       <li>
-        <a href="#">서브메뉴</a>
+        <a href="#/business/vpp">VPP <span>(Virtual Power Plant)</span></a>
       </li>
       <li>
-        <a href="#">서브메뉴</a>
+        <a href="#/business/ess">ESS <span>(Energy Storage System)</span></a>
       </li>
       <li>
-        <a href="#">서브메뉴</a>
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <a href="#">메인메뉴1</a>
-
-    <ul>
-      <li>
-        <a href="#">서브메뉴1234567812345678123456789</a>
+        <a href="#/business/p2v">Power to Vehicle <span>(P2V)</span></a>
       </li>
       <li>
-        <a href="#">서브메뉴123456789</a>
+        <a href="#/business/dr">DR <span>(Demand Response)</span></a>
       </li>
       <li>
-        <a href="#">서브메뉴123456789</a>
-      </li>
-      <li>
-        <a href="#">서브메뉴123456789</a>
+        <a href="#/business/fintech">Fintech</a>
       </li>
     </ul>
   </li>
 
   <li>
-    <a href="#">메인메뉴1</a>
-
-    <ul>
+    <a href="#/tech/ai">Technology</a>
+    <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+    <ul class="lnb">
       <li>
-        <a href="#">서브메뉴</a>
+        <a href="#/tech/ai">AI Big-data Center</a>
       </li>
       <li>
-        <a href="#">서브메뉴</a>
+        <a href="#/tech/patent">Patent Status of Technology</a>
       </li>
       <li>
-        <a href="#">서브메뉴</a>
+        <a href="#/tech/performance">R&D Achievements</a>
       </li>
       <li>
-        <a href="#">서브메뉴</a>
+        <a href="#/tech/result">Test Scores</a>
       </li>
     </ul>
   </li>
-</section>
+
+  <li>
+    <a href="#/ir/notice">IR</a>
+    <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+    <ul class="lnb">
+      <li>
+        <a href="#/ir/cmpny">IR</a>
+      </li>
+      <li>
+        <a href="#/ir/investment">Investment</a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#/pr/news">PR</a>
+    <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+    <ul class="lnb">
+      <li>
+        <a href="#/pr/news">NEWS</a>
+      </li>
+      <li>
+        <a href="#/pr/promotion">Promotional Videos</a>
+      </li>
+      <li>
+        <a href="#/pr/gallery">Gallery</a>
+      </li>
+      <li>
+        <a href="#/pr/questions">Inquiries</a>
+      </li>
+      <!-- <a href="#/pr/insight">Insights</a> -->
+      <!-- <a href="#/pr/recruit">Recruitment</a> -->
+    </ul>
+  </li>
+</ul>
 
 <section class="lang-con">
   <div class="lang-box">
-    <p>KR</p>
+    <p class="KR">KR</p>
+    <!-- <div class="select-box">
+      <p>KR</p>
+      <p>CN</p>
+      <p>EN</p>
+    </div> -->
   </div>
+
+  <!-- <div class="menu-box">
+    <img src="/src/assets/images/icons/ico_menu01.png" alt="" />
+  </div> -->
 </section>

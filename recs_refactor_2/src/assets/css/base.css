@@ -35,27 +35,72 @@ main {
   background: url("/src/assets/images/bg/main05.png") no-repeat center/cover; }
 
 header {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0px;
   position: fixed;
+  display: grid;
+  grid-template-columns: 2fr 5fr 2fr;
   width: 100%;
-  height: 100px; }
-  header .logo-box a img {
+  height: 100px;
+  padding: 30px 50px;
+  min-width: 1280px;
+  background-color: transparent;
+  transition: 0.3s; }
+  header .logo img {
     width: 250px; }
+  header.active {
+    height: 350px;
+    background-color: #fff; }
+    header.active .gnb li .lnb {
+      height: 200px; }
   header .gnb {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 0px;
-    width: 1000px; }
+    align-items: flex-start;
+    justify-content: center;
+    gap: 120px;
+    padding-top: 12px;
+    position: relative; }
     header .gnb li {
-      transition: margin 0.5s; }
-    header .gnb.active li {
-      margin: 0 10px; }
+      text-wrap: nowrap; }
+      header .gnb li a {
+        font-size: 18px;
+        font-weight: 600;
+        color: #111; }
+      header .gnb li img {
+        display: none; }
+      header .gnb li .lnb {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        gap: 16px;
+        position: absolute;
+        height: 0px;
+        overflow: hidden;
+        top: 80px;
+        transition: 0.3s; }
+        header .gnb li .lnb li a {
+          font-size: 14px;
+          font-weight: 500;
+          color: #111; }
+          header .gnb li .lnb li a span {
+            font-size: 14px;
+            font-weight: 400;
+            color: #999; }
+  header .lang-con {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: end;
+    gap: 0px; }
+    header .lang-con .lang-box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 0px;
+      border: solid 1px #fff;
+      border-radius: 20px;
+      padding: 8px 16px; }
 
 footer {
   min-height: 100vh; }
