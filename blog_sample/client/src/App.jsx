@@ -12,7 +12,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <main id="app">
+      <main>
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/admin" element={<Admin />}></Route>

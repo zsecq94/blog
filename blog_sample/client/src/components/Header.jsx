@@ -9,21 +9,14 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   const handleScroll = () => {
-    let currentScrollY = window.scrollY;
+    let state = window.scrollY > 150 && window.scrollY > lastScrollY;
 
-    if (currentScrollY > 150 && currentScrollY > lastScrollY) {
-      setScroll(true);
-      setLastScrollY(currentScrollY);
-    } else {
-      setScroll(false);
-      setLastScrollY(currentScrollY);
-    }
+    setScroll(state ? true : false);
+    setLastScrollY(window.scrollY);
   };
 
   return (
@@ -37,7 +30,7 @@ const Header = () => {
           </Link>
         </section>
 
-        <section className="gnb">
+        <section className="gnb active">
           <li>
             <Link
               className={location.pathname === "/tech" ? "active" : ""}
@@ -56,19 +49,7 @@ const Header = () => {
             </Link>
           </li>
 
-          <li>
-            <a
-              href="https://github.com/zsecq94"
-              target="_blank"
-              className="github"
-            >
-              <img src="/src/assets/images/icons/github.png" alt="" />
-            </a>
-          </li>
-
-          <li className="search">
-            <img src="/src/assets/images/icons/ico_search.png" alt="" />
-          </li>
+          <li className="search">검색</li>
         </section>
       </article>
     </header>

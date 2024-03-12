@@ -42,9 +42,8 @@ input:focus {
   outline: none;
 }
 
-#app {
-  min-height: 150vh;
-  padding-top: 60px;
-
-  // background: url("/src/assets/images/test/bg4.png") no-repeat center/cover;
+main {
+  @include flex(column, center);
+  min-height: 100vh;
+  padding-top: 90px;
 }
