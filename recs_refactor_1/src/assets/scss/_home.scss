@@ -1,0 +1,399 @@
+@import "mixin";
+
+.home-con {
+  @include flex(column, center, center);
+  width: 100%;
+  height: 100%;
+
+  .slide-con {
+    width: 100%;
+
+    .swiper {
+      position: relative;
+
+      .swiper-wrapper {
+        .swiper-slide {
+          @include flex(row, center, center);
+          width: 100%;
+          height: 100vh;
+          padding-top: 230px;
+
+          .text-box {
+            @include flex(column, start, start, 50px);
+            color: #fff;
+            width: 1280px;
+            height: 100%;
+
+            p {
+              &:nth-child(1) {
+                @include font(54px, 800);
+                width: 54%;
+              }
+
+              &:nth-child(2) {
+                @include font(18px, 500);
+                line-height: 140%;
+              }
+            }
+          }
+        }
+
+        .bg1 {
+          background: url("/src/assets/images/bg/main/bg01.png") no-repeat center/cover;
+        }
+
+        .bg2 {
+          background: url("/src/assets/images/bg/main/bg02.png") no-repeat center/cover;
+        }
+
+        .bg3 {
+          background: url("/src/assets/images/bg/main/bg03.png") no-repeat center/cover;
+        }
+
+        .bg4 {
+          background: url("/src/assets/images/bg/main/bg04.png") no-repeat center/cover;
+        }
+
+        .bg5 {
+          background: url("/src/assets/images/bg/main/bg05.png") no-repeat center/cover;
+        }
+      }
+
+      .nav-con {
+        @include flex(row, center, start, 20px);
+        width: 1280px;
+        z-index: 1;
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .bar-con {
+          @include flex(row, center, center, 10px);
+          p {
+            @include font(18px, 600, #fff);
+            width: 23px;
+            &:nth-child(3) {
+              opacity: 0.25;
+            }
+          }
+
+          .bar-box {
+            position: relative;
+            width: 200px;
+            height: 3px;
+            background-color: rgba($color: #fff, $alpha: 0.25);
+
+            .bar {
+              position: absolute;
+              width: 50%;
+              height: 3px;
+              background-color: #ef3736;
+            }
+          }
+        }
+
+        .nav-box {
+          @include flex(row, center, center, 10px);
+          img {
+            cursor: pointer;
+            width: 30px;
+            padding: 5px 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .con {
+    @include flex(column, center, center, 40px);
+    padding-top: 140px;
+    width: 1280px;
+
+    .title-box {
+      @include flex(row, end, space-between);
+      width: 100%;
+    }
+  }
+
+  .con1 {
+    .title-box {
+      p {
+        @include font(34px, 800, #111);
+      }
+
+      .nav-box {
+        @include flex(row, center, center, 14px);
+
+        .img-box {
+          @include flex(row, center, center);
+          @include border(#ebebeb, 20px);
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+
+          img {
+            width: 10px;
+          }
+
+          &.disabled {
+            opacity: 0.5;
+            cursor: auto;
+          }
+        }
+      }
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+
+      .swiper-wrapper {
+        .swiper-slide {
+          @include flex(column, start, center);
+          @include border(#ebebeb, 8px);
+          height: auto;
+
+          .text-box {
+            @include flex(column, start, center, 20px);
+            padding: 30px;
+
+            p {
+              color: #111;
+
+              &:nth-child(1) {
+                @include font(20px, 600);
+              }
+
+              &:nth-child(2) {
+                @include font(14px, 400);
+              }
+            }
+
+            .more-box {
+              cursor: pointer;
+              p {
+                @include font(14px, 600, #999);
+
+                &::after {
+                  content: "";
+                  display: inline-block;
+                  margin-left: 8px;
+                  width: 15px;
+                  height: 12px;
+                  background: url("/src/assets/images/icons/ico_more.png") no-repeat center/cover;
+                }
+              }
+            }
+          }
+
+          .img-box {
+            @include flex(row, end, end);
+            width: 100%;
+            height: 100%;
+            img {
+              width: 240px;
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .con2 {
+    .title-box {
+      p {
+        @include font(50px, 800, #111);
+      }
+
+      .nav-box {
+        @include flex(row, center, center, 14px);
+
+        .img-box {
+          @include flex(row, center, center);
+          @include border(#ebebeb, 20px);
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+
+          img {
+            width: 10px;
+          }
+
+          &.disabled {
+            opacity: 0.5;
+            cursor: auto;
+          }
+        }
+      }
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+
+      .swiper-wrapper {
+        .swiper-slide {
+          @include flex(column, start, space-between, 30px);
+          background-color: #f7f7f7;
+          padding: 60px 50px;
+          height: auto;
+          transition: 0.3s;
+
+          .text-box {
+            @include flex(column, start, center, 20px);
+
+            p {
+              &:nth-child(1) {
+                @include font(18px, 700, #f26933);
+              }
+
+              &:nth-child(2) {
+                @include font(34px, 600, #111);
+              }
+
+              &:nth-child(3) {
+                @include font(14px, 400, #999);
+              }
+            }
+          }
+
+          img {
+            width: 100%;
+          }
+
+          &:hover {
+            background-color: #202936;
+            .text-box {
+              p {
+                &:nth-child(2) {
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .con3 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 34px;
+
+    > div {
+      width: 100%;
+      padding: 50px;
+      color: #fff;
+
+      img {
+        width: 14px;
+      }
+      &:nth-child(1) {
+        @include flex(row, start, space-between);
+        background: url("/src/assets/images/content/main/3_1.png") no-repeat center/cover;
+        p {
+          font-size: 40px;
+        }
+      }
+
+      &:nth-child(2) {
+        background: url("/src/assets/images/content/main/3_2.png") no-repeat center/cover;
+
+        p {
+          @include font(20px, 600);
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-con {
+    .slide-con {
+      width: 100%;
+
+      .swiper {
+        position: relative;
+
+        .swiper-wrapper {
+          .swiper-slide {
+            padding: 0 24px;
+
+            .text-box {
+              @include flex(column, start, center, 20px);
+              width: 100%;
+              margin-top: -100px;
+
+              p {
+                &:nth-child(1) {
+                  font-size: 26px;
+                  width: 100%;
+                }
+
+                &:nth-child(2) {
+                  font-size: 14px;
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
+
+          .bg1 {
+            background: url("/src/assets/images/bg/main/bg_mb01.png") no-repeat center/cover;
+          }
+
+          .bg2 {
+            background: url("/src/assets/images/bg/main/bg_mb02.png") no-repeat center/cover;
+          }
+
+          .bg3 {
+            background: url("/src/assets/images/bg/main/bg_mb03.png") no-repeat center/cover;
+          }
+
+          .bg4 {
+            background: url("/src/assets/images/bg/main/bg_mb04.png") no-repeat center/cover;
+          }
+
+          .bg5 {
+            background: url("/src/assets/images/bg/main/bg_mb05.png") no-repeat center/cover;
+          }
+        }
+
+        .nav-con {
+          @include flex(row, center, space-between, 0px);
+          padding: 0 24px;
+          width: 100%;
+          bottom: 15%;
+
+          .bar-con {
+            p {
+              font-size: 14px;
+              width: 16px;
+            }
+
+            .bar-box {
+              width: 100px;
+              height: 2px;
+
+              .bar {
+                height: 2px;
+              }
+            }
+          }
+
+          .nav-box {
+            @include flex(row, center, center, 10px);
+            img {
+              width: 30px;
+              padding: 5px 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

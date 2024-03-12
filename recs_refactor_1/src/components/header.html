@@ -110,8 +110,9 @@
       }
 
       if (!isWeb) {
-        if (currentScrollTop > 200 && currentScrollTop > scrollY) {
+        if (currentScrollTop > 100 && currentScrollTop > scrollY) {
           $Header.css({ top: "-10%" });
+          $LangList.removeClass("active");
         } else {
           $Header.css({ top: "0%" });
         }

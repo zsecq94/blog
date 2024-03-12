@@ -3,20 +3,150 @@
     const $Header = $("header");
     const $Gnb = $("header > .gnb");
     const $Lnb = $("header > .gnb > li > .lnb");
-    const $HeaderLogo = $("header > .logo-box > a > img");
+    const $HeaderLogo = $("header > .logo > img");
+    const $HeaderMainMenu = $("header > .gnb > li > a");
+    const $HeaderLangBox = $("header > .lang-con > .lang-box");
+    const $HeaderLangP = $("header > .lang-con > .lang-box > p");
+    const $HeaderSelectBox = $("header > .lang-con > .lang-box > .select-box");
+    const $HeaderSelectBoxP = $("header > .lang-con > .lang-box > .select-box > p");
+
+    const $MbMenuIcon = $("header > .lang-con > .menu-box > img");
+    const $MbDownIcon = $("header > .gnb > li > img");
+
+    let isMenuOpen = false;
+    let scrollCheck = false;
+    let lang = "KR";
+    let isWeb = 768 < $(window).innerWidth();
+    let scrollY = 0;
 
     const addActiveClass = () => {
       isMenuOpen = true;
       $Header.addClass("active");
+      updateHeaderStyle(true);
     };
 
     const removeActiveClass = () => {
       isMenuOpen = false;
       $Header.removeClass("active");
+      updateHeaderStyle(scrollCheck ? true : false);
     };
 
-    $Gnb.mouseenter(addActiveClass);
-    $Header.mouseleave(removeActiveClass);
+    if (isWeb) {
+      $Gnb.mouseenter(addActiveClass);
+      $Header.mouseleave(removeActiveClass);
+
+      $HeaderMainMenu.hover(
+        function () {
+          $(this).css({ color: "#f26933" });
+        },
+        function () {
+          $(this).css({ color: "#111" });
+        }
+      );
+    }
+
+    const getHeaderBgColor = (state) => {
+      return state
+        ? {
+            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            backdropFilter: "blur(10px)",
+          }
+        : {
+            backgroundColor: "transparent",
+            backdropFilter: "blur(0px)",
+          };
+    };
+
+    const updateHeaderStyle = (state) => {
+      if ($Header.hasClass("active")) {
+        $Header.css({ backgroundColor: state ? "#fff" : "transparent" });
+      } else {
+        $Header.css(getHeaderBgColor(state));
+      }
+
+      $HeaderLogo.attr("src", state ? "/src/assets/images/logo/logo02.png" : "/src/assets/images/logo/logo01.png");
+      $HeaderMainMenu.css({ color: state ? "#111" : "#fff" });
+      $HeaderLangBox.css({ border: `solid 1px ${state ? "rgba(0, 0, 0, 0.1)" : "#fff"}` });
+      $HeaderLangP.css({ color: state ? "#111" : "#fff" });
+
+      $HeaderLangP
+        .css({ color: state ? "#111" : "#fff" })
+        .text(lang)
+        .attr("class", lang);
+
+      if (state) {
+        $HeaderLangP.addClass("active");
+      } else {
+        $HeaderLangP.removeClass("active");
+      }
+
+      $MbMenuIcon.attr(
+        "src",
+        isMenuOpen
+          ? "/src/assets/images/icons/ico_close.png"
+          : state
+          ? "/src/assets/images/icons/ico_menu02.png"
+          : "/src/assets/images/icons/ico_menu01.png"
+      );
+    };
+
+    $HeaderLangBox.click((e) => {
+      e.stopPropagation();
+      $HeaderSelectBox.toggleClass("active");
+    });
+
+    $(document).click(() => {
+      $HeaderSelectBox.removeClass("active");
+    });
+
+    $HeaderSelectBoxP.click(function () {
+      lang = $(this).text();
+      updateHeaderStyle(scrollCheck ? true : isMenuOpen ? true : false);
+    });
+
+    $(window).scroll(function () {
+      let currentScrollTop = $(this).scrollTop();
+
+      if (isWeb ? currentScrollTop >= 200 : currentScrollTop >= 100) {
+        scrollCheck = true;
+        updateHeaderStyle(scrollCheck);
+      } else {
+        scrollCheck = false;
+        updateHeaderStyle(isMenuOpen ? true : false);
+      }
+
+      if (!isWeb) {
+        if (currentScrollTop >= 100 && currentScrollTop > scrollY) {
+          $Header.css({ top: "-20%" });
+          $HeaderSelectBox.removeClass("active");
+        } else {
+          $Header.css({ top: "0%" });
+        }
+        scrollY = currentScrollTop;
+      }
+    });
+
+    const toggleMbMenu = () => {
+      isMenuOpen = !isMenuOpen;
+      $Header.toggleClass("active");
+      updateHeaderStyle(isMenuOpen ? true : scrollCheck ? true : false);
+      $("body").toggleClass("no-scroll");
+      // if (!isMenuOpen) {
+      //   $GnbDownIcon.removeClass("rotate");
+      //   $GnbDownIcon.siblings(".lnb").css({ display: "none" });
+      // }
+    };
+
+    $MbMenuIcon.click(() => {
+      toggleMbMenu();
+    });
+
+    $MbDownIcon.click(function () {
+      $(this).toggleClass("rotate");
+      $(this).siblings(".lnb").toggleClass("active");
+    });
+
+    updateHeaderStyle(false);
   });
 </script>
 
@@ -132,14 +262,14 @@
 <section class="lang-con">
   <div class="lang-box">
     <p class="KR">KR</p>
-    <!-- <div class="select-box">
+    <div class="select-box">
       <p>KR</p>
       <p>CN</p>
       <p>EN</p>
-    </div> -->
+    </div>
   </div>
 
-  <!-- <div class="menu-box">
+  <div class="menu-box">
     <img src="/src/assets/images/icons/ico_menu01.png" alt="" />
-  </div> -->
+  </div>
 </section>

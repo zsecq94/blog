@@ -32,13 +32,16 @@ header {
 
   .gnb {
     @include flex(row, flex-start, center, 120px);
-    padding-top: 12px;
+    padding-top: 10px;
     position: relative;
+
     li {
       text-wrap: nowrap;
+
       a {
-        @include font(18px, 600, #111);
+        @include font(18px, 600, #fff);
       }
+
       img {
         display: none;
       }
@@ -58,6 +61,15 @@ header {
             span {
               @include font(14px, 400, #999);
             }
+
+            &:hover {
+              color: #f26933;
+              text-decoration: underline 1px #f26933;
+
+              span {
+                color: #f26933;
+              }
+            }
           }
         }
       }
@@ -71,6 +83,226 @@ header {
       @include flex(row, center, center);
       @include border(#fff, 20px);
       padding: 8px 16px;
+      width: 105px;
+      position: relative;
+      cursor: pointer;
+
+      > p {
+        @include font(16px, 500, #fff);
+
+        &:after {
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 12px;
+          background: url("/src/assets/images/icons/ico_lang-down01.png") no-repeat center/cover;
+          margin-left: 6px;
+        }
+
+        &.active {
+          &:after {
+            background: url("/src/assets/images/icons/ico_lang-down02.png") no-repeat center/cover;
+          }
+        }
+
+        &:before {
+          content: "";
+          display: inline-block;
+          width: 16px;
+          height: 12px;
+          margin-right: 6px;
+        }
+
+        &.KR:before {
+          background: url("/src/assets/images/icons/ico_kr.png") no-repeat center/cover;
+        }
+
+        &.CN:before {
+          background: url("/src/assets/images/icons/ico_cn.png") no-repeat center/cover;
+        }
+
+        &.EN:before {
+          background: url("/src/assets/images/icons/ico_en.png") no-repeat center/cover;
+        }
+      }
+
+      .select-box {
+        @include flex(column, center, center);
+        position: absolute;
+        top: 130%;
+        height: 0;
+        width: 100%;
+        overflow: hidden;
+        transition: 0.5s;
+        background-color: #fff;
+
+        &.active {
+          height: 90px;
+          width: 100%;
+          @include border(#eee, 20px);
+        }
+
+        p {
+          @include font(16px, 500, #111);
+          padding: 5px 0;
+          width: 100%;
+          text-align: center;
+
+          &:before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 12px;
+            margin-right: 6px;
+          }
+
+          &:nth-child(1)::before {
+            background: url("/src/assets/images/icons/ico_kr.png") no-repeat center/cover;
+          }
+
+          &:nth-child(2)::before {
+            background: url("/src/assets/images/icons/ico_cn.png") no-repeat center/cover;
+          }
+
+          &:nth-child(3)::before {
+            background: url("/src/assets/images/icons/ico_en.png") no-repeat center/cover;
+          }
+        }
+      }
+    }
+
+    .menu-box {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    @include flex(column);
+    height: 70px;
+    padding: 20px 24px;
+    min-width: 100%;
+
+    .logo {
+      padding-top: 3px;
+      img {
+        width: 170px;
+      }
+    }
+
+    &.active {
+      height: 100vh;
+      background-color: #fff;
+
+      .gnb {
+        height: 100%;
+        li {
+          .lnb {
+            height: 0px;
+
+            &.active {
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+
+    .gnb {
+      @include flex(column, flex-start, flex-start, 40px);
+      padding-top: 40px;
+      height: 0px;
+      width: 100%;
+      overflow: hidden;
+
+      li {
+        position: relative;
+        text-wrap: nowrap;
+        width: 100%;
+
+        a {
+          font-size: 24px;
+        }
+
+        > img {
+          display: inline-block;
+          position: absolute;
+          right: 0;
+          width: 20px;
+          top: 15px;
+          transform: translateY(-50%);
+          transition: 0.3s;
+
+          &.rotate {
+            transform: rotate(180deg);
+          }
+        }
+
+        .lnb {
+          @include flex(column, flex-start, flex-start, 30px);
+          position: static;
+          height: 0px;
+          overflow: hidden;
+          top: 80px;
+          transition: 0.3s;
+
+          padding-left: 24px;
+
+          li {
+            a {
+              font-size: 16px;
+
+              span {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .lang-con {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      gap: 15px;
+
+      .lang-box {
+        padding: 6px 10px;
+        width: auto;
+
+        > p {
+          @include font(14px, 500, #fff);
+
+          &:after {
+            width: 16px;
+            height: 8px;
+            margin-left: 6px;
+          }
+
+          &:before {
+            display: none;
+            margin-right: 0px;
+          }
+        }
+
+        .select-box {
+          &.active {
+            @include border(#eee, 15px);
+          }
+        }
+      }
+
+      .menu-box {
+        display: inline-block;
+        height: 100%;
+
+        img {
+          padding-top: 5px;
+          width: 20px;
+        }
+      }
     }
   }
 }

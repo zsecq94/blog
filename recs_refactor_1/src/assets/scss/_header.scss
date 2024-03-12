@@ -40,6 +40,10 @@ header {
       }
 
       li {
+        // 영문버전 활성화
+        // &:nth-child(2) {
+        //   margin-right: -100px;
+        // }
         img {
           display: none;
         }
@@ -77,6 +81,7 @@ header {
       .lang-box {
         @include border(#fff, 20px);
         cursor: pointer;
+        width: 101px;
         padding: 8px 14px;
         position: relative;
 
@@ -94,7 +99,6 @@ header {
           opacity: 0;
 
           &.active {
-            @include border(#eee, 20px);
             opacity: 1;
             height: 110px;
           }
@@ -195,7 +199,7 @@ header {
 
       .logo-box {
         @include flex(row, flex-start, start);
-        margin-top: 2px;
+        margin-top: 4px;
         padding-left: 24px;
         img {
           width: 170px;
@@ -227,7 +231,7 @@ header {
             display: block;
             position: absolute;
             right: 0px;
-            width: 24px;
+            width: 30px;
             transition: 0.3s;
             padding: 5px;
             top: 5px;
@@ -271,20 +275,27 @@ header {
         gap: 15px;
 
         .lang-box {
-          padding: 4px 10px;
+          width: 71px;
+          padding: 6px 10px;
 
           > p {
-            text-indent: -999px;
-
-            &:after {
-              margin-left: 0px;
+            &::after {
+              margin-left: 6px;
             }
+
+            &::before {
+              display: none;
+            }
+          }
+
+          .select-box {
+            border-radius: 15px;
           }
         }
 
         .menu-box {
           display: block;
-          padding-top: 5px;
+          padding-top: 7px;
 
           img {
             width: 20px;

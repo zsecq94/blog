@@ -7,11 +7,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
 }
 
 button {
@@ -40,9 +38,15 @@ input:focus {
 }
 
 main {
-  min-height: 100vh;
-  background: url("/src/assets/images/bg/main05.png") no-repeat center/cover;
+  min-width: 1280px;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    min-width: 100%;
+  }
 }
 
 @import "header";
 @import "footer";
+@import "home";
