@@ -1,0 +1,246 @@
+<script>
+  $(document).ready(() => {
+    const $Header = $("header");
+    const $Nav = $("header > article > nav");
+    const $Logo = $("header > article > .logo > a > img");
+    const $Menu = $("header > article > nav > .gnb > li > a");
+    const $LnbMenu = $("header > article > nav > .gnb > li > img");
+
+    const $LangCon = $("header > article > .lang > .con");
+    const $MbMenuIcon = $("header > article > .lang > .menu-box > img");
+    const $LangConP = $("header > article > .lang > .con > p");
+    const $LangBox = $("header > article > .lang > .con > .box");
+    const $LangBoxP = $("header > article > .lang > .con > .box > p");
+
+    let isWeb = 768 < $(window).innerWidth();
+    let isMenuOpen = false;
+    let isScrollCheck = false;
+    let lang = "KR";
+
+    $LangCon.click((e) => {
+      e.stopPropagation();
+      $LangBox.toggleClass("active");
+    });
+
+    $LangBoxP.click(function () {
+      lang = $(this).text();
+      $LangConP.removeClass($LangConP.text());
+      $LangConP.addClass(lang);
+      $LangConP.text(lang);
+    });
+
+    $(document).click(() => {
+      $LangBox.removeClass("active");
+    });
+
+    const onHeader = () => {
+      isMenuOpen = true;
+      $Header.addClass("active");
+      updateHeaderStyle(true);
+    };
+
+    const offHeader = () => {
+      isMenuOpen = false;
+      $Header.removeClass("active");
+      updateHeaderStyle(isScrollCheck ? true : false);
+    };
+
+    if (isWeb) {
+      $Nav.mouseenter(onHeader);
+      $Header.mouseleave(offHeader);
+
+      $Menu.hover(
+        function () {
+          $(this).css({ color: "#f26933" });
+        },
+        function () {
+          $(this).css({ color: "#111" });
+        }
+      );
+    } else {
+      $MbMenuIcon.click(() => {
+        isMenuOpen = !isMenuOpen;
+        $Header.toggleClass("active");
+        updateHeaderStyle(isScrollCheck ? true : isMenuOpen ? true : false);
+      });
+
+      $LnbMenu.click(function () {
+        let $lnb = $(this).siblings(".lnb");
+
+        if ($lnb.is(":visible")) {
+          $lnb.slideUp(() => {
+            $lnb.css({ display: "none" });
+          });
+          $(this).removeClass("rotate");
+        } else {
+          $lnb.css({ display: "flex" }).hide().slideDown();
+          $(this).addClass("rotate");
+        }
+      });
+    }
+
+    $(window).scroll(function () {
+      let currentScroll = 200 <= $(this).scrollTop();
+
+      if (isScrollCheck !== currentScroll) {
+        isScrollCheck = currentScroll;
+        updateHeaderStyle(isMenuOpen ? true : currentScroll);
+      }
+    });
+
+    const updateHeaderStyle = (state) => {
+      $Logo.attr("src", state ? "/src/assets/images/logo/logo02.png" : "/src/assets/images/logo/logo01.png");
+      $MbMenuIcon.attr(
+        "src",
+        isMenuOpen
+          ? "/src/assets/images/icons/ico_close.png"
+          : state
+          ? "/src/assets/images/icons/ico_menu02.png"
+          : "/src/assets/images/icons/ico_menu01.png"
+      );
+
+      $Header.css({
+        backgroundColor: isMenuOpen
+          ? "#fff"
+          : isScrollCheck
+          ? "rgba(255, 255, 255, 0.9)"
+          : state
+          ? "#fff"
+          : "transparent",
+      });
+      $Menu.css({ color: state ? "#111" : "#fff" });
+      $LangCon.css({ border: state ? "solid 1px rgba(0, 0, 0, 0.1)" : "solid 1px #fff" });
+      state
+        ? $LangConP.css({ color: "#111" }).addClass("active")
+        : $LangConP.css({ color: "#fff" }).removeClass("active");
+    };
+
+    updateHeaderStyle(false);
+  });
+</script>
+
+<article>
+  <section class="logo">
+    <a href="/"><img src="/src/assets/images/logo/logo01.png" alt="" /></a>
+  </section>
+
+  <nav>
+    <ul class="gnb">
+      <li>
+        <a href="#/about/greeting">About us</a>
+        <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+        <ul class="lnb">
+          <li>
+            <a href="#/about/greeting">Greetings</a>
+          </li>
+          <li>
+            <a href="#/about/history">History</a>
+          </li>
+          <li>
+            <a href="#/about/certified">Certified</a>
+          </li>
+          <li>
+            <a href="#/about/award">Awards</a>
+          </li>
+          <li>
+            <a href="#/about/member">MEMBER</a>
+          </li>
+          <li>
+            <a href="#/about/visit">Contact us</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/business/renewabl">Business</a>
+        <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+        <ul class="lnb">
+          <li>
+            <a href="#/business/renewable">Renewable Energy Generation</a>
+          </li>
+          <li>
+            <a href="#/business/vpp">VPP <span>(Virtual Power Plant)</span></a>
+          </li>
+          <li>
+            <a href="#/business/ess">ESS <span>(Energy Storage System)</span></a>
+          </li>
+          <li>
+            <a href="#/business/p2v">Power to Vehicle <span>(P2V)</span></a>
+          </li>
+          <li>
+            <a href="#/business/dr">DR <span>(Demand Response)</span></a>
+          </li>
+          <li>
+            <a href="#/business/fintech">Fintech</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/tech/ai">Technology</a>
+        <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+        <ul class="lnb">
+          <li>
+            <a href="#/tech/ai">AI Big-data Center</a>
+          </li>
+          <li>
+            <a href="#/tech/patent">Patent Status of Technology</a>
+          </li>
+          <li>
+            <a href="#/tech/performance">R&D Achievements</a>
+          </li>
+          <li>
+            <a href="#/tech/result">Test Scores</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/ir/notice">IR</a>
+        <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+        <ul class="lnb">
+          <li>
+            <a href="#/ir/cmpny">IR</a>
+          </li>
+          <li>
+            <a href="#/ir/investment">Investment</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/pr/news">PR</a>
+        <img src="/src/assets/images/icons/ico_menu-down.png" alt="" />
+        <ul class="lnb">
+          <li>
+            <a href="#/pr/news">NEWS</a>
+          </li>
+          <li>
+            <a href="#/pr/promotion">Promotional Videos</a>
+          </li>
+          <li>
+            <a href="#/pr/gallery">Gallery</a>
+          </li>
+          <li>
+            <a href="#/pr/questions">Inquiries</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <section class="lang">
+    <article class="con">
+      <p class="EN">EN</p>
+      <div class="box">
+        <p>KR</p>
+        <p>CN</p>
+        <p>EN</p>
+      </div>
+    </article>
+
+    <article class="menu-box">
+      <img src="/src/assets/images/icons/ico_menu01.png" alt="" />
+    </article>
+  </section>
+</article>

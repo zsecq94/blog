@@ -1,7 +1,7 @@
 <script>
   $(document).ready(() => {
-    const $NavP = $(".home-con .slide-con .bar-con p");
-    const $NavBar = $(".home-con .slide-con .bar-con .bar");
+    const $NavP = $(".home-con .con1 .bar-con p");
+    const $NavBar = $(".home-con .con1 .bar-con .bar");
 
     let timeLineWidth = 0;
 
@@ -22,7 +22,7 @@
 
     setInterval(currentTime, 10);
 
-    var swiper = new Swiper(".home-con > .slide-con > .mySwiper", {
+    new Swiper(".home-con > .con1 > .mySwiper", {
       loop: true,
       slidesPerView: 1,
       effect: "fade",
@@ -30,8 +30,8 @@
         delay: 5000,
       },
       navigation: {
-        nextEl: ".home-con .slide-con .next",
-        prevEl: ".home-con .slide-con .prev",
+        nextEl: ".home-con .con1 .next",
+        prevEl: ".home-con .con1 .prev",
       },
       on: {
         slideChange: function () {
@@ -54,25 +54,8 @@
       }
     }
 
-    var swiper2 = new Swiper(".home-con > .con1 .mySwiper", {
+    var swiper2 = new Swiper(".home-con > .con2 .mySwiper", {
       slidesPerView: 4,
-      spaceBetween: 34,
-      navigation: {
-        nextEl: ".home-con .con1 .next",
-        prevEl: ".home-con .con1 .prev",
-      },
-      on: {
-        init: function () {
-          updateNavigationButtons(this, "con1");
-        },
-        slideChange: function () {
-          updateNavigationButtons(this, "con1");
-        },
-      },
-    });
-
-    var swiper3 = new Swiper(".home-con > .con2 .mySwiper", {
-      slidesPerView: 3,
       spaceBetween: 34,
       navigation: {
         nextEl: ".home-con .con2 .next",
@@ -87,11 +70,45 @@
         },
       },
     });
+
+    var swiper3 = new Swiper(".home-con > .con3 .mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 34,
+      navigation: {
+        nextEl: ".home-con .con3 .next",
+        prevEl: ".home-con .con3 .prev",
+      },
+      on: {
+        init: function () {
+          updateNavigationButtons(this, "con3");
+        },
+        slideChange: function () {
+          updateNavigationButtons(this, "con3");
+        },
+      },
+    });
+
+    var swiper3 = new Swiper(".home-con > .con5 .mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 34,
+      navigation: {
+        nextEl: ".home-con .con5 .next",
+        prevEl: ".home-con .con5 .prev",
+      },
+      on: {
+        init: function () {
+          updateNavigationButtons(this, "con5");
+        },
+        slideChange: function () {
+          updateNavigationButtons(this, "con5");
+        },
+      },
+    });
   });
 </script>
 
 <section class="home-con">
-  <article class="slide-con">
+  <article class="con1">
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide bg1">
@@ -145,187 +162,7 @@
     </div>
   </article>
 
-  <article class="con con1">
-    <div class="title-box">
-      <p>
-        렉스이노베이션은 지속 가능한 미래를 위해<br />
-        새로운 가치를 찾고 있습니다
-      </p>
-      <div class="nav-box">
-        <div class="img-box prev">
-          <img src="/src/assets/images/icons/ico_prev02.png" alt="" />
-        </div>
-        <div class="img-box next">
-          <img src="/src/assets/images/icons/ico_next02.png" alt="" />
-        </div>
-      </div>
-    </div>
-
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>재생에너지 발전</p>
-            <p>
-              재생에너지 발전은 지구의 자연 자원을 보존하면서 전기를 생산하는 방법으로, 지속 가능한 발전 방식입니다.
-            </p>
-            <a href="#" class="more-box">
-              <p>자세히보기</p>
-            </a>
-          </div>
-          <div class="img-box">
-            <img src="/src/assets/images/content/main/1_1.png" alt="" />
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>VPP(가상발전소)</p>
-            <p>VPP는 가상적으로 연결된 발전소로 여러 개별 에너지 생산 시스템이 하나의 통합 시스템으로 운영됩니다.</p>
-            <a href="#" class="more-box">
-              <p>자세히보기</p>
-            </a>
-          </div>
-          <div class="img-box">
-            <img src="/src/assets/images/content/main/1_2.png" alt="" />
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>ESS(에너지저장시스템)</p>
-            <p>ESS는 에너지 저장 시스템으로, 전력 그리드의 안정성과 신재생 에너지 통합에 기여하는 중요한 기술입니다.</p>
-            <a href="#" class="more-box">
-              <p>자세히보기</p>
-            </a>
-          </div>
-          <div class="img-box">
-            <img src="/src/assets/images/content/main/1_3.png" alt="" />
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>Power to Vehicle(P2V)</p>
-            <p>
-              Power to Vehicle 은 차량에 전원을 공급하는 시스템으로 배터리에서 전기 에너지를 차량의 전기 시스템으로
-              공급하여 모든 기능을 작동시킵니다.
-            </p>
-            <a href="#" class="more-box">
-              <p>자세히보기</p>
-            </a>
-          </div>
-          <div class="img-box">
-            <img src="/src/assets/images/content/main/1_4.png" alt="" />
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>DR (Demand Response)</p>
-            <p></p>
-            <a href="#" class="more-box">
-              <p>자세히보기</p>
-            </a>
-          </div>
-          <div class="img-box">
-            <img src="/src/assets/images/content/main/1_2.png" alt="" />
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>Fintech</p>
-            <p></p>
-            <a href="#" class="more-box">
-              <p>자세히보기</p>
-            </a>
-          </div>
-          <div class="img-box">
-            <img src="/src/assets/images/content/main/1_2.png" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <article class="con con2">
-    <div class="title-box">
-      <p>PRODUCTS</p>
-      <div class="nav-box">
-        <div class="img-box prev">
-          <img src="/src/assets/images/icons/ico_prev02.png" alt="" />
-        </div>
-        <div class="img-box next">
-          <img src="/src/assets/images/icons/ico_next02.png" alt="" />
-        </div>
-      </div>
-    </div>
-
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>ESS</p>
-            <p>SAVING POWER 5kw Home</p>
-            <p>심야전기보일러 대상 요금 절약형 ESS 모델입니다.</p>
-          </div>
-
-          <img src="/src/assets/images/content/main/2_1.png" alt="" />
-        </div>
-
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>Renewable Energy</p>
-            <p>유량변동대응 전력제어시스템</p>
-            <p>소수력발전용</p>
-          </div>
-
-          <img src="/src/assets/images/content/main/2_2.png" alt="" />
-        </div>
-
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>EMS</p>
-            <p>Sun-Q EMS S/W</p>
-            <p>태양광발전소 모니터링 시스템</p>
-          </div>
-
-          <img src="/src/assets/images/content/main/2_3.png" alt="" />
-        </div>
-
-        <div class="swiper-slide">
-          <div class="text-box">
-            <p>ESS</p>
-            <p>SAVING POWER 5kw Home</p>
-            <p>심야전기보일러 대상 요금 절약형 ESS 모델입니다.</p>
-          </div>
-
-          <img src="/src/assets/images/content/main/2_1.png" alt="" />
-        </div>
-      </div>
-    </div>
-  </article>
-
-  <article class="con con3">
-    <div>
-      <div class="title-box">
-        <p><b>전력중개사업</b></p>
-        <img src="/src/assets/images/icons/ico_arrow01.png" alt="" />
-      </div>
-      <p>
-        비용 NO, 투자 NO!<br />
-        기존 발전소 그대로 참여하면 새로운 수익 창출
-      </p>
-    </div>
-    <div></div>
-  </article>
-
-  <article class="con con4">
-    <h2>con4</h2>
-  </article>
-
-  <article class="con con5">
-    <h2>con5</h2>
+  <article>
+    <h2>hi</h2>
   </article>
 </section>
