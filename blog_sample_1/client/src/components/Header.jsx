@@ -6,6 +6,7 @@ const Header = () => {
 
   const [scroll, setScroll] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -13,14 +14,28 @@ const Header = () => {
   }, [lastScrollY]);
 
   const handleScroll = () => {
-    let state = window.scrollY > 150 && window.scrollY > lastScrollY;
-
-    setScroll(state ? true : false);
+    if (!isMenuOpen) {
+      let state = window.scrollY > 150 && window.scrollY > lastScrollY;
+      setScroll(state ? true : false);
+    }
     setLastScrollY(window.scrollY);
   };
 
+  const handleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
   return (
-    <header className={scroll ? "up" : ""}>
+    <header className={isMenuOpen ? "active " : scroll ? "up" : ""}>
       <article>
         <section className="logo">
           <Link to={"/"}>
@@ -30,13 +45,13 @@ const Header = () => {
           </Link>
         </section>
 
-        <section className="gnb active">
+        <section className="gnb">
           <li>
             <Link
               className={location.pathname === "/tech" ? "active" : ""}
               to={"/tech"}
             >
-              개발
+              DEV
             </Link>
           </li>
 
@@ -45,11 +60,13 @@ const Header = () => {
               className={location.pathname === "/port" ? "active" : ""}
               to={"/port"}
             >
-              포트폴리오
+              PORTFOLIO
             </Link>
           </li>
+        </section>
 
-          <li className="search">검색</li>
+        <section className="menu" onClick={handleMenu}>
+          <img src="/src/assets/images/icons/ico_menu.png" alt="" />
         </section>
       </article>
     </header>

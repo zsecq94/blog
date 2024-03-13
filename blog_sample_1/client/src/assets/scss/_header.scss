@@ -5,14 +5,15 @@ header {
   @include flex(row, center, center);
   position: fixed;
   width: 100%;
+  min-width: 1024px;
   height: 60px;
   backdrop-filter: blur(10px);
   transition: 0.3s;
-  border-bottom: solid 1px $b6;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 15px;
+  z-index: 10;
 
   &.up {
-    transform: translateY(-61px);
+    transform: translateY(-75px);
   }
 
   article {
@@ -76,7 +77,7 @@ header {
       }
 
       .search {
-        cursor: pointer;
+        @include font(14px, 500, $w6);
         padding: 5px 10px;
         background-color: $w4;
         border-radius: 5px;
@@ -87,94 +88,69 @@ header {
         }
       }
     }
+
+    .menu {
+      display: none;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
   header {
-    @include flex(row, center, center);
+    align-items: flex-start;
     position: fixed;
-    width: 100%;
-    height: 60px;
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-    border-bottom: solid 1px $b6;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 15px;
+    height: 50px;
+    min-width: 100%;
 
     &.up {
-      transform: translateY(-61px);
+      transform: translateY(-65px);
+    }
+
+    &.active {
+      height: 140px;
+
+      article {
+        .gnb {
+          opacity: 1;
+          visibility: visible;
+          transition: opacity 0.5s;
+          transition-delay: 0.1s;
+        }
+      }
     }
 
     article {
-      @include flex(row, center, space-between);
-      width: 1024px;
-      height: 100%;
-      padding: 0 20px;
+      @include flex(column, flex-start, center);
+      width: 100%;
+      height: 50px;
+      position: relative;
 
       .logo {
-        @include font(24px, 400);
-
-        a {
-          p {
-            position: relative;
-
-            &::before {
-              border-bottom: solid 1px $w9;
-              display: inline-block;
-              position: absolute;
-              content: "";
-              top: 100%;
-              width: 0%;
-              transition: 0.5s;
-            }
-
-            &:hover {
-              &::before {
-                width: 100%;
-              }
-            }
-
-            &.active {
-              &::before {
-                width: 100%;
-              }
-            }
-          }
-        }
+        font-size: 20px;
       }
 
       .gnb {
-        @include flex(row, center, center, 10px);
-        @include font(16px, 400);
-
-        li {
-          color: $w6;
-          a {
-            @include flex(row, center, center);
-            border-radius: 5px;
-            padding: 5px 10px;
-            transition: 0.5s;
-
-            &:hover {
-              background-color: $w4;
-            }
-
-            &.active {
-              color: $w9;
-            }
-          }
-        }
+        @include flex(column, flex-start, flex-start, 10px);
+        position: absolute;
+        font-size: 14px;
+        width: 100%;
+        top: 60px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0s;
 
         .search {
-          cursor: pointer;
-          padding: 5px 10px;
-          background-color: $w4;
-          border-radius: 5px;
-          transition: 0.5s;
+          display: none;
+        }
+      }
 
-          &:hover {
-            color: $w9;
-          }
+      .menu {
+        @include flex(row, center, center);
+        position: absolute;
+        right: 20px;
+
+        img {
+          width: 20px;
         }
       }
     }

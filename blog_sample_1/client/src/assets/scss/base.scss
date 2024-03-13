@@ -7,8 +7,6 @@
 @import "footer";
 
 body {
-  font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
-  -webkit-font-smoothing: antialiased;
   color: $w9;
   background-color: $g9;
 }
@@ -19,12 +17,14 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 button {
-  background: none;
+  // background: none;
   border: none;
-  color: inherit;
+  // color: inherit;
   outline: inherit;
   cursor: pointer;
 }
@@ -44,6 +44,6 @@ input:focus {
 
 main {
   @include flex(column, center);
-  min-height: 100vh;
+  min-height: 150vh;
   padding-top: 90px;
 }
