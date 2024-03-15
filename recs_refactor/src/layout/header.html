@@ -1,0 +1,248 @@
+<script>
+  $(document).ready(() => {
+    const $Body = $("body");
+    const $Gnb = $("header > article > .gnb");
+    const $Header = $("header");
+    const $LangBox = $("header > article > .lang-con > .lang-box");
+    const $LangBoxP = $("header > article > .lang-con > .lang-box > p");
+    const $SelectBox = $("header > article > .lang-con > .lang-box > .select-box");
+    const $SelectBoxP = $("header > article > .lang-con > .lang-box > .select-box > p");
+    const $MenuBox = $("header > article > .lang-con > .menu-box");
+
+    const $DownIcon = $("header > article > .gnb > ul > li > img");
+
+    let isWeb = $(window).innerWidth() > 768;
+    let isMenuOpen = false;
+    let scrollCheck = false;
+
+    // gnb 영역에 마우스 오버시 로직
+    const handleHeader = (state) => {
+      isMenuOpen = state;
+      if (isMenuOpen) {
+        $Header.addClass("active header");
+      } else {
+        $Header.removeClass(scrollCheck ? "header" : "active header");
+      }
+
+      if (!isWeb) {
+        if (isMenuOpen) {
+          $Body.addClass("no-scroll");
+        } else {
+          $Body.removeClass("no-scroll");
+        }
+      }
+    };
+
+    $LangBox.click((e) => {
+      e.stopPropagation();
+      $SelectBox.toggleClass("active");
+    });
+
+    $(document).click(() => {
+      $SelectBox.removeClass("active");
+    });
+
+    // 언어 변경시 로직
+    $SelectBoxP.click(function () {
+      $LangBoxP.removeClass();
+      $LangBoxP.addClass($(this).text());
+      $LangBoxP.text($(this).text());
+    });
+
+    let prevScroll = 0;
+
+    // 스크롤 체크시 로직
+    $(window).scroll(function () {
+      let currentScroll = $(this).scrollTop();
+      let currentScrollCheck = currentScroll >= 200;
+      let addUpClassCheck = currentScroll >= 100;
+
+      if (currentScrollCheck !== scrollCheck) {
+        if (currentScrollCheck) {
+          $Header.addClass("active scroll");
+        } else {
+          $Header.removeClass(isMenuOpen ? "scroll" : "active scroll");
+        }
+        scrollCheck = currentScrollCheck;
+      }
+      if (!isWeb) {
+        if (currentScroll > 150 && currentScroll - prevScroll > 50 && addUpClassCheck) {
+          $Header.addClass("up");
+          prevScroll = currentScroll;
+        } else if (prevScroll - currentScroll > 50) {
+          $Header.removeClass("up");
+          prevScroll = currentScroll;
+        }
+      }
+    });
+
+    // 모바일 화면 서브메뉴 보기 아이콘 클릭시 로직
+    $DownIcon.click(function () {
+      let $Lnb = $(this).siblings(".lnb");
+
+      if ($Lnb.is(":visible")) {
+        $Lnb.slideUp(() => {
+          $Lnb.css({ display: "none" });
+        });
+        $(this).removeClass("rotate");
+      } else {
+        $Lnb.css({ display: "flex" }).hide().slideDown();
+        $(this).addClass("rotate");
+      }
+    });
+
+    if (isWeb) {
+      $Gnb.mouseenter(() => handleHeader(true));
+      $Header.mouseleave(() => handleHeader(false));
+    } else {
+      $MenuBox.click(() => {
+        isMenuOpen = !isMenuOpen;
+        handleHeader(isMenuOpen);
+
+        if (!isMenuOpen) {
+          $DownIcon.removeClass();
+          $DownIcon.siblings(".lnb").slideUp();
+        }
+      });
+    }
+  });
+</script>
+
+<article>
+  <section class="logo-con">
+    <a href="/"></a>
+  </section>
+
+  <section class="gnb">
+    <ul>
+      <li>
+        <a href="#/about/greeting">회사소개</a>
+        <img src="/src/assets/images/icons/ico-menu_down.png" alt="" />
+
+        <ul class="lnb">
+          <li>
+            <a href="#/about/greeting">인사말</a>
+          </li>
+          <li>
+            <a href="#/about/history">연혁</a>
+          </li>
+          <li>
+            <a href="#/about/certified">인증내역</a>
+          </li>
+          <li>
+            <a href="#/about/award">수상내역</a>
+          </li>
+          <li>
+            <a href="#/about/member">MEMBER</a>
+          </li>
+          <li>
+            <a href="#/about/visit">찾아오시는 방법</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/business/renewable">비즈니스 분야</a>
+        <img src="/src/assets/images/icons/ico-menu_down.png" alt="" />
+
+        <ul class="lnb">
+          <li>
+            <a href="#/business/renewable">재생에너지 발전</a>
+          </li>
+          <li>
+            <a href="#/business/vpp">VPP <span>(가상발전소)</span></a>
+          </li>
+          <li>
+            <a href="#/business/ess">ESS <span>(에너지저장시스템)</span></a>
+          </li>
+          <li>
+            <a href="#/business/p2v">Power to Vehicle <span>(P2V)</span></a>
+          </li>
+          <li>
+            <a href="#/business/dr">DR <span>(Demand Response)</span></a>
+          </li>
+          <li>
+            <a href="#/business/fintech">Fintech</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/tech/ai">보유기술</a>
+        <img src="/src/assets/images/icons/ico-menu_down.png" alt="" />
+
+        <ul class="lnb">
+          <li>
+            <a href="#/tech/ai">AI 빅데이터센터</a>
+          </li>
+          <li>
+            <a href="#/tech/patent">기술 특허 현황</a>
+          </li>
+          <li>
+            <a href="#/tech/performance">기업부설연구소 R&D실적</a>
+          </li>
+          <li>
+            <a href="#/tech/result">시험성적</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/ir/notice">IR</a>
+        <img src="/src/assets/images/icons/ico-menu_down.png" alt="" />
+
+        <ul class="lnb">
+          <li>
+            <a href="#/ir/notice">공지사항</a>
+          </li>
+          <li>
+            <a href="#/ir/cmpny">기업정보(IR)</a>
+          </li>
+          <li>
+            <a href="#/ir/investment">투자하기</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/pr/news">PR</a>
+        <img src="/src/assets/images/icons/ico-menu_down.png" alt="" />
+
+        <ul class="lnb">
+          <li>
+            <a href="#/pr/news">NEWS</a>
+          </li>
+          <li>
+            <a href="#/pr/promotion">홍보영상</a>
+          </li>
+          <li>
+            <a href="#/pr/gallery">갤러리</a>
+          </li>
+          <li>
+            <a href="#/pr/insight">인사이트</a>
+          </li>
+          <li>
+            <a href="#/pr/questions">문의사항</a>
+          </li>
+          <li>
+            <a href="#/pr/recruit">인재채용</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="lang-con">
+    <div class="lang-box">
+      <p class="KR">KR</p>
+
+      <div class="select-box">
+        <p>KR</p>
+        <p>CN</p>
+        <p>EN</p>
+      </div>
+    </div>
+
+    <div class="menu-box"></div>
+  </section>
+</article>
