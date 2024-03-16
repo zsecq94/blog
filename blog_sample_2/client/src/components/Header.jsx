@@ -1,22 +1,43 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+  const [toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.remove();
+    document.body.classList.add(!toggle ? "dark" : "light");
+
+    return () => {
+      document.body.classList.remove("dark");
+    };
+  }, [toggle]);
+
   return (
     <header>
       <article>
-        <p>
+        <a href="/">
           <b>DEV</b>.LOG
-        </p>
+        </a>
+
         <ul className="gnb">
-          <li>
+          <li className={location.pathname === "/tech" ? "active" : ""}>
             <Link to={"/tech"}>TECH</Link>
           </li>
-          <li>
-            <Link to={"/algo"}>ALGOLITHM</Link>
+
+          <li className={location.pathname === "/algo" ? "active" : ""}>
+            <Link to={"/algo"}>ALGORITHM</Link>
           </li>
-          <li>
+
+          <li className={location.pathname === "/port" ? "active" : ""}>
             <Link to={"/port"}>PORTFOLIO</Link>
           </li>
+
+          <button
+            className={toggle ? "active" : ""}
+            onClick={() => setToggle(!toggle)}
+          ></button>
         </ul>
       </article>
     </header>
