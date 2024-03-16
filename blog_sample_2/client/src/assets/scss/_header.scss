@@ -2,34 +2,47 @@
 @import "variables";
 
 header {
+  @include box-shadow();
+  @include flex(row, center, center);
+  backdrop-filter: blur(10px);
   position: fixed;
   font-style: italic;
   width: 100%;
+  height: 60px;
+  padding: 0px 50px;
 
-  @include flex(row, center, space-between);
-  padding: 20px 50px;
+  article {
+    @include flex(row, center, space-between);
+    padding: 0 20px;
+    width: 1024px;
+    height: 60px;
 
-  .gnb {
-    @include flex(row, center, center, 20px);
-    font-size: 14px;
+    > p {
+      font-size: 24px;
+    }
 
-    li {
-      position: relative;
+    .gnb {
+      @include flex(row, center, center, 20px);
+      @include font(14px, 500);
 
-      &::after {
-        content: "";
-        position: absolute;
-        display: inline-block;
-        height: 1px;
-        width: 0%;
-        left: 0;
-        top: 100%;
-        border-bottom: solid 2px $w9;
-        transition: 0.5s;
-      }
-      &:hover {
+      li {
+        position: relative;
+
         &::after {
-          width: 100%;
+          content: "";
+          position: absolute;
+          display: inline-block;
+          height: 1px;
+          width: 0%;
+          left: 0;
+          top: 100%;
+          border-bottom: solid 2px $w9;
+          transition: 0.5s;
+        }
+        &:hover {
+          &::after {
+            width: 100%;
+          }
         }
       }
     }

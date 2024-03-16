@@ -1,9 +1,4 @@
-@mixin flex(
-  $direction: row,
-  $align: flex-start,
-  $justify: flex-start,
-  $gap: 0px
-) {
+@mixin flex($direction: row, $align: null, $justify: null, $gap: null) {
   display: flex;
   flex-direction: $direction;
   align-items: $align;
@@ -11,13 +6,55 @@
   gap: $gap;
 }
 
-@mixin border($color: inherit, $radius: 0px) {
-  border: solid 1px $color;
-  border-radius: $radius;
+@mixin grid($grid-col, $align: null, $grid-gap: null) {
+  display: grid;
+  grid-template-columns: $grid-col;
+  gap: $grid-gap;
+  align-items: $align;
 }
 
-@mixin font($size: inherit, $weight: inherit, $color: inherit) {
-  font-size: $size;
-  font-weight: $weight;
+@mixin border($border-color: inherit, $border-radius: inherit) {
+  border: solid 1px $border-color;
+  border-radius: $border-radius;
+}
+
+@mixin font($font-size: medium, $font-weight: normal, $color: null) {
+  font-size: $font-size;
+  font-weight: $font-weight;
   color: $color;
+}
+
+@mixin ab(
+  $top: null,
+  $right: null,
+  $bot: null,
+  $left: null,
+  $width: null,
+  $height: null
+) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bot;
+  left: $left;
+  width: $width;
+  height: $height;
+}
+
+@mixin selector($width: null, $height: null, $margin: null) {
+  content: "";
+  display: inline-block;
+  width: $width;
+  height: $height;
+  margin: $margin;
+}
+
+@mixin box-shadow(
+  $h-offset: 0px,
+  $v-offset: 5px,
+  $blur: 15px,
+  $spread: 0px,
+  $color: rgba(0, 0, 0, 0.2)
+) {
+  box-shadow: $h-offset $v-offset $blur $spread $color;
 }
