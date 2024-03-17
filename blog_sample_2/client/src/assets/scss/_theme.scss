@@ -1,0 +1,61 @@
+.dark {
+  color: $w9;
+  background-color: $g9;
+
+  header {
+    article {
+      > a {
+        color: $w;
+      }
+
+      .gnb {
+        li {
+          color: $w6;
+
+          &::after {
+            border-bottom: solid 2px $w9;
+          }
+
+          &:hover {
+            color: $w9;
+          }
+
+          &.active {
+            color: $w9;
+          }
+        }
+      }
+    }
+  }
+}
+
+.light {
+  color: $g9;
+  background-color: $w9;
+
+  header {
+    article {
+      > a {
+        color: $b;
+      }
+
+      .gnb {
+        li {
+          color: $b6;
+
+          &::after {
+            border-bottom: solid 2px $b9;
+          }
+
+          &:hover {
+            color: $b9;
+          }
+
+          &.active {
+            color: $b9;
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,24 +2,14 @@
 
 @import "mixin";
 @import "variables";
+@import "theme";
 
 @import "header";
 @import "footer";
 
-.light {
-  color: $g9;
-  background-color: $w9;
-}
-
-.dark {
-  color: $w9;
-  background-color: $g9;
-}
-
 body {
   font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
   -webkit-font-smoothing: antialiased;
-  transition: 0.3s;
 }
 
 *,

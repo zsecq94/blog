@@ -3,19 +3,41 @@ import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
-  const [toggle, setToggle] = useState(false);
+  const [scrollCehck, setScrollCheck] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+
+  const handleScroll = () => {
+    let currentScrollY = window.scrollY;
+    if (currentScrollY > 150) {
+      if (currentScrollY - lastScrollY > 50) {
+        setScrollCheck(true);
+        setLastScrollY(currentScrollY);
+      } else if (lastScrollY - currentScrollY > 50) {
+        setScrollCheck(false);
+        setLastScrollY(currentScrollY);
+      }
+    } else {
+      setScrollCheck(false);
+      setLastScrollY(currentScrollY);
+    }
+  };
 
   useEffect(() => {
-    document.body.classList.remove();
-    document.body.classList.add(!toggle ? "dark" : "light");
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
-    return () => {
-      document.body.classList.remove("dark");
-    };
-  }, [toggle]);
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
   return (
-    <header>
+    <header className={scrollCehck ? "up" : ""}>
       <article>
         <a href="/">
           <b>DEV</b>.LOG
@@ -34,10 +56,9 @@ const Header = () => {
             <Link to={"/port"}>PORTFOLIO</Link>
           </li>
 
-          <button
-            className={toggle ? "active" : ""}
-            onClick={() => setToggle(!toggle)}
-          ></button>
+          <div className="box">
+            <button className={theme} onClick={toggleTheme}></button>
+          </div>
         </ul>
       </article>
     </header>
