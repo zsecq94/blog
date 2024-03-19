@@ -5,6 +5,13 @@ footer {
   @include flex(row, center, end);
   font-size: 12px;
   width: 100%;
+  min-width: 1024px;
   bottom: 0;
   padding: 20px 24px;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    min-width: 100%;
+  }
 }

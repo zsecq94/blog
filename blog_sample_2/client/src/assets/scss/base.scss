@@ -45,5 +45,10 @@ input:focus {
 main {
   @include flex(column, center);
   min-height: 150vh;
+  min-width: 1024px;
   padding-top: 90px;
+
+  @media screen and (max-width: 768px) {
+    min-width: 100%;
+  }
 }

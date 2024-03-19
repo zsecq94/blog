@@ -24,21 +24,12 @@
   color: $color;
 }
 
-@mixin ab(
-  $top: null,
-  $right: null,
-  $bot: null,
-  $left: null,
-  $width: null,
-  $height: null
-) {
+@mixin ab($t: null, $r: null, $b: null, $l: null) {
   position: absolute;
-  top: $top;
-  right: $right;
-  bottom: $bot;
-  left: $left;
-  width: $width;
-  height: $height;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
 }
 
 @mixin selector($width: null, $height: null, $margin: null) {
@@ -47,16 +38,6 @@
   width: $width;
   height: $height;
   margin: $margin;
-}
-
-@mixin box-shadow(
-  $h-offset: 0px,
-  $v-offset: 5px,
-  $blur: 15px,
-  $spread: 0px,
-  $color: rgba(0, 0, 0, 0.2)
-) {
-  box-shadow: $h-offset $v-offset $blur $spread $color;
 }
 
 @mixin icon($path: null, $name: null) {

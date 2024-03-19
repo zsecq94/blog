@@ -55,13 +55,13 @@ const Header = () => {
           <li className={location.pathname === "/port" ? "active" : ""}>
             <Link to={"/port"}>PORTFOLIO</Link>
           </li>
-
-          <div className="box">
-            <button className={theme} onClick={toggleTheme}></button>
-
-            <p></p>
-          </div>
         </ul>
+
+        <div className="box">
+          <button className={theme} onClick={toggleTheme}></button>
+
+          <p></p>
+        </div>
       </article>
     </header>
   );
