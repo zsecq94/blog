@@ -6,6 +6,7 @@ const Header = () => {
   const [scrollCehck, setScrollCheck] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [active, setActive] = useState(false);
 
   const handleScroll = () => {
     let currentScrollY = window.scrollY;
@@ -36,8 +37,13 @@ const Header = () => {
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
+  const toggleMenu = () => {
+    setActive(!active);
+  };
+
   return (
-    <header className={scrollCehck ? "up" : ""}>
+    <header className={active ? "active" : scrollCehck ? "up" : ""}>
       <article>
         <a href="/">
           <b>DEV</b>.LOG
@@ -60,7 +66,7 @@ const Header = () => {
         <div className="box">
           <button className={theme} onClick={toggleTheme}></button>
 
-          <p></p>
+          <button className="menu" onClick={toggleMenu}></button>
         </div>
       </article>
     </header>

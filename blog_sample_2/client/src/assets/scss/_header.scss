@@ -82,8 +82,7 @@ header {
         }
       }
 
-      p {
-        @include flex(row, center, center);
+      .menu {
         display: none;
         &::after {
           @include selector(
@@ -101,26 +100,31 @@ header {
   header {
     min-width: 100%;
     height: 50px;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+    align-items: start;
+    overflow: hidden;
+
+    &.active {
+      height: 200px;
+    }
 
     &.up {
       transform: translateY(-100%);
     }
 
     article {
-      @include flex(row, center, space-between);
       padding: 0 20px;
       width: 100%;
       height: 50px;
-      position: relative;
 
       > a {
-        font-size: 24px;
+        font-size: 20px;
       }
 
       .gnb {
-        @include flex(row, center, center, 20px);
-        @include font(14px, 500);
-        padding-right: 40px;
+        @include flex(column, start, start, 20px);
+        @include font(16px, 500);
+        @include ab($t: 70px);
 
         li {
           position: relative;
@@ -174,9 +178,9 @@ header {
           }
         }
 
-        p {
+        .menu {
           @include flex(row, center, center);
-          display: none;
+
           &::after {
             @include selector(
               20px,
