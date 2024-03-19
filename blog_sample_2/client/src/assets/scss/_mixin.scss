@@ -58,3 +58,8 @@
 ) {
   box-shadow: $h-offset $v-offset $blur $spread $color;
 }
+
+@mixin icon($path: null, $name: null) {
+  background: url("/src/assets/images/#{$path}/ico_#{$name}.png") no-repeat
+    center/cover;
+}

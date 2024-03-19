@@ -6,6 +6,7 @@ header {
   position: fixed;
   font-style: italic;
   width: 100%;
+  min-width: 1024px;
   height: 60px;
   padding: 0px 50px;
   transition: 0.2s;
@@ -56,24 +57,38 @@ header {
         }
       }
 
-      button {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        transition: 0.3s;
+      .box {
+        @include flex(row, center, center, 15px);
+        button {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          transition: 0.3s;
 
-        &.dark {
-          background-color: $w6;
-          &:hover {
+          &.dark {
+            background-color: $w6;
+            &:hover {
+              background-color: rgb(223, 209, 24);
+            }
+          }
+
+          &.light {
             background-color: rgb(223, 209, 24);
+
+            &:hover {
+              background-color: $b6;
+            }
           }
         }
 
-        &.light {
-          background-color: rgb(223, 209, 24);
+        p {
+          &::after {
+            @include selector(
+              20px,
+              20px
+            );
 
-          &:hover {
-            background-color: $b6;
+            @include icon(icons, menu);
           }
         }
       }

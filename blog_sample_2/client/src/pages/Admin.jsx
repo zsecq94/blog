@@ -1,8 +1,8 @@
 const Admin = () => {
   return (
-    <div>
+    <article>
       <h2>Admin</h2>
-    </div>
+    </article>
   );
 };
 
