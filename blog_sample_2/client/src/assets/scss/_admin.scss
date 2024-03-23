@@ -1,4 +1,47 @@
 article {
   padding: 0 20px;
   width: 1024px;
+
+  .modal {
+    @include flex(row, center, center);
+    @include position(fixed, $t: 0, $l: 0);
+    background-color: $b8;
+    backdrop-filter: blur(2px);
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+
+    .modal-box {
+      padding: 30px;
+      background-color: $w;
+      border-radius: 20px;
+
+      form {
+        @include flex(column, center, center, 20px);
+        .inp-box {
+          @include flex(column, start, start, 10px);
+
+          input {
+            @include border(#999, 5px);
+            padding: 10px 14px;
+            transition: 0.3s;
+            width: 100%;
+
+            &:focus {
+              @include border($b, 5px);
+            }
+          }
+
+          label {
+            @include font(14px, 700, $b);
+          }
+        }
+
+        button {
+          background-color: $g5;
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
 }

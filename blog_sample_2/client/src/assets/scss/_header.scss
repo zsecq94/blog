@@ -35,7 +35,7 @@ header {
         transition: 0.1s;
 
         &::after {
-          @include ab($l: 0, $t: 90%);
+          @include position(absolute, $l: 0, $t: 90%);
           @include selector(
             0px,
             1px
@@ -58,7 +58,7 @@ header {
     }
 
     .box {
-      @include ab($r: 20px);
+      @include position(absolute, $r: 20px);
       @include flex(row, center, center, 15px);
       button {
         width: 20px;
@@ -124,14 +124,14 @@ header {
       .gnb {
         @include flex(column, start, start, 20px);
         @include font(16px, 500);
-        @include ab($t: 70px);
+        @include position(absolute, $t: 70px);
 
         li {
           position: relative;
           transition: 0.1s;
 
           &::after {
-            @include ab($l: 0, $t: 90%);
+            @include position(absolute, $l: 0, $t: 90%);
             @include selector(
               0px,
               1px
@@ -154,7 +154,7 @@ header {
       }
 
       .box {
-        @include ab($r: 20px);
+        @include position(absolute, $r: 20px);
         @include flex(row, center, center, 15px);
         button {
           width: 20px;
