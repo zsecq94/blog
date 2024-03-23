@@ -1,30 +1,25 @@
 import express from "express";
 import cors from "cors";
+
 import sequelize from "./db.js";
-import Admin from "./models/Admin.js";
-import Article from "./models/Article.js";
 
-// import adminRoutes from "./routes/admin.routes.js";
-// import articleRoutes from "./routes/article.routes.js";
-
-// app.use("/api/v1/admin", adminRoutes);
-// app.use("/api/v1/article", articleRoutes);
+import userRoutes from "./routes/user.routes.js";
+import postRoutes from "./routes/post.routes.js";
 
 // app.use("/fileMd", express.static("fileMd"));
 // app.use("/fileThumb", express.static("fileThumb"));
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
 app.use(cors());
 app.use(express.json());
-const PORT = 3000;
 
-try {
-  await sequelize.sync({ force: false });
-  console.log("✅ DB 연결 성공");
-} catch (error) {
-  console.error("⛔ DB 연결 실패 : ", error);
-}
+app.use("/api/user", userRoutes);
+app.use("/api/post", postRoutes);
 
-app.listen(PORT, () => {
-  console.log("Server up and running on port", PORT);
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}.`);
+  });
 });

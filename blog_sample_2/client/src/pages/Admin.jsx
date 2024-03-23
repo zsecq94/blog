@@ -1,65 +1,68 @@
-import { useEffect, useState } from "react";
+import { axiosInstance } from "@/service/config";
+import { useState } from "react";
+
+import { toast } from "react-toastify";
+import AuthModal from "../components/AuthModal";
 
 const Admin = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const isWeb = window.innerWidth > 768;
+  const [isLogin, setIsLogin] = useState(true);
+
   const [userInfo, setUserInfo] = useState({
-    id: null,
-    pw: null,
+    username: null,
+    password: null,
+  });
+
+  const [saveData, setSaveData] = useState({
+    title: null,
+    category: null,
+    chip: [],
   });
 
   const onChangeId = (e) => {
     setUserInfo((prevState) => ({
       ...prevState,
-      id: e.target.value,
+      username: e.target.value,
     }));
   };
 
   const onChangePw = (e) => {
     setUserInfo((prevState) => ({
       ...prevState,
-      pw: e.target.value,
+      password: e.target.value,
     }));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(userInfo);
-    setIsLogin(true);
+
+    if (userInfo.username !== null && userInfo.password !== null) {
+      const res = await axiosInstance.post("/api/user/login", userInfo);
+
+      if (res.data.state) {
+        setIsLogin(true);
+      } else {
+        toast.error(res.data.msg);
+      }
+    } else {
+      toast.error("모두 입력해 주세요!");
+    }
   };
 
   return (
-    <article>
+    <article className={isWeb ? "admin-con" : "admin-con none"}>
       {isLogin ? (
-        <section>로그인</section>
-      ) : (
-        <section className="modal">
-          <div className="modal-box">
-            <form onSubmit={onSubmit}>
-              <div className="inp-box">
-                <label htmlFor="id">아이디</label>
-                <input
-                  type="text"
-                  id="id"
-                  placeholder="ID"
-                  onChange={onChangeId}
-                  value={userInfo.id}
-                />
-              </div>
+        <section className="save-con">
+          <div className="regist-con"></div>
 
-              <div className="inp-box">
-                <label htmlFor="pw">비밀번호</label>
-                <input
-                  type="password"
-                  id="pw"
-                  placeholder="PW"
-                  onChange={onChangePw}
-                  value={userInfo.pw}
-                />
-              </div>
-              <button type="submit">로그인</button>
-            </form>
-          </div>
+          <h2>hi</h2>
         </section>
+      ) : (
+        <AuthModal
+          onChangeId={onChangeId}
+          onChangePw={onChangePw}
+          onSubmit={onSubmit}
+        />
       )}
     </article>
   );
