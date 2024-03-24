@@ -3,6 +3,8 @@ import { useState } from "react";
 
 import { toast } from "react-toastify";
 import AuthModal from "../components/AuthModal";
+import Chips from "../components/Chips";
+import SelectBox from "../components/SelectBox";
 
 const Admin = () => {
   const isWeb = window.innerWidth > 768;
@@ -16,7 +18,7 @@ const Admin = () => {
   const [saveData, setSaveData] = useState({
     title: null,
     category: null,
-    chip: [],
+    chips: [],
   });
 
   const onChangeId = (e) => {
@@ -53,7 +55,10 @@ const Admin = () => {
     <article className={isWeb ? "admin-con" : "admin-con none"}>
       {isLogin ? (
         <section className="save-con">
-          <div className="regist-con"></div>
+          <div className="regist-con">
+            <SelectBox />
+            <Chips />
+          </div>
 
           <h2>hi</h2>
         </section>

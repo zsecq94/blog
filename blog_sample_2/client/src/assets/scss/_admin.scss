@@ -10,8 +10,8 @@
     position: relative;
 
     .regist-con {
-      position: fixed;
-      left: 20px;
+      @include position(fixed, $l: 20px);
+      @include flex(column, $gap: 30px);
       width: 300px;
     }
   }
