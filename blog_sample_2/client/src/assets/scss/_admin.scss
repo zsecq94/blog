@@ -10,9 +10,24 @@
     position: relative;
 
     .regist-con {
-      @include position(fixed, $l: 20px);
+      @include position(fixed, $t: 20%, $l: 100px);
       @include flex(column, $gap: 30px);
       width: 300px;
+
+      .inp {
+        @include border(#fff, 8px);
+
+        label {
+          cursor: pointer;
+          @include flex(row, center, center);
+          padding: 10px 0;
+          width: 100%;
+        }
+
+        input[type="file"] {
+          display: none;
+        }
+      }
     }
   }
 
@@ -21,7 +36,7 @@
     @include position(fixed, $t: 0, $l: 0);
     background-color: $b8;
     backdrop-filter: blur(2px);
-    z-index: 99;
+    z-index: 10;
     width: 100%;
     height: 100vh;
 

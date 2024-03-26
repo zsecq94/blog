@@ -6,6 +6,8 @@ import AuthModal from "../components/AuthModal";
 import Chips from "../components/Chips";
 import SelectBox from "../components/SelectBox";
 
+import Input from "@mui/joy/Input";
+
 const Admin = () => {
   const isWeb = window.innerWidth > 768;
   const [isLogin, setIsLogin] = useState(true);
@@ -51,13 +53,22 @@ const Admin = () => {
     }
   };
 
+  const handleFile = (e) => {
+    console.log(e.target.files[0]);
+  };
+
   return (
     <article className={isWeb ? "admin-con" : "admin-con none"}>
       {isLogin ? (
         <section className="save-con">
           <div className="regist-con">
+            <Input color="neutral" variant="outlined" placeholder="제목" />
             <SelectBox />
             <Chips />
+            <div className="inp">
+              <label htmlFor="file">MD 업로드</label>
+              <input onChange={handleFile} type="file" id="file" />
+            </div>
           </div>
 
           <h2>hi</h2>
