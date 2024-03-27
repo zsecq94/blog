@@ -22,10 +22,9 @@ body {
 }
 
 button {
-  background: none;
+  background: transparent;
   border: none;
   color: inherit;
-  outline: inherit;
   cursor: pointer;
 }
 
@@ -42,11 +41,29 @@ input:focus {
   outline: none;
 }
 
+h2 {
+  @include font(24px, 700);
+}
+
+h3 {
+  @include font(22px, 600);
+}
+
+h4 {
+  @include font(20px, 500);
+}
+
+h2,
+h3,
+h4 {
+  font-style: italic;
+}
+
 main {
   @include flex(column, center);
-  min-height: 150vh;
+  min-height: 100vh;
   min-width: 1024px;
-  padding-top: 90px;
+  padding: 90px 0 0;
 
   @media screen and (max-width: 768px) {
     min-width: 100%;

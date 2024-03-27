@@ -1,86 +1,64 @@
-import { axiosInstance } from "@/service/config";
 import { useState } from "react";
 
-import { toast } from "react-toastify";
-import AuthModal from "../components/AuthModal";
-import Chips from "../components/Chips";
-import SelectBox from "../components/SelectBox";
-
-import Input from "@mui/joy/Input";
-
 const Admin = () => {
-  const isWeb = window.innerWidth > 768;
-  const [isLogin, setIsLogin] = useState(true);
-
-  const [userInfo, setUserInfo] = useState({
-    username: null,
-    password: null,
-  });
-
   const [saveData, setSaveData] = useState({
     title: null,
-    category: null,
+    file: null,
     chips: [],
+    category: null,
   });
 
-  const onChangeId = (e) => {
-    setUserInfo((prevState) => ({
-      ...prevState,
-      username: e.target.value,
+  const [handleList, setHandleList] = useState(0);
+  const list = [
+    ["test1", "test2", "test3", "test4"],
+    ["react", "vue", "javascript"],
+    ["시뮬레이션", "라면", "치킨", "맥주"],
+  ];
+
+  const onChangeCategory = (e) => {
+    const val = e.target.value;
+    setSaveData((prevSaveData) => ({
+      ...prevSaveData,
+      category: val,
+    }));
+
+    setHandleList(val === "tech" ? 0 : val === "algorithm" ? 1 : 2);
+  };
+
+  const onChangeTitle = (e) => {
+    setSaveData((prevSaveData) => ({
+      ...prevSaveData,
+      title: e.target.value,
     }));
   };
 
-  const onChangePw = (e) => {
-    setUserInfo((prevState) => ({
-      ...prevState,
-      password: e.target.value,
-    }));
+  const onChangeSelectChips = (e) => {
+    console.log(e.target.value);
   };
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    if (userInfo.username !== null && userInfo.password !== null) {
-      const res = await axiosInstance.post("/api/user/login", userInfo);
-
-      if (res.data.state) {
-        setIsLogin(true);
-      } else {
-        toast.error(res.data.msg);
-      }
-    } else {
-      toast.error("모두 입력해 주세요!");
-    }
-  };
-
-  const handleFile = (e) => {
+  const onChangeInputFile = (e) => {
     console.log(e.target.files[0]);
   };
 
   return (
-    <article className={isWeb ? "admin-con" : "admin-con none"}>
-      {isLogin ? (
-        <section className="save-con">
-          <div className="regist-con">
-            <Input color="neutral" variant="outlined" placeholder="제목" />
-            <SelectBox />
-            <Chips />
-            <div className="inp">
-              <label htmlFor="file">MD 업로드</label>
-              <input onChange={handleFile} type="file" id="file" />
-            </div>
-          </div>
+    <div className="admin-con">
+      <article className="preview-con"></article>
 
-          <h2>hi</h2>
-        </section>
-      ) : (
-        <AuthModal
-          onChangeId={onChangeId}
-          onChangePw={onChangePw}
-          onSubmit={onSubmit}
-        />
-      )}
-    </article>
+      <article className="regist-con">
+        <select onChange={onChangeCategory}>
+          <option value="tech">TECH</option>
+          <option value="algorithm">ALGO</option>
+          <option value="portfolio">PORT</option>
+        </select>
+
+        <input type="text" onChange={onChangeTitle} />
+
+        <button type="label">
+          <p>File Upload</p>
+          <input type="file" onChange={onChangeInputFile} />
+        </button>
+      </article>
+    </div>
   );
 };
 
