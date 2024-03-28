@@ -1,0 +1,190 @@
+<script>
+  $(document).ready(() => {
+    const $header = $("header");
+    const $gnb = $("header > article > .gnb-con");
+    const $langBox = $("header > article > .lang-con > .lang-box");
+    const $langBoxP = $("header > article > .lang-con > .lang-box > p");
+    const $selectBox = $("header > article > .lang-con > .lang-box > .select-box");
+    const $selectBoxP = $("header > article > .lang-con > .lang-box > .select-box > p");
+    const $menu = $("header > article > .lang-con > .menu-box");
+    const $downIcon = $("header > article > .gnb-con > ul > li > p");
+
+    let isMenuOpen = false;
+    let saveScroll = false;
+    let isWeb = $(document).innerWidth() > 768;
+
+    const addActiveClass = () => {
+      $header.addClass("active");
+    };
+
+    const removeActiveClass = () => {
+      $header.removeClass("active");
+    };
+
+    if (isWeb) {
+      $gnb.mouseenter(addActiveClass);
+      $header.mouseleave(removeActiveClass);
+    } else {
+      $menu.click(() => {
+        $header.toggleClass("active");
+        $("body").toggleClass("no-scroll");
+      });
+    }
+
+    $langBox.click((e) => {
+      e.stopPropagation();
+      $selectBox.toggleClass("active");
+    });
+
+    $(document).click(() => {
+      $selectBox.removeClass("active");
+    });
+
+    $selectBoxP.click(function () {
+      const text = $(this).text();
+      $langBoxP.removeClass().addClass(text).text(text);
+    });
+
+    $(document).scroll(function () {
+      let scrollTop = $(this).scrollTop() > 150;
+      if (saveScroll !== scrollTop) {
+        $header.toggleClass("scroll");
+        saveScroll = scrollTop;
+      }
+    });
+
+    $downIcon.click(function () {});
+  });
+</script>
+
+<article>
+  <section class="logo-con">
+    <a href="/"></a>
+  </section>
+
+  <section class="gnb-con">
+    <ul>
+      <li>
+        <a href="#/about/greeting">About us</a>
+        <p></p>
+        <ul class="lnb">
+          <li>
+            <a href="#/about/greeting">Greetings</a>
+          </li>
+          <li>
+            <a href="#/about/history">History</a>
+          </li>
+          <li>
+            <a href="#/about/certified">Certified</a>
+          </li>
+          <li>
+            <a href="#/about/award">Awards</a>
+          </li>
+          <li>
+            <a href="#/about/member">MEMBER</a>
+          </li>
+          <li>
+            <a href="#/about/visit">Contact us</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/business/renewabl">Business</a>
+        <p></p>
+
+        <ul class="lnb">
+          <li>
+            <a href="#/business/renewable">Renewable Energy Generation</a>
+          </li>
+          <li>
+            <a href="#/business/vpp">VPP <span>(Virtual Power Plant)</span></a>
+          </li>
+          <li>
+            <a href="#/business/ess">ESS <span>(Energy Storage System)</span></a>
+          </li>
+          <li>
+            <a href="#/business/p2v">Power to Vehicle <span>(P2V)</span></a>
+          </li>
+          <li>
+            <a href="#/business/dr">DR <span>(Demand Response)</span></a>
+          </li>
+          <li>
+            <a href="#/business/fintech">Fintech</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/tech/ai">Technology</a>
+        <p></p>
+
+        <ul class="lnb">
+          <li>
+            <a href="#/tech/ai">AI Big-data Center</a>
+          </li>
+          <li>
+            <a href="#/tech/patent">Patent Status of Technology</a>
+          </li>
+          <li>
+            <a href="#/tech/performance">R&D Achievements</a>
+          </li>
+          <li>
+            <a href="#/tech/result">Test Scores</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/ir/cmpny">IR</a>
+        <p></p>
+
+        <ul class="lnb">
+          <li>
+            <a href="#/ir/cmpny">IR</a>
+          </li>
+          <li>
+            <a href="#/ir/investment">Investment</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#/pr/news">PR</a>
+        <p></p>
+
+        <ul class="lnb">
+          <li>
+            <a href="#/pr/news">NEWS</a>
+          </li>
+          <li>
+            <a href="#/pr/promotion">Promotional Videos</a>
+          </li>
+          <li>
+            <a href="#/pr/gallery">Gallery</a>
+          </li>
+          <!-- <a href="#/pr/insight">Insights</a> -->
+          <li>
+            <a href="#/pr/questions">Inquiries</a>
+          </li>
+          <!-- <a href="#/pr/recruit">Recruitment</a> -->
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="lang-con">
+    <div class="lang-box">
+      <p class="KR">KR</p>
+
+      <div class="select-box">
+        <p>KR</p>
+        <p>CN</p>
+        <p>EN</p>
+        <p>KG</p>
+      </div>
+    </div>
+
+    <p class="menu-box"></p>
+  </section>
+</article>
