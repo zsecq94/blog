@@ -3,6 +3,7 @@
 @import "mixin";
 @import "variables";
 @import "theme";
+@import "common";
 
 @import "header";
 @import "footer";
@@ -35,10 +36,6 @@ a {
 
 li {
   list-style: none;
-}
-
-input:focus {
-  outline: none;
 }
 
 h2 {

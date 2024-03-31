@@ -32,6 +32,10 @@ const Header = () => {
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
+
+    return () => {
+      localStorage.removeItem("theme");
+    };
   }, [theme]);
 
   const toggleTheme = () => {
