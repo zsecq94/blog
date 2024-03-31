@@ -10,7 +10,7 @@ const Admin = () => {
 
   const [handleList, setHandleList] = useState(0);
   const list = [
-    ["test1", "test2", "test3", "test4"],
+    ["tech", "algorithm", "portfolio"],
     ["react", "vue", "javascript"],
     ["시뮬레이션", "라면", "치킨", "맥주"],
   ];
@@ -22,6 +22,7 @@ const Admin = () => {
       category: val,
     }));
 
+    console.log(val);
     setHandleList(val === "tech" ? 0 : val === "algorithm" ? 1 : 2);
   };
 
@@ -42,22 +43,26 @@ const Admin = () => {
 
   return (
     <div className="admin-con">
-      <article className="preview-con"></article>
+      <section className="preview-con">
+        <h2>hi</h2>
+      </section>
 
-      <article className="regist-con">
+      <section className="regist-con">
         <select onChange={onChangeCategory}>
-          <option value="tech">TECH</option>
-          <option value="algorithm">ALGO</option>
-          <option value="portfolio">PORT</option>
+          {list[0].map((V, index) => (
+            <option value={V} key={index}>
+              {V}
+            </option>
+          ))}
         </select>
 
         <input type="text" onChange={onChangeTitle} />
 
-        <button type="label">
-          <p>File Upload</p>
-          <input type="file" onChange={onChangeInputFile} />
+        <button htmlFor="file">
+          <label htmlFor="file">File Upload</label>
+          <input type="file" id="file" onChange={onChangeInputFile} />
         </button>
-      </article>
+      </section>
     </div>
   );
 };

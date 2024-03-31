@@ -6,16 +6,5 @@
     @include flex(column, $gap: 30px);
     @include position(absolute, $l: 50px, $t: 100px);
     width: 20%;
-
-    input,
-    select,
-    button {
-      @include border(#fff, 8px);
-      padding: 10px;
-    }
-
-    input[type="file"] {
-      display: none;
-    }
   }
 }
