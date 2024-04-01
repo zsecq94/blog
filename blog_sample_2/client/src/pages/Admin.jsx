@@ -13,18 +13,9 @@ const Admin = () => {
     title: null,
     thumb: null,
     md: null,
-    chips: [],
+    sub: null,
     category: "tech",
-    subCategory: null,
   });
-
-  const onChangeChips = (e) => {
-    const val = e.target.value;
-    setSaveData((prevSaveData) => ({
-      ...prevSaveData,
-      chips: [...prevSaveData.chips, val],
-    }));
-  };
 
   const onChange = (e, name) => {
     const val = e.target.value;
@@ -62,13 +53,14 @@ const Admin = () => {
     <div className="admin-con">
       <section className="regist-con">
         <Select name="category" list={list.categoryList} onChange={onChange} />
-        <InputFile name="thumb" label="THUMB Upload" onChange={onChangeFile} />
-        <Input name="subCategory" placeholder="서브 입력" onChange={onChange} />
-        <Input name="title" placeholder="제목 입력" onChange={onChange} />
         <Select
-          list={list.chipsList[saveData.category]}
-          onChange={onChangeChips}
+          name="sub"
+          list={list.subList[saveData.category]}
+          onChange={onChange}
         />
+        <InputFile name="thumb" label="THUMB Upload" onChange={onChangeFile} />
+        <Input name="title" placeholder="제목 입력" onChange={onChange} />
+
         <InputFile name="md" label="MD Upload" onChange={onChangeFile} />
         <Button onClick={check} label="SUBMIT" />
       </section>
@@ -76,11 +68,7 @@ const Admin = () => {
       <section className="preview-con">
         {previewUrl !== null && <img src={previewUrl} alt="thumb" />}
 
-        {saveData.chips.map((V, idx) => (
-          <span key={idx}>{V}</span>
-        ))}
-
-        <p>{`[${saveData.subCategory}]${saveData.title}`}</p>
+        <p>{`[${saveData.sub}]${saveData.title}`}</p>
       </section>
     </div>
   );

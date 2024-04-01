@@ -1,15 +1,15 @@
 {
   "categoryList": ["tech", "algorithm", "portfolio"],
-  "chipsList": {
+  "subList": {
     "tech": [
       "",
-      "React",
-      "Vue",
-      "Javascript",
-      "NodeJS",
+      "REACT",
+      "VUE",
+      "JAVASCRIPT",
+      "NODEJS",
       "SCSS",
       "CSS",
-      "jQuery"
+      "JQUERY"
     ],
     "algorithm": [
       "",
@@ -29,6 +29,6 @@
       "디큐",
       "다익스트라"
     ],
-    "portfolio": ["react", "vue", "javascript", "nodejs", "jQuery"]
+    "portfolio": ["", "REACT", "VUE", "JAVASCRIPT", "NODEJS", "JQUERY"]
   }
 }
