@@ -1,0 +1,226 @@
+@import "mixin";
+
+.main-con {
+  @include flex(column, center, center);
+  min-width: 1280px;
+
+  .slide {
+    @include size(100%, 100vh);
+    position: relative;
+    color: #fff;
+
+    .swiper-wrapper {
+      .swiper-slide {
+        @include flex(row, center, center);
+
+        .text-box {
+          @include flex(column, $gap: 50px);
+          width: 1280px;
+          transform: translateY(-100px);
+
+          p {
+            line-height: 140%;
+            &:nth-child(1) {
+              @include font(54px, 800);
+              width: 54%;
+            }
+            &:nth-child(2) {
+              @include font(20px, 400);
+            }
+          }
+        }
+      }
+
+      .nav-con {
+        @include position(absolute, $t: 80%, $l: 50%);
+        @include flex(row, center, $gap: 30px);
+        transform: translateX(-50%);
+        width: 1280px;
+        z-index: 9;
+
+        .nav-box {
+          @include flex(row, center, $gap: 10px);
+          p {
+            @include font(18px, 600);
+            width: 24px;
+          }
+
+          .timer-box {
+            @include size(200px, 2px);
+            position: relative;
+            background-color: rgba($color: #fff, $alpha: 0.25);
+
+            .timer {
+              position: absolute;
+              height: 2px;
+              background-color: #ef3736;
+            }
+          }
+
+          .end {
+            opacity: 0.25;
+          }
+        }
+
+        .nav-btn {
+          @include flex(row, center, $gap: 20px);
+
+          p {
+            @include size(20px, 20px);
+            text-indent: -9999px;
+            cursor: pointer;
+
+            &:nth-child(1) {
+              @include icon(prev01, 12px 18px);
+            }
+
+            &:nth-child(2) {
+              @include icon(next01, 12px 18px);
+            }
+          }
+        }
+      }
+    }
+
+    @for $i from 1 through 5 {
+      .bg#{$i} {
+        @include background(bg, main_con1_0#{$i});
+      }
+    }
+  }
+
+  .con1 {
+    padding-top: 140px;
+
+    .title-box {
+      @include flex(row, end, space-between);
+      margin-bottom: 40px;
+
+      > p {
+        @include font(34px, 800);
+      }
+
+      .nav-box {
+        @include flex(row, center, $gap: 14px);
+
+        p {
+          @include flex(row, center, center);
+          @include size(50px, 50px);
+          @include border(#ebebeb, 50%);
+          cursor: pointer;
+          text-indent: -9999px;
+
+          &:nth-child(1) {
+            @include icon(prev02, 10px 18px);
+          }
+
+          &:nth-child(2) {
+            @include icon(next02, 10px 18px);
+          }
+
+          &.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+
+    .swiper {
+      .swiper-wrapper {
+        .swiper-slide {
+          @include flex(column, end, space-between);
+          @include border(#ebebeb, 8px);
+          height: auto;
+
+          .text-box {
+            @include flex(column, start, $gap: 20px);
+            padding: 30px 20px 20px;
+            line-height: 130%;
+
+            p {
+              &:nth-child(1) {
+                @include font(20px, 600);
+              }
+
+              &:nth-child(2) {
+                @include font(14px, 400, #666);
+              }
+
+              &:nth-child(3) {
+                @include font(14px, 600, #999);
+                cursor: pointer;
+
+                &::after {
+                  @include select(15px, 12px);
+                  @include icon(arrow02, 15px 12px);
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-con {
+    min-width: 100%;
+    .slide {
+      .swiper-wrapper {
+        .swiper-slide {
+          padding: 0 24px;
+
+          .text-box {
+            gap: 20px;
+            width: 100%;
+
+            p {
+              &:nth-child(1) {
+                font-size: 26px;
+                width: 100%;
+              }
+
+              &:nth-child(2) {
+                font-size: 14px;
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+
+        .nav-con {
+          @include flex(row, center, space-between, 0px);
+          padding: 0 24px;
+          width: 100%;
+          top: 90%;
+
+          .nav-box {
+            p {
+              font-size: 14px;
+              width: 19px;
+            }
+
+            .timer-box {
+              width: 100px;
+            }
+          }
+
+          .nav-btn {
+            p {
+              @include size(12px, 18px);
+            }
+          }
+        }
+      }
+
+      @for $i from 1 through 5 {
+        .bg#{$i} {
+          @include background(bg, main_con1_mb_0#{$i});
+        }
+      }
+    }
+  }
+}

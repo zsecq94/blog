@@ -1,0 +1,67 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import "mixin";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html,
+body {
+  word-break: keep-all;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+.box {
+  @include media(web) {
+    padding: 70px 0;
+    width: 1280px;
+  }
+
+  @include media(mobile) {
+    padding: 30px 24px;
+    width: 100%;
+  }
+}
+
+@import "header";
+@import "footer";
+@import "main";

@@ -1,0 +1,199 @@
+<script>
+  $(document).ready(() => {
+    // swiper 1
+    const $currentP = $(".slide .start");
+    const $currentTimer = $(".slide .timer");
+
+    let currentWidth = 0;
+
+    const changeCurrentPage = (num) => {
+      $currentP.text(`0${num + 1}`);
+      currentWidth = 0;
+    };
+
+    const currentTime = () => {
+      currentWidth += 0.174;
+      if (currentWidth > 100) {
+        currentWidth = 100;
+      }
+      $currentTimer.css({
+        width: currentWidth + "%",
+      });
+    };
+
+    setInterval(currentTime, 10);
+
+    let swiper = new Swiper(".slide", {
+      loop: true,
+      effect: "fade",
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".slide .nav-btn .next",
+        prevEl: ".slide .nav-btn .prev",
+      },
+      on: {
+        slideChange: function () {
+          changeCurrentPage(this.realIndex);
+        },
+      },
+    });
+
+    // swiper 2
+
+    var swiper2 = new Swiper(".main-con .con1 .swiper", {
+      slidesPerView: 4,
+      spaceBetween: 34,
+      navigation: {
+        nextEl: ".main-con .con1 .nav-box .next",
+        prevEl: ".main-con .con1 .nav-box .prev",
+      },
+    });
+  });
+</script>
+
+<article class="main-con">
+  <section class="swiper slide">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide bg1">
+        <div class="text-box">
+          <p>렉스이노베이션의 첨단 정보통신 기술이 재생에너지의 스마트 그리드화를 이끌어 갑니다.</p>
+          <p>지속가능한 에너지 공급과 환경보호를 동시에 실현하는 기업</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide bg2">
+        <div class="text-box">
+          <p>친환경 미래기술을 선도하는 REC’s INNOVATION</p>
+          <p>
+            끊임없는 연구개발로 쌓아온 고도화된 기술력으로 <br />
+            더 나은 미래를 위한 솔루션을 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="swiper-slide bg3">
+        <div class="text-box">
+          <p>청정 에너지로 우리의 미래를 밝혀나가는 길, 재생에너지의 힘과 혁신을 렉스이노베이션이 만들어갑니다.</p>
+          <p>친환경 에너지를 통해 지구 환경을 보호하고 인류의 행복을 추구하는 기업</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide bg4">
+        <div class="text-box">
+          <p>대한민국의 바다 환경을 이용한 육상양어장에 소수력발전소를 건설합니다</p>
+          <p>친환경 소수력발전소 100기 건설로 에너지자립을 선도하는 기업</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide bg5">
+        <div class="text-box">
+          <p>녹색금융 플랫폼 렉스펀드가 기후위기로부터 대한민국의 탄소중립을앞당기겠습니다.</p>
+          <p>블록체인 기술을 활용한 Fintech 전문기업</p>
+        </div>
+      </div>
+
+      <div class="nav-con">
+        <div class="nav-box">
+          <p class="start"></p>
+
+          <div class="timer-box">
+            <div class="timer"></div>
+          </div>
+
+          <p class="end">05</p>
+        </div>
+
+        <div class="nav-btn">
+          <p class="prev">prev-btn</p>
+          <p class="next">next-btn</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="con1 box">
+    <div class="title-box">
+      <p>
+        렉스이노베이션은 지속 가능한 미래를 위해 <br />
+        새로운 가치를 찾고 있습니다
+      </p>
+
+      <div class="nav-box">
+        <p class="prev">prev</p>
+        <p class="next">next</p>
+      </div>
+    </div>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>재생에너지 발전</p>
+
+            <p>
+              재생에너지 발전은 지구의 자연 자원을 보존하면서 전기를 생산하는 방법으로, 지속 가능한 발전 방식입니다.
+            </p>
+
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_01.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>VPP(가상발전소)</p>
+
+            <p>VPP는 가상적으로 연결된 발전소로 여러 개별 에너지 생산 시스템이 하나의 통합 시스템으로 운영됩니다.</p>
+
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_02.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>ESS(에너지저장시스템)</p>
+
+            <p>ESS는 에너지 저장 시스템으로, 전력 그리드의 안정성과 신재생 에너지 통합에 기여하는 중요한 기술입니다.</p>
+
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_03.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>Power to Vehicle(P2V)</p>
+
+            <p>
+              Power to Vehicle 은 차량에 전원을 공급하는 시스템으로 배터리에서 전기 에너지를 차량의 전기 시스템으로
+              공급하여 모든 기능을 작동시킵니다.
+            </p>
+
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_04.png" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>Power to Vehicle(P2V)</p>
+
+            <p>
+              Power to Vehicle 은 차량에 전원을 공급하는 시스템으로 배터리에서 전기 에너지를 차량의 전기 시스템으로
+              공급하여 모든 기능을 작동시킵니다.
+            </p>
+
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_04.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+</article>
