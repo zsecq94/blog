@@ -69,7 +69,6 @@ const Header = () => {
 
         <div className="box">
           <button className={theme} onClick={toggleTheme}></button>
-
           <button className="menu" onClick={toggleMenu}></button>
         </div>
       </article>

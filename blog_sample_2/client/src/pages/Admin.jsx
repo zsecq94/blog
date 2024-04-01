@@ -1,17 +1,21 @@
 import { useState } from "react";
+
 import Input from "@/components/Input.jsx";
 import InputFile from "@/components/InputFile.jsx";
 import Select from "@/components/Select.jsx";
+import Button from "@/components/Button.jsx";
 
 import list from "@/assets/json/list.json";
 
 const Admin = () => {
+  const [previewUrl, setPreviewUrl] = useState(null);
   const [saveData, setSaveData] = useState({
     title: null,
     thumb: null,
     md: null,
     chips: [],
     category: "tech",
+    subCategory: null,
   });
 
   const onChangeChips = (e) => {
@@ -34,7 +38,16 @@ const Admin = () => {
   const onChangeFile = (e, name) => {
     const file = e.target.files[0];
 
-    console.log(name);
+    if (name === "thumb") {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        setPreviewUrl(reader.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+
     setSaveData((prevSaveData) => ({
       ...prevSaveData,
       [name]: file,
@@ -47,22 +60,27 @@ const Admin = () => {
 
   return (
     <div className="admin-con">
-      <section className="preview-con">
-        {saveData.chips.map((V, idx) => (
-          <span key={idx}>{V}</span>
-        ))}
-      </section>
-
       <section className="regist-con">
-        <Select name="category" list={list.selectList} onChange={onChange} />
+        <Select name="category" list={list.categoryList} onChange={onChange} />
         <InputFile name="thumb" label="THUMB Upload" onChange={onChangeFile} />
+        <Input name="subCategory" placeholder="서브 입력" onChange={onChange} />
         <Input name="title" placeholder="제목 입력" onChange={onChange} />
         <Select
           list={list.chipsList[saveData.category]}
           onChange={onChangeChips}
         />
         <InputFile name="md" label="MD Upload" onChange={onChangeFile} />
-        <button onClick={check}>SUBMIT</button>
+        <Button onClick={check} label="SUBMIT" />
+      </section>
+
+      <section className="preview-con">
+        {previewUrl !== null && <img src={previewUrl} alt="thumb" />}
+
+        {saveData.chips.map((V, idx) => (
+          <span key={idx}>{V}</span>
+        ))}
+
+        <p>{`[${saveData.subCategory}]${saveData.title}`}</p>
       </section>
     </div>
   );

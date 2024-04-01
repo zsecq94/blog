@@ -1,5 +1,5 @@
 {
-  "selectList": ["tech", "algorithm", "portfolio"],
+  "categoryList": ["tech", "algorithm", "portfolio"],
   "chipsList": {
     "tech": [
       "",

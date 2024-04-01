@@ -3,7 +3,6 @@
 @import "mixin";
 @import "variables";
 @import "theme";
-@import "common";
 
 @import "header";
 @import "footer";
@@ -23,10 +22,22 @@ body {
 }
 
 button {
-  background: transparent;
   border: none;
+  background: transparent;
   color: inherit;
   cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+input,
+select {
+  @include font(14px, 700);
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
 }
 
 a {
