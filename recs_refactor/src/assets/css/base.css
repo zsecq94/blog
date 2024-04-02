@@ -1,4 +1,34 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+h2 {
+  font-size: 50px;
+  font-weight: 800; }
+
+h4 {
+  font-size: 34px;
+  font-weight: 800; }
+
+@media screen and (min-width: 769px) {
+  .box {
+    padding: 70px 0;
+    width: 1280px; }
+    .box.top {
+      padding: 140px 0 70px; }
+    .box.bot {
+      padding: 70px 0 140px; }
+    .box.none-pd {
+      padding: 70px 0; } }
+
+@media screen and (max-width: 768px) {
+  .box {
+    padding: 30px 24px;
+    width: 100%; }
+    .box.top {
+      padding: 30px 24px; }
+    .box.bot {
+      padding: 30px 24px; }
+    .box.none-pd {
+      padding: 0; } }
+
 *,
 *::before,
 *::after {
@@ -39,28 +69,6 @@ input:focus {
 .no-scroll {
   overflow: hidden;
   height: 100%; }
-
-@media screen and (min-width: 769px) {
-  .box {
-    padding: 70px 0;
-    width: 1280px; }
-    .box.top {
-      padding: 140px 0 70px; }
-    .box.bot {
-      padding: 70px 0 140px; }
-    .box.none-pd {
-      padding: 70px 0; } }
-
-@media screen and (max-width: 768px) {
-  .box {
-    padding: 30px 24px;
-    width: 100%; }
-    .box.top {
-      padding: 30px 24px; }
-    .box.bot {
-      padding: 30px 24px; }
-    .box.none-pd {
-      padding: 0; } }
 
 header {
   width: 100%;
@@ -381,41 +389,41 @@ footer {
     justify-content: center;
     width: 100%;
     background-color: #fbfbfb; }
-    footer .banner-con article {
+    footer .banner-con .swiper {
       width: 1280px;
-      padding: 50px 0; }
-      footer .banner-con article .swiper {
-        width: 100%; }
-        footer .banner-con article .swiper .swiper-wrapper .swiper-slide {
-          width: 100%;
-          height: 95px; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(1) {
+      padding: 60px 0; }
+      footer .banner-con .swiper .swiper-wrapper {
+        width: 100%;
+        height: 74px; }
+        footer .banner-con .swiper .swiper-wrapper .swiper-slide {
+          width: 100%; }
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(1) {
             background: url("/src/assets/images/banner/banner_01.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(2) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(2) {
             background: url("/src/assets/images/banner/banner_02.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(3) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(3) {
             background: url("/src/assets/images/banner/banner_03.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(4) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(4) {
             background: url("/src/assets/images/banner/banner_04.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(5) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(5) {
             background: url("/src/assets/images/banner/banner_05.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(6) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(6) {
             background: url("/src/assets/images/banner/banner_06.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(7) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(7) {
             background: url("/src/assets/images/banner/banner_07.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(8) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(8) {
             background: url("/src/assets/images/banner/banner_08.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(9) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(9) {
             background: url("/src/assets/images/banner/banner_09.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(10) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(10) {
             background: url("/src/assets/images/banner/banner_10.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(11) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(11) {
             background: url("/src/assets/images/banner/banner_11.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(12) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(12) {
             background: url("/src/assets/images/banner/banner_12.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(13) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(13) {
             background: url("/src/assets/images/banner/banner_13.png") no-repeat center/cover; }
-          footer .banner-con article .swiper .swiper-wrapper .swiper-slide:nth-child(14) {
+          footer .banner-con .swiper .swiper-wrapper .swiper-slide:nth-child(14) {
             background: url("/src/assets/images/banner/banner_14.png") no-repeat center/cover; }
   footer .contact-con {
     display: flex;
@@ -425,7 +433,7 @@ footer {
     gap: 70px;
     width: 100%;
     height: 550px;
-    background: url("/src/assets/images/bg/footer_01.png") no-repeat center/cover;
+    background: url("/src/assets/images/bg/footer/footer_01.png") no-repeat center/cover;
     color: #fff; }
     footer .contact-con .text-box {
       display: flex;
@@ -464,13 +472,13 @@ footer {
     background-color: #191b1e;
     padding: 40px 0;
     width: 100%; }
-    footer .info-con article {
+    footer .info-con .text-box {
       display: flex;
       flex-direction: row;
       align-items: end;
       justify-content: space-between;
       width: 1280px; }
-      footer .info-con article .start-box p {
+      footer .info-con .text-box .start-box p {
         display: flex;
         flex-direction: column;
         align-items: start;
@@ -480,13 +488,13 @@ footer {
         font-weight: 300;
         color: rgba(255, 255, 255, 0.5);
         line-height: 140%; }
-        footer .info-con article .start-box p::before {
+        footer .info-con .text-box .start-box p::before {
           content: "";
           display: inline-block;
           width: 220px;
           height: 30px;
           background: url("/src/assets/images/logo/logo_03.png") no-repeat center/220px 30px; }
-      footer .info-con article .end-box p {
+      footer .info-con .text-box .end-box p {
         font-size: 14px;
         font-weight: 300;
         color: rgba(255, 255, 255, 0.25); }
@@ -518,7 +526,7 @@ footer {
             height: 10px; }
     footer .info-con {
       padding: 30px 24px; }
-      footer .info-con article {
+      footer .info-con .text-box {
         display: flex;
         flex-direction: column;
         align-items: start;
@@ -538,9 +546,6 @@ footer {
     align-items: end;
     justify-content: space-between;
     margin-bottom: 40px; }
-    .main-con .box > .title-box > p {
-      font-size: 34px;
-      font-weight: 800; }
     .main-con .box > .title-box > .nav-box {
       display: flex;
       flex-direction: row;
@@ -635,15 +640,15 @@ footer {
           .main-con .slide .swiper-wrapper .nav-con .nav-btn p:nth-child(2) {
             background: url("/src/assets/images/icons/ico_next01.png") no-repeat center/12px 18px; }
     .main-con .slide .bg1 {
-      background: url("/src/assets/images/bg/main_con1_01.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_01.png") no-repeat center/cover; }
     .main-con .slide .bg2 {
-      background: url("/src/assets/images/bg/main_con1_02.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_02.png") no-repeat center/cover; }
     .main-con .slide .bg3 {
-      background: url("/src/assets/images/bg/main_con1_03.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_03.png") no-repeat center/cover; }
     .main-con .slide .bg4 {
-      background: url("/src/assets/images/bg/main_con1_04.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_04.png") no-repeat center/cover; }
     .main-con .slide .bg5 {
-      background: url("/src/assets/images/bg/main_con1_05.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_05.png") no-repeat center/cover; }
   .main-con .con1 .swiper .swiper-wrapper .swiper-slide {
     display: flex;
     flex-direction: column;
@@ -679,8 +684,6 @@ footer {
           height: 12px;
           background: url("/src/assets/images/icons/ico_arrow02.png") no-repeat center/15px 12px;
           margin-left: 10px; }
-  .main-con .con2 .title-box > p {
-    font-size: 50px; }
   .main-con .con2 .swiper .swiper-wrapper .swiper-slide {
     display: flex;
     flex-direction: column;
@@ -742,9 +745,38 @@ footer {
             height: 14px;
             text-indent: -9999px; }
       .main-con .con3 a:nth-child(1) {
-        background: url("/src/assets/images/bg/main_con3_01.png") no-repeat center/cover; }
+        background: url("/src/assets/images/bg/main/con3_01.png") no-repeat center/cover; }
       .main-con .con3 a:nth-child(2) {
-        background: url("/src/assets/images/bg/main_con3_02.png") no-repeat center/cover; }
+        background: url("/src/assets/images/bg/main/con3_02.png") no-repeat center/cover; }
+  .main-con .con4 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: url("/src/assets/images/bg/main/con4_01.png") no-repeat center/cover; }
+    .main-con .con4 .box .title-box h2 {
+      color: #f26933; }
+    .main-con .con4 .box .swiper {
+      padding: 10px; }
+      .main-con .con4 .box .swiper .swiper-wrapper .swiper-slide {
+        height: auto;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff; }
+        .main-con .con4 .box .swiper .swiper-wrapper .swiper-slide img {
+          width: 100%; }
+        .main-con .con4 .box .swiper .swiper-wrapper .swiper-slide .text-box {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          gap: 20px;
+          padding: 30px 20px; }
+          .main-con .con4 .box .swiper .swiper-wrapper .swiper-slide .text-box p:nth-child(1) {
+            font-size: 16px; }
+          .main-con .con4 .box .swiper .swiper-wrapper .swiper-slide .text-box p:nth-child(2) {
+            font-size: 14px;
+            color: #666; }
 
 @media screen and (max-width: 768px) {
   .main-con {
@@ -778,15 +810,15 @@ footer {
         width: 12px;
         height: 18px; }
     .main-con .slide .bg1 {
-      background: url("/src/assets/images/bg/main_con1_mb_01.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_mb_01.png") no-repeat center/cover; }
     .main-con .slide .bg2 {
-      background: url("/src/assets/images/bg/main_con1_mb_02.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_mb_02.png") no-repeat center/cover; }
     .main-con .slide .bg3 {
-      background: url("/src/assets/images/bg/main_con1_mb_03.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_mb_03.png") no-repeat center/cover; }
     .main-con .slide .bg4 {
-      background: url("/src/assets/images/bg/main_con1_mb_04.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_mb_04.png") no-repeat center/cover; }
     .main-con .slide .bg5 {
-      background: url("/src/assets/images/bg/main_con1_mb_05.png") no-repeat center/cover; }
+      background: url("/src/assets/images/bg/main/con1_mb_05.png") no-repeat center/cover; }
     .main-con .con1 .title-box {
       margin-bottom: 20px; }
       .main-con .con1 .title-box > p {

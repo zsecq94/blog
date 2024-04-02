@@ -1,5 +1,3 @@
-@import "mixin";
-
 header {
   @include size(100%, 90px);
   min-width: 1280px;

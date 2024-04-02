@@ -1,5 +1,6 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 @import "mixin";
+@import "common";
 
 *,
 *::before,
@@ -48,42 +49,6 @@ input:focus {
 .no-scroll {
   overflow: hidden;
   height: 100%;
-}
-
-.box {
-  @include media(web) {
-    padding: 70px 0;
-    width: 1280px;
-
-    &.top {
-      padding: 140px 0 70px;
-    }
-
-    &.bot {
-      padding: 70px 0 140px;
-    }
-
-    &.none-pd {
-      padding: 70px 0;
-    }
-  }
-
-  @include media(mobile) {
-    padding: 30px 24px;
-    width: 100%;
-
-    &.top {
-      padding: 30px 24px;
-    }
-
-    &.bot {
-      padding: 30px 24px;
-    }
-
-    &.none-pd {
-      padding: 0;
-    }
-  }
 }
 
 @import "header";

@@ -2,33 +2,35 @@
   $(document).ready(() => {
     let isWeb = $(window).innerWidth() > 768;
     var swiper = new Swiper("footer > .banner-con .mySwiper", {
-      slidesPerView: isWeb ? 5 : 2,
+      slidesPerView: isWeb ? 6 : 2,
       spaceBetween: 30,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
     });
   });
 </script>
 
 <section class="banner-con">
-  <article>
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
-      </div>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
     </div>
-  </article>
+  </div>
 </section>
 
 <section class="contact-con">
@@ -45,7 +47,7 @@
 </section>
 
 <section class="info-con">
-  <article>
+  <div class="text-box">
     <div class="start-box">
       <p>
         대표자 : 임정민 사업자등록번호 :142-81-86179 TEL : 061-820-7533 FAX : 070-8230-7533<br />
@@ -57,5 +59,5 @@
     <div class="end-box">
       <p>Copyright ⓒ 2023 렉스이노베이션 All rights reserved.</p>
     </div>
-  </article>
+  </div>
 </section>

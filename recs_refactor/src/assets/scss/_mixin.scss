@@ -52,11 +52,11 @@
   background: url("/src/assets/images/#{$path}/#{$name}.png") no-repeat center/#{$size};
 }
 
-@mixin content($name: null, $size: cover) {
-  background: url("/src/assets/images/content/#{$name}.png") no-repeat center/#{$size};
+@mixin content($path, $name, $size: cover) {
+  background: url("/src/assets/images/content/#{$path}/#{$name}.png") no-repeat center/#{$size};
 }
 
-@mixin icon($name: null, $size: cover) {
+@mixin icon($name, $size: cover) {
   background: url("/src/assets/images/icons/ico_#{$name}.png") no-repeat center/#{$size};
 }
 
