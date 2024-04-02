@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/layout/Header";
+import Footer from "@/layout/Footer";
 
 import Main from "@/pages/Main";
 import Admin from "@/pages/Admin";

@@ -1,9 +1,6 @@
-@import "mixin";
-@import "variables";
-
 footer {
   @include flex(row, center, end);
-  font-size: 12px;
+  font-size: 14px;
   width: 100%;
   min-width: 1024px;
   padding: 20px 24px;
@@ -13,5 +10,6 @@ footer {
   footer {
     justify-content: center;
     min-width: 100%;
+    padding: 10px;
   }
 }
