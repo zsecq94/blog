@@ -1,10 +1,10 @@
 <script>
   $(document).ready(() => {
-    // swiper 1
     const $currentP = $(".slide .start");
     const $currentTimer = $(".slide .timer");
 
     let currentWidth = 0;
+    let isWeb = $(document).innerWidth() > 768;
 
     const changeCurrentPage = (num) => {
       $currentP.text(`0${num + 1}`);
@@ -41,14 +41,24 @@
       },
     });
 
-    // swiper 2
-
-    var swiper2 = new Swiper(".main-con .con1 .swiper", {
-      slidesPerView: 4,
-      spaceBetween: 34,
+    let swiper2 = new Swiper(".main-con .con1 .swiper", {
+      slidesPerView: isWeb ? 4 : 1,
+      spaceBetween: isWeb ? 34 : 10,
       navigation: {
-        nextEl: ".main-con .con1 .nav-box .next",
-        prevEl: ".main-con .con1 .nav-box .prev",
+        nextEl: ".main-con .con1 .title-box .nav-box .next",
+        prevEl: ".main-con .con1 .title-box .nav-box .prev",
+      },
+    });
+
+    let swiper3 = new Swiper(".main-con .con2 .swiper", {
+      slidesPerView: isWeb ? 3 : 1,
+      spaceBetween: isWeb ? 34 : 0,
+      navigation: {
+        nextEl: ".main-con .con2 .title-box .nav-box .next",
+        prevEl: ".main-con .con2 .title-box .nav-box .prev",
+      },
+      pagination: {
+        el: isWeb ? "" : ".swiper-pagination",
       },
     });
   });
@@ -114,7 +124,7 @@
     </div>
   </section>
 
-  <section class="con1 box">
+  <section class="con1 box top">
     <div class="title-box">
       <p>
         렉스이노베이션은 지속 가능한 미래를 위해 <br />
@@ -132,11 +142,9 @@
         <div class="swiper-slide">
           <div class="text-box">
             <p>재생에너지 발전</p>
-
             <p>
               재생에너지 발전은 지구의 자연 자원을 보존하면서 전기를 생산하는 방법으로, 지속 가능한 발전 방식입니다.
             </p>
-
             <p>자세히보기</p>
           </div>
 
@@ -146,54 +154,140 @@
         <div class="swiper-slide">
           <div class="text-box">
             <p>VPP(가상발전소)</p>
-
             <p>VPP는 가상적으로 연결된 발전소로 여러 개별 에너지 생산 시스템이 하나의 통합 시스템으로 운영됩니다.</p>
-
             <p>자세히보기</p>
           </div>
 
           <img src="/src/assets/images/content/main_02.png" alt="" />
         </div>
+
         <div class="swiper-slide">
           <div class="text-box">
             <p>ESS(에너지저장시스템)</p>
-
             <p>ESS는 에너지 저장 시스템으로, 전력 그리드의 안정성과 신재생 에너지 통합에 기여하는 중요한 기술입니다.</p>
-
             <p>자세히보기</p>
           </div>
 
           <img src="/src/assets/images/content/main_03.png" alt="" />
         </div>
+
         <div class="swiper-slide">
           <div class="text-box">
             <p>Power to Vehicle(P2V)</p>
-
             <p>
               Power to Vehicle 은 차량에 전원을 공급하는 시스템으로 배터리에서 전기 에너지를 차량의 전기 시스템으로
               공급하여 모든 기능을 작동시킵니다.
             </p>
-
             <p>자세히보기</p>
           </div>
 
           <img src="/src/assets/images/content/main_04.png" alt="" />
         </div>
+
         <div class="swiper-slide">
           <div class="text-box">
-            <p>Power to Vehicle(P2V)</p>
-
-            <p>
-              Power to Vehicle 은 차량에 전원을 공급하는 시스템으로 배터리에서 전기 에너지를 차량의 전기 시스템으로
-              공급하여 모든 기능을 작동시킵니다.
-            </p>
-
+            <p>DR(Demand Response)</p>
+            <p></p>
             <p>자세히보기</p>
           </div>
 
-          <img src="/src/assets/images/content/main_04.png" alt="" />
+          <img src="/src/assets/images/content/main_01.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>Fintech</p>
+            <p></p>
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_02.png" alt="" />
         </div>
       </div>
     </div>
   </section>
+
+  <section class="con2 box none-pd">
+    <div class="title-box">
+      <p>PRODUCTS</p>
+
+      <div class="nav-box">
+        <p class="prev">prev</p>
+        <p class="next">next</p>
+      </div>
+    </div>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>ESS</p>
+            <p>SAVING POWER 5kw Home</p>
+            <p>심야전기보일러 대상 요금 절약형 ESS 모델입니다.</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_05.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>Renewable Energy</p>
+            <p>유량변동대응 전력제어시스템</p>
+            <p>소수력발전용</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_06.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>EMS</p>
+            <p>Sun-Q EMS S/W</p>
+            <p>태양광발전소 모니터링 시스템</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_07.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+          </div>
+
+          <img src="/src/assets/images/content/main_05.png" alt="" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section class="con3 box">
+    <a href="">
+      <div class="title-box">
+        <p><b>전력중개사업</b></p>
+        <p>icon</p>
+      </div>
+
+      <p>
+        비용 NO, 투자 NO! <br />
+        기존 발전소 그대로 참여하면 새로운 수익 창출
+      </p>
+    </a>
+
+    <a href="">
+      <div class="title-box">
+        <p><b>REC/발전소 모집</b></p>
+        <p>icon</p>
+      </div>
+
+      <p>
+        안정적인 수익을 확보 할 수 있는 <br />
+        가장 확실한 방법!
+      </p>
+    </a>
+  </section>
+
+  <section class="con4 box none-pd"></section>
 </article>

@@ -53,11 +53,7 @@ const Admin = () => {
     <div className="admin-con">
       <section className="regist-con">
         <Select name="category" list={list.categoryList} onChange={onChange} />
-        <Select
-          name="sub"
-          list={list.subList[saveData.category]}
-          onChange={onChange}
-        />
+        <Select name="sub" list={list.subList[saveData.category]} onChange={onChange} />
         <InputFile name="thumb" label="THUMB Upload" onChange={onChangeFile} />
         <Input name="title" placeholder="제목 입력" onChange={onChange} />
 
