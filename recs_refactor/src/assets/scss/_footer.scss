@@ -102,15 +102,13 @@ footer {
   footer {
     min-width: 100%;
     .banner-con {
-      article {
-        width: 100%;
-        padding: 20px 24px;
+      width: 100%;
 
-        .swiper {
-          .swiper-wrapper {
-            .swiper-slide {
-              height: 58px;
-            }
+      .swiper {
+        padding: 20px 24px;
+        .swiper-wrapper {
+          .swiper-slide {
+            height: 58px;
           }
         }
       }

@@ -69,89 +69,66 @@ header {
       @include flex(row, center, end);
 
       .lang-box {
-        @include border(#fff, 20px);
-        padding: 6px 14px;
-        position: relative;
-        cursor: pointer;
-
-        > p {
-          @include flex(row, center, center, $gap: 6px);
-          @include font(16px, 500, #fff);
-          width: 65px;
-
-          &::before {
-            @include select(16px, 12px);
-            @include sprite("header_sprite", calc(336px / 4) calc(69px / 4));
-            background-position-y: -2.5px;
-          }
-
-          &.KR {
-            &::before {
-              background-position: -2.5px;
-            }
-          }
-
-          &.CN {
-            &::before {
-              background-position: -23.5px;
-            }
-          }
-
-          &.EN {
-            &::before {
-              background-position: -44.5px;
-            }
-          }
-
-          &.KG {
-            &::before {
-              background-position: -65.5px;
-            }
-          }
-
-          &::after {
-            @include select(14px, 8px);
-            @include icon("down01");
-          }
+        .mb-lang-box {
+          display: none;
         }
 
-        .select-box {
-          @include border($radius: 20px, $bg: #fff);
-          @include position(absolute, $t: calc(100% + 10px), $l: 0);
-          @include size(100%, 0);
-          overflow: hidden;
-          transition: 0.3s;
+        .lang-list {
+          @include border(#fff, 20px);
+          @include flex(row, center, center, 8px);
+          @include font(16px, 500, #fff);
+          padding: 6px 12px;
+          width: 200px;
+          color: #fff;
 
           p {
-            @include flex(row, center, center, 6px);
-            @include font(16px, 500, #111);
-            padding: 5px 0;
+            @include flex(row, center, center);
             cursor: pointer;
 
+            &::after {
+              @include select(1px, 12px);
+              margin-left: 8px;
+              background-color: rgba($color: #fff, $alpha: 0.1);
+            }
+
             &::before {
+              @include background("sprite", "header_sprite", calc(336px / 4) calc(70px / 4));
               @include select(16px, 12px);
-              @include sprite("header_sprite", calc(336px / 4) calc(69px / 4));
+              margin-right: 6px;
               background-position-y: -2.5px;
             }
 
-            @for $i from 1 through 4 {
-              &:nth-child(#{$i}) {
-                &::before {
-                  background-position-x: #{-1 * (($i - 1) * 21 + 2.5)}px;
-                }
+            &.KR {
+              &::before {
+                background-position: -2.5px;
+              }
+            }
+
+            &.CN {
+              &::before {
+                background-position: -23.5px;
+              }
+            }
+
+            &.EN {
+              &::before {
+                background-position: -44.5px;
+              }
+            }
+
+            &.KG {
+              &::before {
+                background-position: -65.5px;
+              }
+            }
+
+            &.none-r {
+              &::after {
+                display: none;
               }
             }
           }
-
-          &.active {
-            padding: 5px 0;
-            height: 125px;
-          }
         }
-      }
-
-      .menu-box {
-        display: none;
       }
     }
   }
@@ -175,13 +152,14 @@ header {
 
       .lang-con {
         .lang-box {
-          @include border(rgba($color: #111, $alpha: 0.09), 20px);
-
-          > p {
+          .lang-list {
+            @include border(rgba($color: #111, $alpha: 0.1), 20px);
             color: #111;
 
-            &::after {
-              @include icon("down02");
+            p {
+              &::after {
+                background-color: rgba($color: #111, $alpha: 0.1);
+              }
             }
           }
         }
@@ -200,49 +178,47 @@ header {
         }
       }
 
-      @include media(web) {
-        .gnb-con {
-          ul {
-            li {
-              &:nth-child(1) {
-                margin-right: 80px;
-              }
+      .gnb-con {
+        ul {
+          li {
+            &:nth-child(1) {
+              margin-right: 80px;
+            }
 
-              &:nth-child(2) {
-                margin-right: 110px;
-              }
+            &:nth-child(2) {
+              margin-right: 110px;
+            }
 
-              &:nth-child(3) {
-                margin-right: 130px;
-              }
+            &:nth-child(3) {
+              margin-right: 130px;
+            }
 
-              &:nth-child(4) {
-                margin-right: 110px;
-              }
+            &:nth-child(4) {
+              margin-right: 110px;
+            }
 
-              a {
-                color: #111;
-                &:hover {
+            a {
+              color: #111;
+              &:hover {
+                color: #f26933;
+
+                span {
                   color: #f26933;
-
-                  span {
-                    color: #f26933;
-                  }
                 }
               }
             }
+          }
 
-            .lnb {
-              visibility: visible;
-              opacity: 1;
-              transition: 0.3s;
-              transition-delay: 0.1s;
+          .lnb {
+            visibility: visible;
+            opacity: 1;
+            transition: 0.3s;
+            transition-delay: 0.1s;
 
-              li {
-                a {
-                  &:hover {
-                    text-decoration: underline #f26933;
-                  }
+            li {
+              a {
+                &:hover {
+                  text-decoration: underline #f26933;
                 }
               }
             }
@@ -252,19 +228,14 @@ header {
 
       .lang-con {
         .lang-box {
-          @include border(rgba($color: #111, $alpha: 0.09));
-
-          > p {
+          .lang-list {
+            @include border(rgba($color: #111, $alpha: 0.1), 20px);
             color: #111;
 
-            &::after {
-              @include icon("down02");
-            }
-          }
-
-          .select-box {
-            &.active {
-              @include border(rgba($color: #111, $alpha: 0.09));
+            p {
+              &::after {
+                background-color: rgba($color: #111, $alpha: 0.1);
+              }
             }
           }
         }
@@ -376,38 +347,91 @@ header {
       }
 
       .lang-con {
-        @include flex(row, center, end, 15px);
-
         .lang-box {
-          padding: 5px 7px;
-
-          > p {
-            font-size: 14px;
-            width: 43px;
-
-            &::before {
-              display: none;
-            }
-          }
-
-          .select-box {
-            border-radius: 10px;
+          position: relative;
+          .mb-lang-box {
+            @include flex(row, center, $gap: 15px);
 
             p {
-              font-size: 14px;
+              &:nth-child(1) {
+                @include font(16px, 500, #fff);
+                @include flex(row, center, center, 6px);
+                @include border(#fff, 20px);
+                padding: 5px 10px;
+
+                &::after {
+                  @include select(15px, 7px);
+                  @include icon(down01);
+                }
+              }
             }
 
-            &.active {
-              padding: 5px 0;
-              height: 115px;
+            .menu-box {
+              @include icon(menu01, 20px 20px);
+              @include size(20px, 20px);
+              display: inline-block;
+              text-indent: -9999px;
             }
           }
-        }
 
-        .menu-box {
-          display: inline-block;
-          @include size(20px, 20px);
-          @include icon(menu01);
+          .lang-list {
+            @include border(#fff, 20px);
+            @include flex(column, center, center, 8px);
+            @include font(16px, 500, #fff);
+            padding: 6px 12px;
+            width: 100%;
+            color: #fff;
+
+            @include position(absolute, $t: 40px, $l: 0);
+
+            p {
+              @include flex(row, center, center);
+              cursor: pointer;
+
+              &::after {
+                @include select(1px, 12px);
+                margin-left: 8px;
+                background-color: rgba($color: #fff, $alpha: 0.1);
+              }
+
+              &::before {
+                @include background("sprite", "header_sprite", calc(336px / 4) calc(70px / 4));
+                @include select(16px, 12px);
+                margin-right: 6px;
+                background-position-y: -2.5px;
+              }
+
+              &.KR {
+                &::before {
+                  background-position: -2.5px;
+                }
+              }
+
+              &.CN {
+                &::before {
+                  background-position: -23.5px;
+                }
+              }
+
+              &.EN {
+                &::before {
+                  background-position: -44.5px;
+                }
+              }
+
+              &.KG {
+                &::before {
+                  background-position: -65.5px;
+                }
+              }
+
+              &.none-r {
+                &::after {
+                  display: none;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -427,12 +451,6 @@ header {
         .gnb-con {
           height: calc(100% - 100px);
           overflow-y: scroll;
-        }
-
-        .lang-con {
-          .menu-box {
-            @include icon(close);
-          }
         }
       }
     }

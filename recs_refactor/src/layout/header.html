@@ -2,18 +2,44 @@
   $(document).ready(() => {
     const $header = $("header");
     const $gnb = $("header > article > .gnb-con");
-    const $langBox = $("header > article > .lang-con > .lang-box");
-    const $langBoxP = $("header > article > .lang-con > .lang-box > p");
-    const $selectBox = $("header > article > .lang-con > .lang-box > .select-box");
-    const $selectBoxP = $("header > article > .lang-con > .lang-box > .select-box > p");
-    const $menu = $("header > article > .lang-con > .menu-box");
     const $downIcon = $("header > article > .gnb-con > ul > li > p");
     const $lnb = $("header > article > .gnb-con > ul > li > .lnb");
     const $headerA = $("header > article a");
 
+    const $langCon = $("header > article > .lang-con");
+    const $langBox = $("header > article > .lang-con > .lang-box");
+    const $langList = $("header > article > .lang-con > .lang-box > .lang-list");
+    const $langListP = $("header > article > .lang-con > .lang-box > .lang-list > p");
+
+    const $menu = $("header > article > .lang-con > .lang-box > .mb-lang-box > .menu-box");
+    const $langBoxP = $("header > article > .lang-con > .lang-box > .mb-lang-box > .lang");
+
     let saveScroll = false;
     let isWeb = $(document).innerWidth() > 768;
     let isMenuOpen = false;
+    let lang = localStorage.getItem("lang") || "KR";
+
+    const changeLang = () => {
+      localStorage.setItem("lang", lang);
+
+      $langBoxP.removeClass().addClass(lang).text(lang);
+      $langListP.css({ display: "block" }).removeClass("none-r");
+
+      $langListP.filter((_, el) => $(el).text() === lang).css({ display: "none" });
+      $langListP
+        .filter((_, el) => $(el).css("display") !== "none")
+        .last()
+        .addClass("none-r");
+
+      console.log(lang);
+    };
+
+    changeLang();
+
+    $langListP.click((e) => {
+      lang = $(e.target).text();
+      changeLang();
+    });
 
     const addActiveClass = () => {
       $header.addClass("active");
@@ -32,6 +58,7 @@
       });
     } else {
       $menu.click(() => {
+        console.log("하이");
         isMenuOpen = !isMenuOpen;
         $header.toggleClass("active");
         $("body").toggleClass("no-scroll");
@@ -48,31 +75,17 @@
       });
     }
 
-    $langBox.click((e) => {
-      e.stopPropagation();
-      $selectBox.toggleClass("active");
-    });
-
-    $(document).click(() => {
-      $selectBox.removeClass("active");
-    });
-
-    $selectBoxP.click(function () {
-      const text = $(this).text();
-      $langBoxP.removeClass().addClass(text).text(text);
-    });
-
-    $(document).scroll(function () {
-      let scrollTop = $(this).scrollTop() > 150;
+    $(document).scroll((e) => {
+      let scrollTop = $(e.target).scrollTop() > 150;
       if (saveScroll !== scrollTop) {
         $header.toggleClass("scroll");
         saveScroll = scrollTop;
       }
     });
 
-    $downIcon.click(function () {
-      let $lnb = $(this).siblings(".lnb");
-      let $icon = $(this);
+    $downIcon.click((e) => {
+      let $lnb = $(e.target).siblings(".lnb");
+      let $icon = $(e.target);
 
       $lnb.toggleClass("active");
       $icon.toggleClass("rotate");
@@ -206,16 +219,17 @@
 
   <section class="lang-con">
     <div class="lang-box">
-      <p class="KR">KR</p>
+      <div class="mb-lang-box">
+        <p class="lang"></p>
+        <p class="menu-box">menu</p>
+      </div>
 
-      <div class="select-box">
-        <p>KR</p>
-        <p>CN</p>
-        <p>EN</p>
-        <p>KG</p>
+      <div class="lang-list">
+        <p class="KR">KR</p>
+        <p class="CN">CN</p>
+        <p class="EN">EN</p>
+        <p class="KG">KG</p>
       </div>
     </div>
-
-    <p class="menu-box"></p>
   </section>
 </article>
