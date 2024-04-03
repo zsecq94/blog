@@ -9,3 +9,58 @@ h3 {
 h4 {
   @include font(20px, 500);
 }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  &.light {
+    --bg: #ffffff;
+    --text: #111;
+    --textNormal: #6c757d;
+    --textDesc: #adb5bd;
+    --code: ;
+  }
+  &.dark {
+    --bg: #202125;
+    --text: #fff;
+    --textNormal: #e9ecef;
+    --textDesc: #dee2e6;
+    --code: #1a1a1c;
+  }
+  --blockquote1: #f238385a;
+  --blockquote2: #6cd9b15a;
+  --blockquote3: #00a3ff5a;
+  --blockquote4: #4950573a;
+
+  $blue-1: #3655ff;
+  $blue-2: #1e90ff;
+  $blue-3: #32a4ff;
+}
+
+// 라이트 모드 색상
+$light-main: #ffffff;
+$light-1: #f8f9fa;
+$light-2: #e9ecef;
+$light-3: #dee2e6;
+$light-4: #ced4da;
+
+// 다크 모드 색상
+$dark-main: #202125;
+$dark-1: #495057;
+$dark-2: #6c757d;
+$dark-3: #adb5bd;
+$dark-4: #dee2e6;
+
+// 포인트 색상
+
+$blue-4: #46b8ff;
+$blue-5: #5accff;
+$blue-6: #6ee0ff;
+
+// 포인트 색상
+$blue-1: #3655ff;
+$blue-2: #1e90ff;
+$blue-3: #32a4ff;
+$blue-4: #46b8ff;
+$blue-5: #5accff;
+$blue-6: #6ee0ff;

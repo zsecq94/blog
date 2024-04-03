@@ -41,9 +41,11 @@
   left: $l;
 }
 
-@mixin size($width: null, $height: null) {
+@mixin size($width: null, $height: null, $min-width: null, $min-height: null) {
   width: $width;
   height: $height;
+  min-width: $min-width;
+  min-height: $min-height;
 }
 
 @mixin select($width: null, $height: null) {
@@ -55,16 +57,4 @@
 
 @mixin background($path, $name, $size: cover) {
   background: url("/src/assets/images/#{$path}/#{$name}.png") no-repeat center/#{$size};
-}
-
-@mixin media($media) {
-  @if $media == "mobile" {
-    @media screen and (max-width: 768px) {
-      @content;
-    }
-  } @else {
-    @media screen and (min-width: 769px) {
-      @content;
-    }
-  }
 }

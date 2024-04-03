@@ -8,8 +8,16 @@ import Admin from "@/pages/Admin";
 import Port from "@/pages/Port";
 import Tech from "@/pages/Tech";
 import Algo from "@/pages/Algo";
+import { useEffect } from "react";
 
 const App = () => {
+  useEffect(() => {
+    document.body.classList.add("dark");
+
+    return () => {
+      document.body.classList.remove("dark");
+    };
+  }, []);
   return (
     <BrowserRouter>
       <Header />

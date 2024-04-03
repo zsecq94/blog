@@ -1,18 +1,17 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 @import "mixin";
-@import "color";
 @import "common";
 
 @import "header";
 @import "footer";
 @import "admin";
+@import "main";
 
 body {
   font-family: "Pretendard", "-apple-system", "BlinkMacSystemFont", sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-color: $dark-main;
-  color: $light-main;
+  overflow-x: hidden;
 }
 
 *,

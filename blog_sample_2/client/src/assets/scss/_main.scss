@@ -1,0 +1,22 @@
+.main-con {
+  width: 1024px;
+
+  h2 {
+    &:nth-child(1) {
+      color: $light-1;
+      background-color: var(--blockquote1);
+    }
+    &:nth-child(2) {
+      color: $light-2;
+      background-color: var(--blockquote2);
+    }
+    &:nth-child(3) {
+      color: $light-3;
+      background-color: var(--blockquote3);
+    }
+    &:nth-child(4) {
+      color: $blue-1;
+      //   background-color: var(--blockquote4);
+    }
+  }
+}

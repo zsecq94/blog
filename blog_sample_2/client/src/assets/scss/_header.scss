@@ -1,2 +1,55 @@
 header {
+  @include flex(row, center, center);
+  @include size(100%, 70px, 1024px);
+  font-style: italic;
+
+  article {
+    @include flex(row, center, space-between);
+    width: 1024px;
+
+    .logo {
+      a {
+        font-size: 24px;
+      }
+    }
+
+    .gnb {
+      @include flex(row, center, $gap: 20px);
+
+      ul {
+        @include flex(row, center, $gap: 30px);
+        li {
+          a {
+            @include font(16px, 500, --textTitle);
+            position: relative;
+            transition: 0.3s;
+            opacity: 0.5;
+
+            &::after {
+              @include select(0px, 1px);
+              @include position(absolute, $t: 100%, $l: 0);
+              background-color: var(--textDesc);
+              transition: 0.3s;
+            }
+
+            &:hover {
+              opacity: 1;
+
+              &::after {
+                width: 100%;
+              }
+            }
+
+            &.active {
+              opacity: 1;
+
+              &::after {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

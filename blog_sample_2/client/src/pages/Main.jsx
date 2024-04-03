@@ -1,8 +1,11 @@
 const Main = () => {
   return (
-    <div>
+    <article className="main-con">
       <h2>Main</h2>
-    </div>
+      <h2>Main</h2>
+      <h2>Main</h2>
+      <h2>Main</h2>
+    </article>
   );
 };
 
