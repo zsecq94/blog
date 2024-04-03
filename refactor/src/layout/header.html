@@ -1,0 +1,155 @@
+<script>
+  $(document).ready(() => {
+    const $header = $("header");
+    const $article = $("header article");
+    const $gnb = $("header .gnb-con");
+
+    const addActiveClass = () => {
+      $header.addClass("active");
+    };
+
+    const removeActiveClass = () => {
+      $header.removeClass("active");
+    };
+
+    $gnb.mouseenter(addActiveClass);
+    $header.mouseleave(removeActiveClass);
+  });
+</script>
+
+<article>
+  <section class="logo-con">
+    <a href="/"></a>
+  </section>
+
+  <ul class="gnb-con">
+    <li>
+      <a href="#/about/greeting">회사소개</a>
+      <p>sub-menu</p>
+
+      <ul class="lnb">
+        <li>
+          <a href="#/about/greeting">인사말</a>
+        </li>
+        <li>
+          <a href="#/about/history">연혁</a>
+        </li>
+        <li>
+          <a href="#/about/certified">인증내역</a>
+        </li>
+        <li>
+          <a href="#/about/award">수상내역</a>
+        </li>
+        <li>
+          <a href="#/about/member">MEMBER</a>
+        </li>
+        <li>
+          <a href="#/about/visit">찾아오시는 방법</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#/business/renewable">비즈니스 분야</a>
+      <p>sub-menu</p>
+
+      <ul class="lnb">
+        <li>
+          <a href="#/business/renewable">재생에너지 발전</a>
+        </li>
+        <li>
+          <a href="#/business/vpp">VPP <span>(가상발전소)</span></a>
+        </li>
+        <li>
+          <a href="#/business/ess">ESS <span>(에너지저장시스템)</span></a>
+        </li>
+        <li>
+          <a href="#/business/p2v">Power to Vehicle <span>(P2V)</span></a>
+        </li>
+        <li>
+          <a href="#/business/dr">DR <span>(Demand Response)</span></a>
+        </li>
+        <li>
+          <a href="#/business/fintech">Fintech</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#/tech/ai">보유기술</a>
+      <p>sub-menu</p>
+
+      <ul class="lnb">
+        <li>
+          <a href="#/tech/ai">AI 빅데이터센터</a>
+        </li>
+        <li>
+          <a href="#/tech/patent">기술 특허 현황</a>
+        </li>
+        <li>
+          <a href="#/tech/performance">기업부설연구소 R&D실적</a>
+        </li>
+        <li>
+          <a href="#/tech/result">시험성적</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#/ir/notice">IR</a>
+      <p>sub-menu</p>
+
+      <ul class="lnb">
+        <li>
+          <a href="#/ir/notice">공지사항</a>
+        </li>
+        <li>
+          <a href="#/ir/cmpny">기업정보(IR)</a>
+        </li>
+        <li>
+          <a href="#/ir/investment">투자하기</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#/pr/news">PR</a>
+      <p>sub-menu</p>
+
+      <ul class="lnb">
+        <li>
+          <a href="#/pr/news">NEWS</a>
+        </li>
+        <li>
+          <a href="#/pr/promotion">홍보영상</a>
+        </li>
+        <li>
+          <a href="#/pr/gallery">갤러리</a>
+        </li>
+        <li>
+          <a href="#/pr/insight">인사이트</a>
+        </li>
+        <li>
+          <a href="#/pr/questions">문의사항</a>
+        </li>
+        <li>
+          <a href="#/pr/recruit">인재채용</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <section class="lang-con">
+    <div class="lang-box">
+      <p class="lang"></p>
+
+      <div class="list-box">
+        <p>KR</p>
+        <p>CN</p>
+        <p>EN</p>
+        <p>KG</p>
+      </div>
+    </div>
+    <p class="menu"></p>
+  </section>
+</article>

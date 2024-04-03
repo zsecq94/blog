@@ -1,0 +1,443 @@
+.main-con {
+  @include flex(column, center, center);
+  min-width: 1280px;
+
+  // common
+  .box {
+    > .title-box {
+      @include flex(row, end, space-between);
+      margin-bottom: 40px;
+
+      > .nav-box {
+        @include flex(row, center, $gap: 14px);
+
+        > p {
+          @include flex(row, center, center);
+          @include size(50px, 50px);
+          @include border(#ebebeb, 50%);
+          cursor: pointer;
+          text-indent: -9999px;
+
+          &:nth-child(1) {
+            @include icon(prev02, 10px 18px);
+          }
+
+          &:nth-child(2) {
+            @include icon(next02, 10px 18px);
+          }
+
+          &.swiper-button-disabled {
+            opacity: 0.5;
+            cursor: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .slide {
+    @include size(100%, 100vh);
+    position: relative;
+    color: #fff;
+
+    .swiper-wrapper {
+      .swiper-slide {
+        @include flex(row, center, center);
+
+        .text-box {
+          @include flex(column, $gap: 50px);
+          width: 1280px;
+          transform: translateY(-100px);
+
+          p {
+            line-height: 140%;
+            &:nth-child(1) {
+              @include font(54px, 800);
+              width: 54%;
+            }
+            &:nth-child(2) {
+              @include font(20px, 400);
+            }
+          }
+        }
+      }
+
+      .nav-con {
+        @include position(absolute, $t: 80%, $l: 50%);
+        @include flex(row, center, $gap: 30px);
+        transform: translateX(-50%);
+        width: 1280px;
+        z-index: 9;
+
+        .nav-box {
+          @include flex(row, center, $gap: 10px);
+          p {
+            @include font(18px, 600);
+            width: 24px;
+          }
+
+          .timer-box {
+            @include size(200px, 2px);
+            position: relative;
+            background-color: rgba($color: #fff, $alpha: 0.25);
+
+            .timer {
+              position: absolute;
+              height: 2px;
+              background-color: #ef3736;
+            }
+          }
+
+          .end {
+            opacity: 0.25;
+          }
+        }
+
+        .nav-btn {
+          @include flex(row, center, $gap: 20px);
+
+          p {
+            @include size(20px, 20px);
+            text-indent: -9999px;
+            cursor: pointer;
+
+            &:nth-child(1) {
+              @include icon(prev01, 12px 18px);
+            }
+
+            &:nth-child(2) {
+              @include icon(next01, 12px 18px);
+            }
+          }
+        }
+      }
+    }
+
+    @for $i from 1 through 5 {
+      .bg#{$i} {
+        @include background(bg/main, con1_0#{$i});
+      }
+    }
+  }
+
+  .con1 {
+    .swiper {
+      .swiper-wrapper {
+        .swiper-slide {
+          @include flex(column, end, space-between);
+          @include border(#ebebeb, 8px);
+          height: auto;
+
+          .text-box {
+            @include flex(column, start, $gap: 20px);
+            padding: 30px 20px 20px;
+            line-height: 130%;
+            width: 100%;
+
+            p {
+              &:nth-child(1) {
+                @include font(20px, 600);
+              }
+
+              &:nth-child(2) {
+                @include font(14px, 400, #666);
+              }
+
+              &:nth-child(3) {
+                @include font(14px, 600, #999);
+                cursor: pointer;
+
+                &::after {
+                  @include select(15px, 12px);
+                  @include icon(arrow02, 15px 12px);
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .con2 {
+    .swiper {
+      .swiper-wrapper {
+        .swiper-slide {
+          @include flex(column, start, space-between, 30px);
+          padding: 60px 50px;
+          background-color: #f7f7f8;
+          height: auto;
+          transition: 0.3s;
+
+          .text-box {
+            @include flex(column, start, $gap: 20px);
+
+            p {
+              &:nth-child(1) {
+                @include font(18px, 700, #f26933);
+              }
+
+              &:nth-child(2) {
+                @include font(34px, 600);
+              }
+
+              &:nth-child(3) {
+                @include font(14px, 500, #999);
+              }
+            }
+          }
+
+          img {
+            width: 100%;
+          }
+
+          &:hover {
+            background-color: #202936;
+
+            .text-box {
+              p {
+                &:nth-child(2) {
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .con3 {
+    @include grid(1fr 1fr, $gap: 34px);
+
+    a {
+      @include flex(column, start, $gap: 30px);
+      color: #fff;
+      padding: 50px;
+
+      > p {
+        @include font(20px, 600);
+        opacity: 0.7;
+      }
+
+      .title-box {
+        @include flex(row, start, space-between);
+        width: 100%;
+        p {
+          font-size: 40px;
+
+          &:nth-child(2) {
+            @include icon(arrow03);
+            @include size(14px, 14px);
+            text-indent: -9999px;
+          }
+        }
+      }
+
+      &:nth-child(1) {
+        @include background(bg/main, con3_01);
+      }
+      &:nth-child(2) {
+        @include background(bg/main, con3_02);
+      }
+    }
+  }
+
+  .con4 {
+    @include flex(row, center, center);
+    @include size(100%, 100%);
+    @include background(bg/main, con4_01, 100% 650px);
+    background-position: top;
+
+    .box {
+      .title-box {
+        h2 {
+          color: #f26933;
+        }
+      }
+
+      .swiper {
+        padding: 10px;
+        .swiper-wrapper {
+          .swiper-slide {
+            height: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+
+            img {
+              width: 100%;
+            }
+
+            .text-box {
+              @include flex(column, start, $gap: 20px);
+              padding: 30px 20px;
+              p {
+                &:nth-child(1) {
+                  font-size: 16px;
+                }
+
+                &:nth-child(2) {
+                  @include font(14px, $color: #666);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-con {
+    min-width: 100%;
+    .slide {
+      .swiper-wrapper {
+        .swiper-slide {
+          padding: 0 24px;
+
+          .text-box {
+            gap: 20px;
+            width: 100%;
+
+            p {
+              &:nth-child(1) {
+                font-size: 26px;
+                width: 100%;
+              }
+
+              &:nth-child(2) {
+                font-size: 14px;
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+
+        .nav-con {
+          @include flex(row, center, space-between, 0px);
+          padding: 0 24px;
+          width: 100%;
+          top: 90%;
+
+          .nav-box {
+            p {
+              font-size: 14px;
+              width: 19px;
+            }
+
+            .timer-box {
+              width: 100px;
+            }
+          }
+
+          .nav-btn {
+            p {
+              @include size(12px, 18px);
+            }
+          }
+        }
+      }
+
+      @for $i from 1 through 5 {
+        .bg#{$i} {
+          @include background(bg/main, con1_mb_0#{$i});
+        }
+      }
+    }
+
+    .con1 {
+      .title-box {
+        margin-bottom: 20px;
+
+        > p {
+          font-size: 20px;
+
+          br {
+            display: none;
+          }
+        }
+
+        .nav-box {
+          display: none;
+        }
+      }
+
+      .swiper {
+        width: calc(100vw - 24px);
+        padding-right: 60px;
+
+        .swiper-wrapper {
+          .swiper-slide {
+            .text-box {
+              p {
+                &:nth-child(1) {
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .con2 {
+      .title-box {
+        display: none;
+      }
+
+      .swiper {
+        .swiper-wrapper {
+          .swiper-slide {
+            gap: 20px;
+            padding: 30px 24px;
+            background-color: #202936;
+
+            .text-box {
+              @include flex(column, start, $gap: 20px);
+
+              p {
+                &:nth-child(1) {
+                  font-size: 20px;
+                }
+
+                &:nth-child(2) {
+                  @include font(30px, 600, #fff);
+                }
+              }
+            }
+          }
+        }
+
+        .swiper-pagination-bullet-active {
+          background-color: #fff;
+        }
+
+        .swiper-pagination-bullet {
+          border: solid 1px #fff;
+        }
+      }
+    }
+
+    .con3 {
+      @include grid(1fr, $gap: 10px);
+
+      a {
+        gap: 20px;
+        padding: 30px 20px;
+
+        > p {
+          font-size: 14px;
+        }
+
+        .title-box {
+          width: 100%;
+          p {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}

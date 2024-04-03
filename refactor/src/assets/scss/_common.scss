@@ -1,0 +1,43 @@
+h2 {
+  @include font(50px, 800);
+}
+
+h4 {
+  @include font(34px, 800);
+}
+
+.box {
+  @include media(web) {
+    padding: 70px 0;
+    width: 1280px;
+
+    &.top {
+      padding: 140px 0 70px;
+    }
+
+    &.bot {
+      padding: 70px 0 140px;
+    }
+
+    &.none-pd {
+      padding: 70px 0;
+    }
+  }
+
+  @include media(mobile) {
+    padding: 30px 24px;
+    width: 100%;
+
+    &.top {
+      padding: 30px 24px;
+    }
+
+    &.bot {
+      padding: 30px 24px;
+    }
+
+    &.none-pd {
+      padding: 0;
+    }
+  }
+}

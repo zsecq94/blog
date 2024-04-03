@@ -1,0 +1,147 @@
+header {
+  @include size(100%, 90px);
+  transition: 0.3s;
+  position: fixed;
+  z-index: 10;
+
+  article {
+    @include grid(1fr 4fr 1fr, center);
+    padding: 0 50px;
+    height: 90px;
+
+    .logo-con {
+      a {
+        @include background("logo", "logo_01", 246px 34px);
+        @include size(246px, 34px);
+        display: inline-block;
+      }
+    }
+
+    .gnb-con {
+      @include flex(row, center, center);
+      text-wrap: nowrap;
+
+      li {
+        position: relative;
+        margin-right: 100px;
+        transition: 0.3s;
+
+        &:last-child {
+          margin-right: 0px;
+        }
+
+        > p {
+          display: none;
+        }
+
+        > a {
+          @include font(18px, 600, #fff);
+        }
+
+        .lnb {
+          @include position(absolute, $t: 60px);
+          visibility: hidden;
+          transition: 0s;
+          opacity: 0;
+
+          li {
+            margin-bottom: 16px;
+
+            a {
+              @include font(14px, 500, #111);
+
+              span {
+                @include font(13px, 400, #999);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .lang-con {
+      @include flex(row, center, end);
+
+      .lang-box {
+        .list-box {
+          @include flex(row, center, center, 8px);
+          @include font(14px, 400, #fff);
+        }
+      }
+    }
+  }
+
+  &.active {
+    height: 330px;
+    background-color: #fff;
+
+    article {
+      .logo-con {
+        a {
+          @include background("logo", "logo_02", 246px 34px);
+        }
+      }
+
+      .gnb-con {
+        li {
+          position: relative;
+          margin-right: 0px;
+
+          &:nth-child(1) {
+            margin-right: 80px;
+          }
+
+          &:nth-child(2) {
+            margin-right: 100px;
+          }
+
+          &:nth-child(3) {
+            margin-right: 130px;
+          }
+
+          &:nth-child(4) {
+            margin-right: 105px;
+          }
+
+          a {
+            color: #111;
+
+            &:hover {
+              color: #f26933;
+
+              span {
+                color: #f26933;
+              }
+            }
+          }
+
+          .lnb {
+            visibility: visible;
+            transition: 0.3s;
+            transition-delay: 0.1s;
+            opacity: 1;
+
+            li {
+              a {
+                &:hover {
+                  text-decoration: underline 1px #f26933;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .lang-con {
+        @include flex(row, center, end);
+
+        .lang-box {
+          .list-box {
+            @include flex(row, center, center, 8px);
+            @include font(14px, 400, #fff);
+          }
+        }
+      }
+    }
+  }
+}

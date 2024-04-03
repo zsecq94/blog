@@ -1,0 +1,371 @@
+<script>
+  $(document).ready(() => {
+    const $currentP = $(".slide .start");
+    const $currentTimer = $(".slide .timer");
+
+    let currentWidth = 0;
+    let isWeb = $(document).innerWidth() > 768;
+
+    const changeCurrentPage = (num) => {
+      $currentP.text(`0${num + 1}`);
+      currentWidth = 0;
+    };
+
+    const currentTime = () => {
+      currentWidth += 0.174;
+      if (currentWidth > 100) {
+        currentWidth = 100;
+      }
+      $currentTimer.css({
+        width: currentWidth + "%",
+      });
+    };
+
+    setInterval(currentTime, 10);
+
+    new Swiper(".slide", {
+      loop: true,
+      effect: "fade",
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".slide .nav-btn .next",
+        prevEl: ".slide .nav-btn .prev",
+      },
+      on: {
+        slideChange: function () {
+          changeCurrentPage(this.realIndex);
+        },
+      },
+    });
+
+    new Swiper(".main-con .con1 .swiper", {
+      slidesPerView: isWeb ? 4 : 1,
+      spaceBetween: isWeb ? 34 : 10,
+      navigation: {
+        nextEl: ".main-con .con1 .title-box .nav-box .next",
+        prevEl: ".main-con .con1 .title-box .nav-box .prev",
+      },
+    });
+
+    new Swiper(".main-con .con2 .swiper", {
+      slidesPerView: isWeb ? 3 : 1,
+      spaceBetween: isWeb ? 34 : 0,
+      navigation: {
+        nextEl: ".main-con .con2 .title-box .nav-box .next",
+        prevEl: ".main-con .con2 .title-box .nav-box .prev",
+      },
+      pagination: {
+        el: isWeb ? "" : ".swiper-pagination",
+      },
+    });
+
+    new Swiper(".main-con .con4 .box .swiper", {
+      slidesPerView: isWeb ? 4 : 1,
+      spaceBetween: isWeb ? 34 : 10,
+      navigation: {
+        nextEl: ".main-con .con4 .box .title-box .nav-box .next",
+        prevEl: ".main-con .con4 .box .title-box .nav-box .prev",
+      },
+    });
+  });
+</script>
+
+<article class="main-con">
+  <section class="swiper slide">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide bg1">
+        <div class="text-box">
+          <p>렉스이노베이션의 첨단 정보통신 기술이 재생에너지의 스마트 그리드화를 이끌어 갑니다.</p>
+          <p>지속가능한 에너지 공급과 환경보호를 동시에 실현하는 기업</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide bg2">
+        <div class="text-box">
+          <p>친환경 미래기술을 선도하는 REC’s INNOVATION</p>
+          <p>
+            끊임없는 연구개발로 쌓아온 고도화된 기술력으로 <br />
+            더 나은 미래를 위한 솔루션을 제공합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="swiper-slide bg3">
+        <div class="text-box">
+          <p>청정 에너지로 우리의 미래를 밝혀나가는 길, 재생에너지의 힘과 혁신을 렉스이노베이션이 만들어갑니다.</p>
+          <p>친환경 에너지를 통해 지구 환경을 보호하고 인류의 행복을 추구하는 기업</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide bg4">
+        <div class="text-box">
+          <p>대한민국의 바다 환경을 이용한 육상양어장에 소수력발전소를 건설합니다</p>
+          <p>친환경 소수력발전소 100기 건설로 에너지자립을 선도하는 기업</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide bg5">
+        <div class="text-box">
+          <p>녹색금융 플랫폼 렉스펀드가 기후위기로부터 대한민국의 탄소중립을앞당기겠습니다.</p>
+          <p>블록체인 기술을 활용한 Fintech 전문기업</p>
+        </div>
+      </div>
+
+      <div class="nav-con">
+        <div class="nav-box">
+          <p class="start"></p>
+
+          <div class="timer-box">
+            <div class="timer"></div>
+          </div>
+
+          <p class="end">05</p>
+        </div>
+
+        <div class="nav-btn">
+          <p class="prev">prev-btn</p>
+          <p class="next">next-btn</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="con1 box top">
+    <div class="title-box">
+      <h4>
+        렉스이노베이션은 지속 가능한 미래를 위해 <br />
+        새로운 가치를 찾고 있습니다
+      </h4>
+
+      <div class="nav-box">
+        <p class="prev">prev</p>
+        <p class="next">next</p>
+      </div>
+    </div>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>재생에너지 발전</p>
+            <p>
+              재생에너지 발전은 지구의 자연 자원을 보존하면서 전기를 생산하는 방법으로, 지속 가능한 발전 방식입니다.
+            </p>
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con1_01.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>VPP(가상발전소)</p>
+            <p>VPP는 가상적으로 연결된 발전소로 여러 개별 에너지 생산 시스템이 하나의 통합 시스템으로 운영됩니다.</p>
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con1_02.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>ESS(에너지저장시스템)</p>
+            <p>ESS는 에너지 저장 시스템으로, 전력 그리드의 안정성과 신재생 에너지 통합에 기여하는 중요한 기술입니다.</p>
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con1_03.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>Power to Vehicle(P2V)</p>
+            <p>
+              Power to Vehicle 은 차량에 전원을 공급하는 시스템으로 배터리에서 전기 에너지를 차량의 전기 시스템으로
+              공급하여 모든 기능을 작동시킵니다.
+            </p>
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con1_04.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>DR(Demand Response)</p>
+            <p>
+              수요 반응(Demand Response)은 전력 그리드 관리를 위한 전략적 접근 방식이며 전력 소비자들이 전력 사용을
+              조정하고 조절하는 것을 의미합니다.
+            </p>
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con1_05.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>Fintech</p>
+            <p>
+              핀테크는 금융(Finance)과 기술(Technology)을 결합한 용어로, 기존의 금융 서비스를 혁신하고 간소화하여
+              효율적이고 편리한 금융 서비스를 제공하는 분야입니다.
+            </p>
+            <p>자세히보기</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con1_06.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="con2 box none-pd">
+    <div class="title-box">
+      <h2>PRODUCTS</h2>
+
+      <div class="nav-box">
+        <p class="prev">prev</p>
+        <p class="next">next</p>
+      </div>
+    </div>
+
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>ESS</p>
+            <p>SAVING POWER 5kw Home</p>
+            <p>심야전기보일러 대상 요금 절약형 ESS 모델입니다.</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con2_01.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>Renewable Energy</p>
+            <p>유량변동대응 전력제어시스템</p>
+            <p>소수력발전용</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con2_02.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>EMS</p>
+            <p>Sun-Q EMS S/W</p>
+            <p>태양광발전소 모니터링 시스템</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con2_03.png" alt="" />
+        </div>
+
+        <div class="swiper-slide">
+          <div class="text-box">
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+          </div>
+
+          <img src="/src/assets/images/content/main/con2_01.png" alt="" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section class="con3 box">
+    <a href="#">
+      <div class="title-box">
+        <p><b>전력중개사업</b></p>
+        <p>icon</p>
+      </div>
+
+      <p>
+        비용 NO, 투자 NO! <br />
+        기존 발전소 그대로 참여하면 새로운 수익 창출
+      </p>
+    </a>
+
+    <a href="#">
+      <div class="title-box">
+        <p><b>REC/발전소 모집</b></p>
+        <p>icon</p>
+      </div>
+
+      <p>
+        안정적인 수익을 확보 할 수 있는 <br />
+        가장 확실한 방법!
+      </p>
+    </a>
+  </section>
+
+  <section class="con4">
+    <article class="box">
+      <div class="title-box">
+        <h2>NEWS</h2>
+
+        <div class="nav-box">
+          <p class="prev">prev</p>
+          <p class="next">next</p>
+        </div>
+      </div>
+
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/src/assets/images/content/main/con4_01.png" alt="" />
+
+            <div class="text-box">
+              <p><b>애자일소다-렉스이노베이션, '지능형 태양광 발전 모니터링 시스템' 개발</b></p>
+              <p>
+                [디지털데일리] 인공지능(AI) 서비스 기업 애자일소다는 재생에너지 운영관리 전문 렉스이노베이션과 '지능형
+                태양광 발전 모니터링..
+              </p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <img src="/src/assets/images/content/main/con4_02.png" alt="" />
+
+            <div class="text-box">
+              <p><b>애자일소다, 렉스이노베이션-에스디플렉스와 '강화학습 기반 전력거래 시스템..</b></p>
+              <p>
+                [프라임경제] 애자일소다(대표 최대우)는 재생에너지 발전 사업 O&M 전문기업 렉스이노베이션(대표 임정민)과
+                사물 인터넷(IoT)..
+              </p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="/src/assets/images/content/main/con4_03.png" alt="" />
+
+            <div class="text-box">
+              <p><b>애자일소다, 렉스이노베이션과 재생에너지 AI적용 '맞손'</b></p>
+              <p>
+                [파이낸셜뉴스] 애자일소다가 렉스이노베이션과 재생에너지 산업 분야 인공지능(AI) 기술 적용을 위한 업무
+                협약을 체결했다.
+              </p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="/src/assets/images/content/main/con4_04.png" alt="" />
+
+            <div class="text-box">
+              <p><b>렉스이노베이션, 혁신성장 벤처기업 인증 획득</b></p>
+              <p>
+                신재생 에너지 발전 및 에너지 IT 전문 기업 렉스이노베이션이 중소벤처기업부가 주관하는 혁신성장유형
+                벤처기업 인증을 획득했다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="con5 box bot"></section>
+</article>

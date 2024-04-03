@@ -1,0 +1,153 @@
+footer {
+  @include flex(column, center, center);
+  width: 100%;
+  min-width: 1280px;
+
+  .banner-con {
+    @include flex(row, center, center);
+    width: 100%;
+    background-color: #fbfbfb;
+
+    .swiper {
+      width: 1280px;
+      padding: 60px 0;
+
+      .swiper-wrapper {
+        @include size(100%, 74px);
+        .swiper-slide {
+          width: 100%;
+
+          @for $i from 1 through 14 {
+            &:nth-child(#{$i}) {
+              @if $i < 10 {
+                @include background(banner, banner_0#{$i});
+              } @else {
+                @include background(banner, banner_#{$i});
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contact-con {
+    @include flex(column, center, center, 70px);
+    @include size(100%, 550px);
+    @include background(bg/footer, footer_01);
+    color: #fff;
+
+    .text-box {
+      @include flex(column, center, center, 20px);
+      p {
+        font-size: 50px;
+
+        &:nth-child(2) {
+          @include font(20px, 400);
+        }
+      }
+    }
+
+    .btn-box {
+      button {
+        @include border($radius: 25px, $bg: #f26933);
+        padding: 10px 35px;
+
+        p {
+          @include flex(row, center, center, 10px);
+          @include font(20px, 600);
+
+          &::after {
+            @include select(18px, 12px);
+            @include icon(arrow01, 18px 12px);
+          }
+        }
+      }
+    }
+  }
+
+  .info-con {
+    @include flex(row, center, center);
+    background-color: #191b1e;
+    padding: 40px 0;
+    width: 100%;
+
+    .text-box {
+      @include flex(row, end, space-between);
+      width: 1280px;
+
+      .start-box {
+        p {
+          @include flex(column, start, start, 20px);
+          @include font(14px, 300, rgba($color: #fff, $alpha: 0.5));
+          line-height: 140%;
+
+          &::before {
+            @include select(220px, 30px);
+            @include background(logo, logo_03, 220px 30px);
+          }
+        }
+      }
+
+      .end-box {
+        p {
+          @include font(14px, 300, rgba($color: #fff, $alpha: 0.25));
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    min-width: 100%;
+    .banner-con {
+      width: 100%;
+
+      .swiper {
+        padding: 20px 24px;
+        .swiper-wrapper {
+          .swiper-slide {
+            height: 58px;
+          }
+        }
+      }
+    }
+
+    .contact-con {
+      gap: 20px;
+      height: 370px;
+      padding: 0 24px;
+
+      .text-box {
+        text-align: center;
+        p {
+          font-size: 30px;
+        }
+      }
+
+      .btn-box {
+        button {
+          padding: 10px 30px;
+
+          p {
+            font-size: 18px;
+
+            &::after {
+              @include select(15px, 10px);
+            }
+          }
+        }
+      }
+    }
+
+    .info-con {
+      padding: 30px 24px;
+
+      .text-box {
+        @include flex(column, start, center, 14px);
+        width: 100%;
+      }
+    }
+  }
+}
