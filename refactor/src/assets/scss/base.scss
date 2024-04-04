@@ -11,7 +11,6 @@
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html,
 body {
   word-break: keep-all;
   text-rendering: optimizeLegibility;
@@ -40,7 +39,7 @@ input:focus {
 }
 
 .no-scroll {
-  overflow: hidden;
+  overflow-y: hidden;
   height: 100%;
 }
 

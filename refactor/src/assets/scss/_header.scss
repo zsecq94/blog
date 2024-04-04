@@ -18,40 +18,42 @@ header {
     }
 
     .gnb-con {
-      @include flex(row, center, center);
-      text-wrap: nowrap;
+      @include media("web") {
+        @include flex(row, center, center);
+        text-wrap: nowrap;
 
-      li {
-        position: relative;
-        margin-right: 100px;
-        transition: 0.3s;
+        li {
+          position: relative;
+          margin-right: 100px;
+          transition: 0.3s;
 
-        &:last-child {
-          margin-right: 0px;
-        }
+          &:last-child {
+            margin-right: 0px;
+          }
 
-        > p {
-          display: none;
-        }
+          > p {
+            display: none;
+          }
 
-        > a {
-          @include font(18px, 600, #fff);
-        }
+          > a {
+            @include font(18px, 600, #fff);
+          }
 
-        .lnb {
-          @include position(absolute, $t: 60px);
-          visibility: hidden;
-          transition: 0s;
-          opacity: 0;
+          .lnb {
+            @include position(absolute, $t: 60px);
+            visibility: hidden;
+            transition: 0s;
+            opacity: 0;
 
-          li {
-            margin-bottom: 16px;
+            li {
+              margin-bottom: 16px;
 
-            a {
-              @include font(14px, 500, #111);
+              a {
+                @include font(14px, 500, #111);
 
-              span {
-                @include font(13px, 400, #999);
+                span {
+                  @include font(13px, 400, #999);
+                }
               }
             }
           }
@@ -63,68 +65,285 @@ header {
       @include flex(row, center, end);
 
       .lang-box {
+        > p {
+          display: none;
+        }
+
         .list-box {
           @include flex(row, center, center, 8px);
           @include font(14px, 400, #fff);
+          @include border(#fff, 20px);
+          padding: 6px 12px;
+          width: 182px;
+
+          p {
+            cursor: pointer;
+
+            &::after {
+              @include select(1px, 12px);
+              margin-left: 8px;
+              background-color: rgba($color: #fff, $alpha: 0.1);
+            }
+
+            &::before {
+              @include background("sprite", "header_sprite", calc(336px / 4) calc(70px / 4));
+              @include select(16px, 12px);
+              margin-right: 6px;
+              background-position-y: -2.5px;
+            }
+
+            &.KR {
+              &::before {
+                background-position: -2.5px;
+              }
+            }
+
+            &.CN {
+              &::before {
+                background-position: -23.5px;
+              }
+            }
+
+            &.EN {
+              &::before {
+                background-position: -44.5px;
+              }
+            }
+
+            &.KG {
+              &::before {
+                background-position: -65.5px;
+              }
+            }
+
+            &.none-r {
+              &::after {
+                display: none;
+              }
+            }
+          }
         }
       }
     }
   }
 
-  &.active {
-    height: 330px;
-    background-color: #fff;
+  @include media("web") {
+    &.scroll {
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+
+      article {
+        .logo-con {
+          a {
+            @include background("logo", "logo_02", 246px 34px);
+          }
+        }
+
+        .gnb-con {
+          li {
+            a {
+              color: #111;
+            }
+          }
+        }
+
+        .lang-con {
+          .lang-box {
+            .list-box {
+              @include border(rgba($color: #111, $alpha: 0.1), 20px);
+              color: #111;
+
+              p {
+                &::after {
+                  background-color: rgba($color: #111, $alpha: 0.1);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.active {
+      height: 330px;
+      background-color: #fff;
+
+      article {
+        .logo-con {
+          a {
+            @include background("logo", "logo_02", 246px 34px);
+          }
+        }
+
+        .gnb-con {
+          li {
+            position: relative;
+            margin-right: 0px;
+
+            &:nth-child(1) {
+              margin-right: 80px;
+            }
+
+            &:nth-child(2) {
+              margin-right: 100px;
+            }
+
+            &:nth-child(3) {
+              margin-right: 130px;
+            }
+
+            &:nth-child(4) {
+              margin-right: 105px;
+            }
+
+            a {
+              color: #111;
+
+              &:hover {
+                color: #f26933;
+
+                span {
+                  color: #f26933;
+                }
+              }
+            }
+
+            .lnb {
+              visibility: visible;
+              transition: 0.3s;
+              transition-delay: 0.1s;
+              opacity: 1;
+
+              li {
+                a {
+                  &:hover {
+                    text-decoration: underline 1px #f26933;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .lang-con {
+          @include flex(row, center, end);
+
+          .lang-box {
+            .list-box {
+              @include border(rgba($color: #111, $alpha: 0.1), 20px);
+              color: #111;
+
+              p {
+                &::after {
+                  background-color: rgba($color: #111, $alpha: 0.1);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    height: 70px;
+
+    &.up {
+      transform: translateY(-70px);
+    }
 
     article {
+      @include flex(row, center, space-between);
+      padding: 0 24px;
+      height: 70px;
+
       .logo-con {
         a {
-          @include background("logo", "logo_02", 246px 34px);
+          @include background("logo", "logo_01", 178px 24px);
+          @include size(178px, 24px);
         }
       }
 
       .gnb-con {
+        @include position(absolute, $t: 70px, $l: 0);
+        padding: 30px 24px;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0s;
+
         li {
           position: relative;
-          margin-right: 0px;
+          margin-bottom: 40px;
+          width: 100%;
+
+          > p {
+            @include position(absolute, $r: 0, $t: 6px);
+            @include icon("down02");
+            display: inline-block;
+            text-indent: -9999px;
+            transition: 0.3s;
+            width: 20px;
+
+            &.rotate {
+              transform: rotate(180deg);
+            }
+          }
+
+          > a {
+            @include font(24px, 500, #111);
+          }
 
           &:nth-child(1) {
-            margin-right: 80px;
+            .lnb.active {
+              height: 360px;
+            }
           }
 
           &:nth-child(2) {
-            margin-right: 100px;
+            .lnb.active {
+              height: 360px;
+            }
           }
 
           &:nth-child(3) {
-            margin-right: 130px;
+            .lnb.active {
+              height: 240px;
+            }
           }
 
           &:nth-child(4) {
-            margin-right: 105px;
+            .lnb.active {
+              height: 180px;
+            }
           }
 
-          a {
-            color: #111;
-
-            &:hover {
-              color: #f26933;
-
-              span {
-                color: #f26933;
-              }
+          &:nth-child(5) {
+            .lnb.active {
+              height: 360px;
             }
           }
 
           .lnb {
-            visibility: visible;
+            height: 0px;
+            overflow: hidden;
             transition: 0.3s;
-            transition-delay: 0.1s;
-            opacity: 1;
 
             li {
+              margin-top: 30px;
+              padding: 0 16px;
+
+              &:first-child {
+                margin-top: 40px;
+              }
+
               a {
-                &:hover {
-                  text-decoration: underline 1px #f26933;
+                @include font(16px, 500, #111);
+
+                span {
+                  @include font(15px, 400, #999);
                 }
               }
             }
@@ -133,12 +352,121 @@ header {
       }
 
       .lang-con {
-        @include flex(row, center, end);
+        @include flex(row, center, $gap: 15px);
+
+        .menu {
+          @include size(20px, 20px);
+          @include icon("menu01");
+        }
 
         .lang-box {
+          @include flex(row, center, center);
+          @include border(#fff, 20px);
+          @include font(14px, 400, #fff);
+          position: relative;
+          padding: 4px 10px;
+          width: 60px;
+          cursor: pointer;
+
+          > p {
+            @include flex(row, center, $gap: 6px);
+
+            &::after {
+              @include select(12px, 6px);
+              @include icon("down01");
+            }
+          }
+
           .list-box {
-            @include flex(row, center, center, 8px);
-            @include font(14px, 400, #fff);
+            @include position(absolute, $t: 130%, $l: 0);
+            @include flex(column, center, center, 8px);
+            @include font(14px, 400, #111);
+            @include size(100%, 0px);
+            transition: 0.3s;
+            overflow: hidden;
+            padding: 0;
+            border: none;
+
+            p {
+              &::after {
+                display: none;
+              }
+            }
+
+            &.active {
+              @include border(rgba(0, 0, 0, 0.1), 10px, #fff);
+              padding: 8px 4px;
+              height: 80px;
+            }
+          }
+        }
+      }
+    }
+
+    &.scroll {
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+
+      article {
+        .logo-con {
+          a {
+            @include background("logo", "logo_02");
+          }
+        }
+
+        .lang-con {
+          .menu {
+            @include icon("menu02");
+          }
+
+          .lang-box {
+            @include border(rgba(0, 0, 0, 0.1), 20px);
+            color: #111;
+
+            > p {
+              &::after {
+                @include icon("down02");
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.active {
+      background-color: #fff;
+      height: 100vh;
+
+      article {
+        .logo-con {
+          a {
+            @include background("logo", "logo_02");
+          }
+        }
+
+        .gnb-con {
+          opacity: 1;
+          visibility: visible;
+          transition: 0.3s;
+          height: 100%;
+          overflow-y: scroll;
+          padding-bottom: 100px;
+        }
+
+        .lang-con {
+          .menu {
+            @include icon("close");
+          }
+
+          .lang-box {
+            @include border(rgba(0, 0, 0, 0.1), 20px);
+            color: #111;
+
+            > p {
+              &::after {
+                @include icon("down02");
+              }
+            }
           }
         }
       }

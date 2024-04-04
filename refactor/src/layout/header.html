@@ -1,8 +1,64 @@
 <script>
   $(document).ready(() => {
     const $header = $("header");
+    const $headerA = $("header a");
     const $article = $("header article");
     const $gnb = $("header .gnb-con");
+    const $downIcon = $("header > article > .gnb-con > li > p");
+
+    const $menu = $("header > article > .lang-con > .menu");
+    const $langBox = $("header > article > .lang-con > .lang-box");
+    const $langBoxP = $("header > article > .lang-con > .lang-box > p");
+    const $langList = $("header > article > .lang-con > .lang-box > .list-box");
+    const $langListP = $("header > article > .lang-con > .lang-box > .list-box > p");
+
+    let isMenuOpen = false;
+    let scrollState = false;
+    let currentScroll = 150;
+    let isWeb = $(document).innerWidth() > 768;
+    let lang = localStorage.getItem("lang") || "KR";
+
+    ///////////////////////////////////////
+
+    $headerA.click(() => {
+      $header.removeClass("active");
+      $downIcon.removeClass("rotate");
+      $downIcon.siblings(".lnb").removeClass("active");
+    });
+
+    $langBox.click((e) => {
+      $langList.toggleClass("active");
+    });
+
+    $downIcon.click((e) => {
+      let $icon = $(e.target);
+      $icon.toggleClass("rotate");
+      $icon.siblings(".lnb").toggleClass("active");
+    });
+
+    ///////////////////////////////////////
+
+    const handleLang = () => {
+      localStorage.setItem("lang", lang);
+
+      $langListP.css({ display: "block" }).removeClass("none-r");
+      $langListP.filter((_, el) => $(el).text() === lang).css({ display: "none" });
+      $langListP
+        .filter((_, el) => $(el).css("display") !== "none")
+        .last()
+        .addClass("none-r");
+
+      $langBoxP.text(lang);
+    };
+
+    $langListP.click((e) => {
+      lang = $(e.target).text();
+      handleLang();
+    });
+
+    handleLang();
+
+    ///////////////////////////////////////
 
     const addActiveClass = () => {
       $header.addClass("active");
@@ -12,8 +68,42 @@
       $header.removeClass("active");
     };
 
-    $gnb.mouseenter(addActiveClass);
-    $header.mouseleave(removeActiveClass);
+    if (isWeb) {
+      $gnb.mouseenter(addActiveClass);
+      $header.mouseleave(removeActiveClass);
+    } else {
+      $menu.click(() => {
+        isMenuOpen = !isMenuOpen;
+        $header.toggleClass("active");
+        $("body").toggleClass("no-scroll");
+
+        if (!isMenuOpen) {
+          $downIcon.removeClass("rotate");
+          $downIcon.siblings(".lnb").removeClass("active");
+        }
+      });
+    }
+
+    ///////////////////////////////////////
+
+    $(document).scroll((e) => {
+      let scroll = $(e.target).scrollTop();
+      let saveScroll = scroll > 150;
+      if (scrollState !== saveScroll) {
+        $header.toggleClass("scroll");
+        scrollState = saveScroll;
+      }
+
+      if (!isWeb && saveScroll) {
+        if (scroll - currentScroll > 50) {
+          $header.addClass("up");
+          currentScroll = scroll;
+        } else if (currentScroll - scroll > 50) {
+          $header.removeClass("up");
+          currentScroll = scroll;
+        }
+      }
+    });
   });
 </script>
 
@@ -141,13 +231,13 @@
 
   <section class="lang-con">
     <div class="lang-box">
-      <p class="lang"></p>
+      <p></p>
 
       <div class="list-box">
-        <p>KR</p>
-        <p>CN</p>
-        <p>EN</p>
-        <p>KG</p>
+        <p class="KR">KR</p>
+        <p class="CN">CN</p>
+        <p class="EN">EN</p>
+        <p class="KG">KG</p>
       </div>
     </div>
     <p class="menu"></p>
