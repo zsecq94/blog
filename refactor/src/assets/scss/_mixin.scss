@@ -36,9 +36,11 @@
   left: $l;
 }
 
-@mixin size($width: null, $height: null) {
+@mixin size($width: null, $height: null, $min-width: null, $min-height: null) {
   width: $width;
   height: $height;
+  min-width: $min-width;
+  min-height: $min-height;
 }
 
 @mixin select($width: null, $height: null) {

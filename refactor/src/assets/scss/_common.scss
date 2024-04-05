@@ -6,38 +6,21 @@ h4 {
   @include font(34px, 800);
 }
 
+.con {
+  @include flex(column, center, center);
+  @include size(100%, 100%, 1280px);
+}
+
+.wrap {
+}
+
 .box {
-  @include media(web) {
+  @include size(1280px, 100%);
+  @include media("web") {
     padding: 70px 0;
-    width: 1280px;
-
-    &.top {
-      padding: 140px 0 70px;
-    }
-
-    &.bot {
-      padding: 70px 0 140px;
-    }
-
-    &.none-pd {
-      padding: 70px 0;
-    }
   }
 
-  @include media(mobile) {
+  @include media("mobile") {
     padding: 30px 24px;
-    width: 100%;
-
-    &.top {
-      padding: 30px 24px;
-    }
-
-    &.bot {
-      padding: 30px 24px;
-    }
-
-    &.none-pd {
-      padding: 0;
-    }
   }
 }

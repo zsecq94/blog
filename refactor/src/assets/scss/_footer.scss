@@ -16,14 +16,14 @@ footer {
         @include size(100%, 74px);
         .swiper-slide {
           width: 100%;
+        }
 
-          @for $i from 1 through 14 {
-            &:nth-child(#{$i}) {
-              @if $i < 10 {
-                @include background(banner, banner_0#{$i});
-              } @else {
-                @include background(banner, banner_#{$i});
-              }
+        @for $i from 1 through 14 {
+          .banner#{$i} {
+            @if $i < 10 {
+              @include background("banner", "banner_0#{$i}");
+            } @else {
+              @include background("banner", "banner_#{$i}");
             }
           }
         }
