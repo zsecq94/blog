@@ -1,11 +1,12 @@
 header {
   @include flex(row, center, center);
   @include size(100%, 70px, 1024px);
+  position: fixed;
   font-style: italic;
 
   article {
     @include flex(row, center, space-between);
-    width: 1024px;
+    width: 769px;
 
     .logo {
       a {
@@ -17,18 +18,17 @@ header {
       @include flex(row, center, $gap: 20px);
 
       ul {
-        @include flex(row, center, $gap: 30px);
+        @include flex(row, center, $gap: 20px);
         li {
           a {
-            @include font(16px, 500, --textTitle);
+            @include font(14px, 500);
             position: relative;
-            transition: 0.3s;
             opacity: 0.5;
 
             &::after {
               @include select(0px, 1px);
               @include position(absolute, $t: 100%, $l: 0);
-              background-color: var(--textDesc);
+              background-color: var(--textColor);
               transition: 0.3s;
             }
 
@@ -47,6 +47,34 @@ header {
                 width: 100%;
               }
             }
+          }
+        }
+      }
+
+      button {
+        position: relative;
+        width: 40px;
+        height: 22px;
+        background-color: var(--toggleBgColor);
+        border-radius: 25px;
+        transition: 0.3s;
+
+        &::after {
+          @include border($radius: 50%, $bg: var(--toggle));
+          @include select(20px, 20px);
+          transform: translateY(-50%);
+          transition: 0.3s;
+        }
+
+        &.dark {
+          &::after {
+            @include position(absolute, $t: 51%, $l: 2px);
+          }
+        }
+
+        &.light {
+          &::after {
+            @include position(absolute, $t: 51%, $l: 18px);
           }
         }
       }

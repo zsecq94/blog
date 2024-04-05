@@ -1,7 +1,22 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  useEffect(() => {
+    document.body.classList.add(theme);
+    localStorage.setItem("theme", theme);
+
+    return () => {
+      document.body.classList.remove(theme);
+    };
+  }, [theme]);
 
   return (
     <header>
@@ -40,6 +55,11 @@ const Header = () => {
               </Link>
             </li>
           </ul>
+
+          <div className="btn-box">
+            <button className={theme} onClick={toggleTheme}></button>
+            <p className="menu"></p>
+          </div>
         </section>
       </article>
     </header>
