@@ -71,10 +71,10 @@ header {
 
         .list-box {
           @include flex(row, center, center, 8px);
-          @include font(14px, 400, #fff);
+          @include font(16px, 400, #fff);
           @include border(#fff, 20px);
           padding: 6px 12px;
-          width: 182px;
+          width: 190px;
 
           p {
             cursor: pointer;

@@ -1,0 +1,202 @@
+.main {
+  .title-box {
+    @include flex(row, end, space-between);
+
+    .nav {
+      @include flex(row, center, $gap: 14px);
+
+      .prev {
+        p {
+          @include icon("prev02");
+        }
+      }
+
+      .next {
+        p {
+          @include icon("next02");
+        }
+      }
+
+      div {
+        @include flex(row, center, center);
+        @include border(#ebebeb, 50%);
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+
+        p {
+          @include size(10px, 19px);
+          text-indent: -9999px;
+        }
+
+        &.disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  .con1 {
+    @include size(100%, 100vh);
+
+    .swiper {
+      position: relative;
+      @include size(100%, 100%, 1280px);
+
+      .swiper-wrapper {
+        @for $i from 1 through 5 {
+          .bg#{$i} {
+            @include background("bg/main", "con1_0#{$i}");
+          }
+        }
+
+        .swiper-slide {
+          .text-box {
+            @include position(absolute, $t: 25%, $l: 50%);
+            transform: translateX(-50%);
+            width: 1280px;
+
+            p {
+              color: #fff;
+
+              &:nth-child(1) {
+                @include font(54px, 800);
+                margin-bottom: 50px;
+                width: 55%;
+              }
+
+              &:nth-child(2) {
+                @include font(20px, 600);
+              }
+            }
+          }
+        }
+      }
+
+      .nav-con {
+        @include position(absolute, $t: 80%, $l: 50%);
+        @include flex(row, center, $gap: 30px);
+        transform: translateX(-50%);
+        width: 1280px;
+        color: #fff;
+        z-index: 9;
+
+        .nav-box {
+          @include flex(row, center, $gap: 10px);
+          @include font(18px, 600);
+
+          p {
+            width: 23px;
+          }
+
+          .timer-box {
+            @include size(200px, 2px);
+            background-color: rgba($color: #fff, $alpha: 0.3);
+
+            .timer {
+              height: 2px;
+              background-color: #ef3736;
+            }
+          }
+          .end {
+            opacity: 0.3;
+          }
+        }
+
+        .nav-btn {
+          @include flex(row, center, $gap: 30px);
+
+          p {
+            @include size(8px, 16px);
+            text-indent: -9999px;
+            cursor: pointer;
+
+            &:nth-child(1) {
+              @include icon("prev01");
+            }
+
+            &:nth-child(2) {
+              @include icon("next01");
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .con2 {
+  }
+
+  .con3 {
+  }
+
+  .con4 {
+  }
+
+  .con5 {
+  }
+
+  .con6 {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    .con1 {
+      .swiper {
+        min-width: 100%;
+
+        .swiper-wrapper {
+          @for $i from 1 through 5 {
+            .bg#{$i} {
+              @include background("bg/main", "con1_0#{$i}");
+            }
+          }
+
+          .swiper-slide {
+            .text-box {
+              @include position(absolute, $t: 25%, $l: 50%);
+              transform: translateX(-50%);
+              width: 100%;
+              padding: 0 24px;
+
+              p {
+                color: #fff;
+
+                &:nth-child(1) {
+                  font-size: 24px;
+                  margin-bottom: 20px;
+                  width: 100%;
+                }
+
+                &:nth-child(2) {
+                  font-size: 14px;
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
+        }
+
+        .nav-con {
+          top: 85%;
+          justify-content: space-between;
+          width: 100%;
+          padding: 0 24px;
+
+          .nav-box {
+            font-size: 14px;
+
+            p {
+              width: 18px;
+            }
+
+            .timer-box {
+              width: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

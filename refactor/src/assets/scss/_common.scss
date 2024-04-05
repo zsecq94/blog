@@ -3,24 +3,43 @@ h2 {
 }
 
 h4 {
-  @include font(34px, 800);
+  @include font(38px, 800);
 }
 
 .con {
   @include flex(column, center, center);
-  @include size(100%, 100%, 1280px);
-}
-
-.wrap {
+  @include size(100%, 100%);
 }
 
 .box {
   @include size(1280px, 100%);
+
   @include media("web") {
-    padding: 70px 0;
+    padding: 60px 0;
+
+    &.top {
+      padding-top: 120px;
+    }
+
+    &.bot {
+      padding-bottom: 120px;
+    }
   }
 
   @include media("mobile") {
-    padding: 30px 24px;
+    width: 100%;
+    padding: 20px 24px;
+
+    &.pd-none {
+      padding: 20px 0px;
+    }
+
+    &.top {
+      padding-top: 40px;
+    }
+
+    &.bot {
+      padding-bottom: 40px;
+    }
   }
 }

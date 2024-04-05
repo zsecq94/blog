@@ -1,6 +1,4 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-@import "mixin";
-@import "common";
 
 *,
 *::before,
@@ -42,6 +40,9 @@ input:focus {
   overflow-y: hidden;
   height: 100%;
 }
+
+@import "mixin";
+@import "common";
 
 @import "header";
 @import "footer";
