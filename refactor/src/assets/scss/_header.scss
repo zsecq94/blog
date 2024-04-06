@@ -86,7 +86,11 @@ header {
             }
 
             &::before {
-              @include background("sprite", "header_sprite", calc(336px / 4) calc(70px / 4));
+              @include background(
+                "sprite",
+                "header_sprite",
+                calc(336px / 4) calc(70px / 4)
+              );
               @include select(16px, 12px);
               margin-right: 6px;
               background-position-y: -2.5px;

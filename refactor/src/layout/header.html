@@ -10,7 +10,9 @@
     const $langBox = $("header > article > .lang-con > .lang-box");
     const $langBoxP = $("header > article > .lang-con > .lang-box > p");
     const $langList = $("header > article > .lang-con > .lang-box > .list-box");
-    const $langListP = $("header > article > .lang-con > .lang-box > .list-box > p");
+    const $langListP = $(
+      "header > article > .lang-con > .lang-box > .list-box > p"
+    );
 
     let isMenuOpen = false;
     let scrollState = false;
@@ -42,7 +44,9 @@
       localStorage.setItem("lang", lang);
 
       $langListP.css({ display: "block" }).removeClass("none-r");
-      $langListP.filter((_, el) => $(el).text() === lang).css({ display: "none" });
+      $langListP
+        .filter((_, el) => $(el).text() === lang)
+        .css({ display: "none" });
       $langListP
         .filter((_, el) => $(el).css("display") !== "none")
         .last()

@@ -11,7 +11,7 @@ h4 {
 }
 
 body {
-  transition: 0.3s;
+  transition: background-color 0.3s;
   background-color: var(--bgColor);
   color: var(--textColor);
   &.light {

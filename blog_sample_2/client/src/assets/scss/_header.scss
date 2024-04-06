@@ -50,34 +50,6 @@ header {
           }
         }
       }
-
-      button {
-        position: relative;
-        width: 40px;
-        height: 22px;
-        background-color: var(--toggleBgColor);
-        border-radius: 25px;
-        transition: 0.3s;
-
-        &::after {
-          @include border($radius: 50%, $bg: var(--toggle));
-          @include select(20px, 20px);
-          transform: translateY(-50%);
-          transition: 0.3s;
-        }
-
-        &.dark {
-          &::after {
-            @include position(absolute, $t: 51%, $l: 2px);
-          }
-        }
-
-        &.light {
-          &::after {
-            @include position(absolute, $t: 51%, $l: 18px);
-          }
-        }
-      }
     }
   }
 }
