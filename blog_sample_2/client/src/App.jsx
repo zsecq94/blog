@@ -8,12 +8,20 @@ import Admin from "@/pages/Admin";
 import Port from "@/pages/Port";
 import Tech from "@/pages/Tech";
 import Algo from "@/pages/Algo";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const App = () => {
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+
+  useEffect(() => {
+    console.log("호출");
+    localStorage.setItem("theme", theme);
+    document.querySelector("body").className = theme;
+  }, [theme]);
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header theme={theme} setTheme={setTheme} />
       <main>
         <Routes>
           <Route path="/" element={<Main />}></Route>

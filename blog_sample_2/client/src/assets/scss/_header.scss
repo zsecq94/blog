@@ -9,43 +9,37 @@ header {
     width: 769px;
 
     .logo {
-      a {
-        font-size: 24px;
-      }
+      font-size: 24px;
     }
 
-    .gnb {
+    ul {
       @include flex(row, center, $gap: 20px);
+      li {
+        a {
+          @include font(14px, 500);
+          position: relative;
+          opacity: 0.5;
 
-      ul {
-        @include flex(row, center, $gap: 20px);
-        li {
-          a {
-            @include font(14px, 500);
-            position: relative;
-            opacity: 0.5;
+          &::after {
+            @include select(0px, 1px);
+            @include position(absolute, $t: 100%, $l: 0);
+            background-color: var(--textColor);
+            transition: 0.3s;
+          }
+
+          &:hover {
+            opacity: 1;
 
             &::after {
-              @include select(0px, 1px);
-              @include position(absolute, $t: 100%, $l: 0);
-              background-color: var(--textColor);
-              transition: 0.3s;
+              width: 100%;
             }
+          }
 
-            &:hover {
-              opacity: 1;
+          &.active {
+            opacity: 1;
 
-              &::after {
-                width: 100%;
-              }
-            }
-
-            &.active {
-              opacity: 1;
-
-              &::after {
-                width: 100%;
-              }
+            &::after {
+              width: 100%;
             }
           }
         }
