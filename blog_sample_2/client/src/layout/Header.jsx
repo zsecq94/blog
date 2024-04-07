@@ -1,11 +1,19 @@
 import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const Header = ({ theme, setTheme }) => {
+const Header = () => {
   const location = useLocation();
 
   const changeTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.querySelector("body").className = theme;
+  }, [theme]);
 
   return (
     <header>
@@ -19,7 +27,7 @@ const Header = ({ theme, setTheme }) => {
           <li>
             <Link
               className={location.pathname === "/tech" ? "active" : ""}
-              to={"/tech"}
+              to="/tech"
             >
               TECH
             </Link>
@@ -27,7 +35,7 @@ const Header = ({ theme, setTheme }) => {
           <li>
             <Link
               className={location.pathname === "/algo" ? "active" : ""}
-              to={"/algo"}
+              to="/algo"
             >
               ALGORITHM
             </Link>
@@ -35,14 +43,14 @@ const Header = ({ theme, setTheme }) => {
           <li>
             <Link
               className={location.pathname === "/port" ? "active" : ""}
-              to={"/port"}
+              to="/port"
             >
               PORTGOLIO
             </Link>
           </li>
-        </ul>
 
-        <button onClick={changeTheme}>{theme}</button>
+          <button onClick={changeTheme}>THEME</button>
+        </ul>
       </article>
     </header>
   );

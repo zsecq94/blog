@@ -11,22 +11,19 @@ h4 {
 }
 
 body {
-  background-color: var(--bgColor);
-  color: var(--textColor);
+  background-color: var(--bg);
+  color: var(--text);
   &.light {
-    --bgColor: #fff;
-    --textColor: #111;
-    --codeColor: #efeded;
+    --bg: #fff;
+    --text: #111;
 
-    --toggleBgColor: #ababab;
+    --toggleBg: #ababab;
     --toggle: #f5df4d;
   }
   &.dark {
-    --bgColor: #202125;
-    --textColor: #fff;
-    --codeColor: #1a1a1c;
-
-    --toggleBgColor: #fff;
+    --bg: #202125;
+    --text: #fff;
+    --toggleBg: #fff;
     --toggle: #202125;
   }
 }
@@ -35,6 +32,7 @@ $blue-1: #3655ff;
 $blue-2: #1e90ff;
 $blue-3: #32a4ff;
 
+$code: #363636;
 $blockquote1: #ff41331a;
 $blockquote2: #3fffb95a;
 $blockquote3: #0059ff5a;
