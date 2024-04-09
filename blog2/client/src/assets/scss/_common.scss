@@ -1,0 +1,18 @@
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body.light {
+  --bg: #fff;
+  --text: #111;
+  --toggleBg: #ababab;
+  --toggle: #f5df4d;
+}
+
+body.dark {
+  --bg: #202125;
+  --text: #fff;
+  --toggleBg: #fff;
+  --toggle: #202125;
+}

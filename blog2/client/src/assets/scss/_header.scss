@@ -1,0 +1,70 @@
+header {
+  @include size(100%, 70px, 1000px);
+  @include flex(row, center, center);
+  backdrop-filter: blur(5px);
+  position: fixed;
+
+  article {
+    @include size(1000px, 70px);
+    @include flex(row, center, space-between);
+
+    section {
+      @include flex(row, center, $gap: 30px);
+
+      &:nth-child(1) {
+        a {
+          font-size: 30px;
+
+          b {
+            font-weight: 900;
+          }
+        }
+
+        nav {
+          ul {
+            @include flex(row, center, $gap: 10px);
+            li {
+              a {
+                @include font(16px, 900);
+                border-radius: 5px;
+                position: relative;
+                padding: 2px 5px;
+                transition: 0.3s;
+                opacity: 0.5;
+
+                &:hover {
+                  opacity: 1;
+                  background-color: $blockquote5;
+                }
+
+                &.active {
+                  opacity: 1;
+                  background-color: $blockquote5;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        @include flex(row, center, $gap: 20px);
+
+        input {
+          background-color: transparent;
+          outline: none;
+          border: solid 1px var(--text);
+          padding: 8px 10px;
+          width: 300px;
+          transition: 0.3s;
+          color: var(--text);
+
+          &:focus {
+            background-color: #fff;
+            color: #111;
+          }
+        }
+      }
+    }
+  }
+}

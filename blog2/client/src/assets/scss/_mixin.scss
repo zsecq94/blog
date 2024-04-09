@@ -1,0 +1,60 @@
+@mixin flex(
+  $flex-direction: row,
+  $align-items: null,
+  $justify-content: null,
+  $gap: null
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+  gap: $gap;
+}
+
+@mixin grid($grid-col, $align: null, $justify: null, $gap: null) {
+  display: grid;
+  grid-template-columns: $grid-col;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin border($border-color: null, $radius: null, $bg: null) {
+  @if $border-color != null {
+    border: solid 1px $border-color;
+  }
+  border-radius: $radius;
+  background-color: $bg;
+}
+
+@mixin font($font-size: null, $font-weight: null, $color: null) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+}
+
+@mixin position($position: null, $t: null, $r: null, $b: null, $l: null) {
+  position: $position;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+@mixin size($width: null, $height: null, $min-width: null, $min-height: null) {
+  width: $width;
+  height: $height;
+  min-width: $min-width;
+  min-height: $min-height;
+}
+
+@mixin select($width: null, $height: null) {
+  content: "";
+  display: inline-block;
+  width: $width;
+  height: $height;
+}
+
+@mixin background($path, $name, $size: cover) {
+  background: url("/src/assets/images/#{$path}/#{$name}.png") no-repeat center/#{$size};
+}
