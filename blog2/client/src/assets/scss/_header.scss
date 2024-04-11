@@ -4,7 +4,7 @@ header {
   backdrop-filter: blur(5px);
   position: fixed;
 
-  article {
+  div {
     @include size(1000px, 70px);
     @include flex(row, center, space-between);
 
@@ -34,12 +34,12 @@ header {
 
                 &:hover {
                   opacity: 1;
-                  background-color: $blockquote6;
+                  background-color: $blockquote5;
                 }
 
                 &.active {
                   opacity: 1;
-                  background-color: $blockquote5;
+                  background-color: $blockquote6;
                 }
               }
             }

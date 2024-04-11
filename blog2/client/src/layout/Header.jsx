@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header>
-      <article>
+      <div>
         <section>
           <Link to={"/"}>
             <b>JK.</b>LOG
@@ -58,7 +58,7 @@ const Header = () => {
           <input type="text" placeholder="PRESS ENTER... ^_^ WOW" />
           <button onClick={toggleTheme}>THEME</button>
         </section>
-      </article>
+      </div>
     </header>
   );
 };
