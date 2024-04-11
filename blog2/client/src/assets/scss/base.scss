@@ -16,20 +16,6 @@ body {
   overflow-x: hidden;
 }
 
-body.light {
-  --bg: #fff;
-  --text: #111;
-  --toggleBg: #ababab;
-  --toggle: #f5df4d;
-}
-
-body.dark {
-  --bg: #202125;
-  --text: #fff;
-  --toggleBg: #fff;
-  --toggle: #202125;
-}
-
 *,
 *::before,
 *::after {
@@ -50,6 +36,10 @@ button {
 
 input[type="file"] {
   display: none;
+}
+
+input {
+  outline: none;
 }
 
 a {
