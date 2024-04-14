@@ -55,7 +55,7 @@ const Header = () => {
         </section>
 
         <section>
-          <input type="text" placeholder="PRESS ENTER... ^_^ WOW" />
+          <input type="text" placeholder="PRESS ENTER..." />
           <button onClick={toggleTheme}>THEME</button>
         </section>
       </div>
