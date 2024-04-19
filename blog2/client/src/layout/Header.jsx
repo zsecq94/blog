@@ -3,11 +3,18 @@ import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [searchData, setSearchData] = useState("")
   const location = useLocation();
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
+  const handleSearch = (e) => {
+    if(e.key === "Enter") {
+      console.log(searchData)
+    }
+  }
 
   useEffect(() => {
     document.body.className = theme;
@@ -55,7 +62,7 @@ const Header = () => {
         </section>
 
         <section>
-          <input type="text" placeholder="PRESS ENTER..." />
+          <input type="text" placeholder="PRESS ENTER..." onChange={(e) => setSearchData(e.target.value)} onKeyDown={handleSearch}/>
           <button onClick={toggleTheme}>THEME</button>
         </section>
       </div>
