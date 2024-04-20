@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
-  const [searchData, setSearchData] = useState("")
+  const [searchData, setSearchData] = useState("");
   const location = useLocation();
 
   const toggleTheme = () => {
@@ -11,14 +11,16 @@ const Header = () => {
   };
 
   const handleSearch = (e) => {
-    if(e.key === "Enter") {
-      console.log(searchData)
+    if (e.key === "Enter") {
+      console.log(searchData);
     }
-  }
+  };
 
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
+
+    console.log("new Branch Test");
   }, [theme]);
 
   return (
@@ -62,7 +64,12 @@ const Header = () => {
         </section>
 
         <section>
-          <input type="text" placeholder="PRESS ENTER..." onChange={(e) => setSearchData(e.target.value)} onKeyDown={handleSearch}/>
+          <input
+            type="text"
+            placeholder="PRESS ENTER..."
+            onChange={(e) => setSearchData(e.target.value)}
+            onKeyDown={handleSearch}
+          />
           <button onClick={toggleTheme}>THEME</button>
         </section>
       </div>
