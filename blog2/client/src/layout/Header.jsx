@@ -19,8 +19,6 @@ const Header = () => {
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
-
-    console.log("new Branch Test");
   }, [theme]);
 
   return (
